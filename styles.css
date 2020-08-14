@@ -1,0 +1,414 @@
+/* Css
+index page
+*/
+body{
+  margin: 0;
+  background-color: #1c1c1c;
+  font-family: 'Sora';
+}
+
+#navbar {
+  background-color: rgb(0,0,0);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#navbar ul {
+  margin: 0;
+  overflow: hidden;
+  padding-inline-start: 0px;
+  /*border-style: solid;
+  border-color: black;*/
+}
+
+#navbar li {
+  padding: 10px 0px 10px 0px;
+  float: right;
+  list-style-type: none;
+}
+
+#navbar li img {
+  width: 20px;
+}
+
+#navbar .navButton {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-size: 12pt;
+}
+
+#navbar #homeBtnListItem {
+
+  float: left;
+  font-size: 1.5em;
+}
+
+#navbar ul li #homeBtnAnchor{
+  color: #e37100;
+}
+
+#navbar a {
+  color: #e37100;
+  display:block;
+  text-decoration: none;
+  padding: 10px;
+}
+
+#navbar a:visited{
+  color: #inherit;
+}
+
+#navbar a:hover{
+ color: #e6d5ac;
+}
+
+.frontPosters {
+  height: 500px;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+#frontPosterContainer {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#comingSoon {
+  margin-left: 50px;
+  margin-top: 50px;
+  color: #e37100;
+}
+
+.warning{
+  color: red;
+}
+
+.success{
+  color: green;
+}
+
+/*---------------------------------------------------
+Sign In Page
+*/
+
+.signinPanel {
+  padding:10px;
+  min-height: 300px;
+  border-radius: 5px;
+  background-color: #a9c7bb;
+  text-align: center;
+  margin-top: 50px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.submitButton {
+  color: #e37100;
+  font-weight: bold;
+  display: inline-block;
+  padding:10px;
+  border-radius: 5px;
+  background-color: #1a1c1b;
+  margin-top:100px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.submitButton:visited{
+  color: #inherit;
+}
+
+.submitButton:hover{
+  color: #ffe9d4;
+}
+
+input {
+  padding:5px;
+}
+
+/*--Profile Page --------------------------------------------------------------------*/
+
+.profileReviewsContainer{
+
+  padding:10px;
+  min-height: 200px;
+  border-radius: 15px;
+  background-color: black;
+  text-align: center;
+  margin-top: 50px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.profileReviewsContainer h2{
+  color: #e37100;
+  float:left;
+}
+
+.profileTopPanel{
+  overflow: hidden;
+  background-color: #121212;
+  color: #ffe9d4;
+}
+
+.profile-smallWrapper{
+  overflow: hidden;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profileImgPanel{
+  width: 150px;
+  overflow: hidden;
+  padding: 20px;
+  float: left;
+  margin-left: 30px;
+}
+
+#profileImg{
+  width: 150px;
+  border-radius: 50%;
+}
+
+.uploadCaption{
+  text-align: left;
+  font-size: 10pt;
+}
+
+.profileUserName{
+  color: #e37100;
+  float:left;
+  margin: 0;
+}
+
+.aboutPanel{
+  width: 60%;
+  float:left;
+  font-size: 12pt;
+  text-align: left;
+  display: block;
+  padding: 20px;
+  font-weight: lighter;
+}
+
+#aboutMe{
+  font-size: 12pt;
+  clear: both;
+}
+
+.profileBtnSet{
+  margin-left: auto;
+  margin-right: auto;
+  clear:both;
+  overflow: hidden;
+  width: 75%;
+}
+
+.createPostBtn{
+  margin: 15px 0 0 0;
+  float: right;
+}
+
+.profileContainer h2{
+  text-align: left;
+  margin: 40px 0 0 80px;
+}
+
+.postedReviewOnProfile{
+  font-size: 1em;
+  font-family: arial;
+  padding:15px;
+  clear:both;
+  text-align: left;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  background-color: #1c1c1c;
+  color: #ffe9d4;
+  border-radius: 15px;
+}
+
+.postedReviewOnProfile p{
+  clear:both;
+}
+
+.timeOnPostedReview{
+  display: block;
+  overflow: hidden;
+  margin-top:10px;
+  font-size: .8em;
+  border-top-style: solid;
+  border-top-color: #454545;
+  border-top-width: 1px;
+  padding:5px;
+  color: #454545;
+  text-align: right;
+}
+
+.profileUsersPostImg{
+  float:left;
+  text-align: center;
+  height: 50px;
+  width:50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom:0px;
+  margin-left: 5px;
+  margin-top:5px
+}
+
+.profileUsersPostImg img{
+  vertical-align: middle;
+  height: 50px;
+}
+
+#uName{
+  margin-left:20px;
+  margin-top:10px;
+  float:left;
+}
+
+#reviewPostContent{
+  padding:20px;
+  overflow: hidden;
+  clear:both;
+}
+
+#thumbup{
+  width:20px;
+  opacity: 50%;
+}
+
+#thumbup:hover{
+  opacity: 100%;
+}
+
+#thumbdown{
+  margin-left:20px;
+  width:20px;
+  opacity: 50%;
+}
+
+#thumbdown:hover{
+  opacity: 100%;
+}
+
+#privacyLockImg{
+  width:20px;
+  opacity: 50%;
+}
+
+#privacyLockImg:hover{
+  opacity: 100%;
+}
+
+#editPostIconSpan{
+  float: right;
+  opacity: 50%;
+}
+
+#editPostIconSpan:hover{
+  float: right;
+  opacity: 100%;
+}
+
+#editPostIconSpan img{
+  width:20px;
+  margin-right:10px;
+}
+
+#deleteIconSpan{
+  opacity: 50%;
+  float:right;
+}
+
+#deleteIconSpan img{
+  width:20px;
+}
+
+#deleteIconSpan:hover{
+  opacity: 100%;
+}
+
+/*Upload Page ----------------------------------------------------------*/
+
+#uploadIcon{
+  width: 20px;
+}
+
+/*----writeReview page -------------------------------------------------*/
+
+.writeReviewTopBanner{
+  height: 100px;
+
+}
+.reviewFormContainer{
+  width: 450px;
+  margin:auto;
+}
+
+#privacyCheckBoxLabel{
+  margin-left: 5px;
+  float:left;
+  font-weight: normal;
+  font-size: .9em;
+}
+
+#privacyCheckbox{
+  float:left;
+}
+
+#writingTextArea{
+  resize: none;
+  width: 400px;
+  height: 200px;
+  display: block;
+  margin:auto;
+  background-color: #c3e8d9;
+  padding: 20px;
+}
+
+.postBtn{
+  margin-top: 20px;
+  font-family: 'Sora';
+  border-style: none;
+  padding: 10px;
+  font-size: 12pt;
+}
+
+.postBtn:hover{
+  cursor: pointer;
+}
+
+#filmTitleInput{
+  background-color: #c3e8d9;
+  margin: 10px 0 10px 5px;
+  display: block;
+}
+
+/*------ Recent Reviews page ------------------------------------------------*/
+
+.recentReviewsTimeline{
+  padding:10px;
+  min-height: 200px;
+  border-radius: 15px;
+  background-color: black;
+  text-align: center;
+  margin-top: 50px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  color: #454545;
+}
+
+#recentReviewsLabel{
+  color: #e37100;
+}
