@@ -101,8 +101,8 @@ if($imageLocation == "none" || $imageLocation == NULL){
     </div>
 
     &nbsp;
-    <a href="#" onclick="thumbUp("'.$row['post_id'].'", this)"><img id="thumbup" src="images/thumb.png"></a> '.$row['num_likes'].'
-    <a href="#" onclick="thumbDown(event)"><img id="thumbdown" src="images/thumbdown.png"></a> '.$row['num_dislikes'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a> '.$row['num_likes'].'
+    <a href="#" onclick="thumbDown(event, '.$row['post_id'].')"><img id="thumbdown" src="images/thumbdown.png"></a> '.$row['num_dislikes'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     '.$privacyString.'
     &nbsp;&nbsp;&nbsp;&nbsp;
     <span class="timeOnPostedReview"> created: '.$formattedCreatedDate.'&nbsp;&nbsp;&nbsp;&nbsp; last modified: '.$formattedModifiedDate.'</span>
@@ -118,28 +118,46 @@ if($imageLocation == "none" || $imageLocation == NULL){
 
 <script>
 
+//post_id is an integer
 function thumbUp(event, post_id, callingElement){
   event.preventDefault();
 
   var calledElement = callingElement;
-  console.log(calledElement);
-  var postID = post_id;
-  var xhr = new XmlHttpRequest();
-  //var file = 
+  var xhr = new XMLHttpRequest();
+  var file = "thumbUp.php";
 
-  //xhr.open("GET", file, true);
+  xhr.open("POST", file, true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-  //xhr.onload = function() {
-    //calledElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
-  //}
+  xhr.onload = function() {
+    calledElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
+  }
 
-  //xhr.send();
+  var params = "postID="+post_id;
+  xhr.send(params);
 
+  //check for error:
+  xhr.onreadystatechange = function () {
+    var DONE = 4; // readyState 4 means the request is done.
+    var OK = 200; // status 200 is a successful return.
+    if (xhr.readyState === DONE) {
+      if (xhr.status === OK) {
+        console.log(xhr.responseText); // 'This is the returned text.'
+      } else {
+        console.log('Error: ' + xhr.status); // An error occurred during the request.
+      }
+    }
+
+    //get the new number of likes from php headers and update it with javascript here
+  };
 
 }
 
-function thumbDown(event){
+function thumbDown(event, post_id){
   event.preventDefault();
+
+
+  console.log(post_id);
 }
 
 </script>
