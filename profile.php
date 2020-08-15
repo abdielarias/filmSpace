@@ -121,6 +121,10 @@ if($imageLocation == "none" || $imageLocation == NULL){
 function thumbUp(event){
   event.preventDefault();
 
+  var xhr = new XmlHttpRequest();
+
+  
+
 }
 
 function thumbDown(event){
