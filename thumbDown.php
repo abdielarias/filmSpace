@@ -4,6 +4,7 @@ session_start();
 include 'databaseConn.php';
 $user_id = (int)$_SESSION['id'];
 $num_dislikes = 0;
+$num_likes = 0;
 $postID = (int)$_POST['postID'];
 
 //go into the database and update the likes amount for this post
@@ -40,13 +41,14 @@ if(isset($_POST['postID'])){
     }
 
     //fetch the new num dislikes:
-    $sql = "SELECT num_dislikes FROM userposts WHERE post_id=?";
+    $sql = "SELECT * FROM userposts WHERE post_id=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $postID);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
     $num_dislikes = $row['num_dislikes'];
+    $num_likes = $row['num_likes'];
   }
   else {
     //insert a new entry into likes table
@@ -62,16 +64,17 @@ if(isset($_POST['postID'])){
     $stmt->bind_param("i", $postID);
     $stmt->execute();
 
-    //fetch the new num_dislikes
-    $sql = "SELECT num_dislikes FROM userposts WHERE post_id=?";
+    //fetch the new num_dislikes and num_likes
+    $sql = "SELECT * FROM userposts WHERE post_id=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $postID);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
     $num_dislikes = $row['num_dislikes'];
+    $num_likes = $row['num_likes'];
   }
 
   //pass javascript the new number of dislikes
-  echo $num_dislikes;
+  echo $num_dislikes."-".$num_likes;
 }

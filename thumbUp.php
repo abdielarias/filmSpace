@@ -4,6 +4,7 @@ session_start();
 include 'databaseConn.php';
 $user_id = (int)$_SESSION['id'];
 $num_likes = 0;
+$num_dislikes = 0;
 $postID = (int)$_POST['postID'];
 
 //go into the database and update the likes amount for this post
@@ -17,7 +18,7 @@ if(isset($_POST['postID'])){
   $stmt->execute();
   $results = $stmt->get_result();
   $row = $results->fetch_assoc();
-  
+
 //if we have voted before:
   if($row){
     //if it was previously disliked, update the likes table, and add 1 to the likes on the userpost entry and decrement the dislikes:
@@ -40,13 +41,14 @@ if(isset($_POST['postID'])){
     }
 
     //fetch the new numlikes:
-    $sql = "SELECT num_likes FROM userposts WHERE post_id=?";
+    $sql = "SELECT * FROM userposts WHERE post_id=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $postID);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
     $num_likes = $row['num_likes'];
+    $num_dislikes = $row['num_dislikes'];
   }
   else {
     //insert a new entry into likes table
@@ -63,15 +65,16 @@ if(isset($_POST['postID'])){
     $stmt->execute();
 
     //fetch the new num_likes
-    $sql = "SELECT num_likes FROM userposts WHERE post_id=?";
+    $sql = "SELECT * FROM userposts WHERE post_id=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $postID);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
     $num_likes = $row['num_likes'];
+    $num_dislikes = $row['num_dislikes'];
   }
 
   //pass javascript the new number of likes
-  echo $num_likes;
+  echo $num_dislikes."-".$num_likes;
 }
