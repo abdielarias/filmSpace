@@ -72,9 +72,9 @@ if($imageLocation == "none" || $imageLocation == NULL){
   while($row = $result->fetch_assoc()){
 
     //setup datetime datetime objects
-    $createdDate=date_create($row['post_date']);
+    $createdDate = date_create($row['post_date']);
     $formattedCreatedDate = date_format($createdDate,"H:m A - M d,Y");
-    $modifiedDate=date_create($row['modified_date']);
+    $modifiedDate = date_create($row['modified_date']);
     $formattedModifiedDate = date_format($modifiedDate,"H:m A - M d,Y");
 
     $privacy = $row['private'];
@@ -101,7 +101,7 @@ if($imageLocation == "none" || $imageLocation == NULL){
     </div>
 
     &nbsp;
-    <a href="#" onclick="thumbUp(event)"><img id="thumbup" src="images/thumb.png"></a> '.$row['num_likes'].'
+    <a href="#" onclick="thumbUp("'.$row['post_id'].'", this)"><img id="thumbup" src="images/thumb.png"></a> '.$row['num_likes'].'
     <a href="#" onclick="thumbDown(event)"><img id="thumbdown" src="images/thumbdown.png"></a> '.$row['num_dislikes'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     '.$privacyString.'
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -118,12 +118,23 @@ if($imageLocation == "none" || $imageLocation == NULL){
 
 <script>
 
-function thumbUp(event){
+function thumbUp(event, post_id, callingElement){
   event.preventDefault();
 
+  var calledElement = callingElement;
+  console.log(calledElement);
+  var postID = post_id;
   var xhr = new XmlHttpRequest();
+  //var file = 
 
-  
+  //xhr.open("GET", file, true);
+
+  //xhr.onload = function() {
+    //calledElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
+  //}
+
+  //xhr.send();
+
 
 }
 
