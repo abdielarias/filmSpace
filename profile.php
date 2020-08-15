@@ -41,7 +41,7 @@ if($imageLocation == "none" || $imageLocation == NULL){
 
         <p>
           <?php
-          //loop through the database users and show the user's aboutme info:
+          //loop through the database users and show the user's about me info:
 
           $sql = "SELECT * FROM users WHERE id=?";
           $stmt = $conn->prepare($sql);
@@ -104,8 +104,9 @@ if($imageLocation == "none" || $imageLocation == NULL){
     </div>
 
     &nbsp;
-    <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span>'.$row['num_likes'].'</span>
-    <a href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" src="images/thumbdown.png"></a><span>'.$row['num_dislikes'].'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
+    <a href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     '.$privacyString.'
     &nbsp;&nbsp;&nbsp;&nbsp;
     <span class="timeOnPostedReview"> created: '.$formattedCreatedDate.'&nbsp;&nbsp;&nbsp;&nbsp; last modified: '.$formattedModifiedDate.'</span>
@@ -167,14 +168,13 @@ function thumbUp(event, post_id, callingElement){
 function thumbDown(event, post_id, callingElement){
   event.preventDefault();
 
-
   var xhr = new XMLHttpRequest();
 
   xhr.open("POST", "thumbDown.php", true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
   xhr.onload = function() {
-    callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
+    callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbdown" src="images/thumbDown.png">';
   }
 
   var params = "postID="+post_id;
@@ -183,8 +183,8 @@ function thumbDown(event, post_id, callingElement){
 
   //check for error:
   xhr.onreadystatechange = function () {
-    var done = 4;
-    var ok = 200;
+  var done = 4;
+  var ok = 200;
     if (xhr.readyState === done) {
       if (xhr.status === ok) {
 
@@ -202,6 +202,8 @@ function thumbDown(event, post_id, callingElement){
     }
   }
 }
+
+//create an easy function to toggle the like and dislike buttons, so that when one is turned on, the other is turned off too
 </script>
 
 <?php

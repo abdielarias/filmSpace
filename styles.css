@@ -290,6 +290,16 @@ input {
   opacity: 100%;
 }
 
+.thumbUpCount{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.thumbDownCount{
+  display: inline-block;
+  margin-left: 10px;
+}
+
 #thumbdown{
   margin-left:20px;
   width:20px;
