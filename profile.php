@@ -63,7 +63,7 @@ if($imageLocation == "none" || $imageLocation == NULL){
   <?php
 
   //loop through the database userposts and show each of this users posts:
-  $sql = "SELECT * FROM userposts WHERE user_id=?";
+  $sql = "SELECT * FROM userposts WHERE user_id=? ORDER BY post_date DESC";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("s", $id);
   $stmt->execute();
@@ -101,8 +101,8 @@ if($imageLocation == "none" || $imageLocation == NULL){
     </div>
 
     &nbsp;
-    <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a> '.$row['num_likes'].'
-    <a href="#" onclick="thumbDown(event, '.$row['post_id'].')"><img id="thumbdown" src="images/thumbdown.png"></a> '.$row['num_dislikes'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span>'.$row['num_likes'].'</span>
+    <a href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" src="images/thumbdown.png"></a><span>'.$row['num_dislikes'].'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     '.$privacyString.'
     &nbsp;&nbsp;&nbsp;&nbsp;
     <span class="timeOnPostedReview"> created: '.$formattedCreatedDate.'&nbsp;&nbsp;&nbsp;&nbsp; last modified: '.$formattedModifiedDate.'</span>
@@ -122,44 +122,83 @@ if($imageLocation == "none" || $imageLocation == NULL){
 function thumbUp(event, post_id, callingElement){
   event.preventDefault();
 
-  var calledElement = callingElement;
-  var xhr = new XMLHttpRequest();
-  var file = "thumbUp.php";
 
-  xhr.open("POST", file, true);
+  var xhr = new XMLHttpRequest();
+
+  xhr.open("POST", "thumbUp.php", true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
   xhr.onload = function() {
-    calledElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
+    callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
   }
 
   var params = "postID="+post_id;
   xhr.send(params);
+  var num_likes = '';
 
   //check for error:
   xhr.onreadystatechange = function () {
-    var DONE = 4; // readyState 4 means the request is done.
-    var OK = 200; // status 200 is a successful return.
-    if (xhr.readyState === DONE) {
-      if (xhr.status === OK) {
-        console.log(xhr.responseText); // 'This is the returned text.'
+    var done = 4;
+    var ok = 200;
+    if (xhr.readyState === done) {
+      if (xhr.status === ok) {
+
+        //All actions expected 'after' the arrival of the http request must be here.
+        //Code after this block may occur out of sync and prior to the arrival of the http response.
+
+        num_likes = xhr.responseText;
+        var likeSpanElement = callingElement.nextSibling;
+        likeSpanElement.innerHTML = num_likes;
+        console.log('xhr contents: ' + num_likes);
+
       } else {
-        console.log('Error: ' + xhr.status); // An error occurred during the request.
+        console.log('xhr error: ' + xhr.status);
       }
     }
+  }
 
-    //get the new number of likes from php headers and update it with javascript here
-  };
+
 
 }
 
-function thumbDown(event, post_id){
+function thumbDown(event, post_id, callingElement){
   event.preventDefault();
 
 
-  console.log(post_id);
-}
+  var xhr = new XMLHttpRequest();
 
+  xhr.open("POST", "thumbDown.php", true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+  xhr.onload = function() {
+    callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
+  }
+
+  var params = "postID="+post_id;
+  xhr.send(params);
+  var num_dislikes = '';
+
+  //check for error:
+  xhr.onreadystatechange = function () {
+    var done = 4;
+    var ok = 200;
+    if (xhr.readyState === done) {
+      if (xhr.status === ok) {
+
+        //All actions expected 'after' the arrival of the http request must be here.
+        //Code after this block may occur out of sync and prior to the arrival of the http response.
+
+        num_dislikes = xhr.responseText;
+        var dislikeSpanElement = callingElement.nextSibling;
+        dislikeSpanElement.innerHTML = num_dislikes;
+        console.log('xhr contents: ' + num_dislikes);
+
+      } else {
+        console.log('xhr error: ' + xhr.status);
+      }
+    }
+  }
+}
 </script>
 
 <?php
