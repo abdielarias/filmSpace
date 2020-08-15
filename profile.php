@@ -36,19 +36,22 @@ if($imageLocation == "none" || $imageLocation == NULL){
 
       <div class="aboutPanel">
 
-        <h1 class="profileUserName"><?php echo  $userName ?></h1>
+        <h1 class="profileUserName"><?php echo  $userName;?></h1>
         <br><br><br>
 
         <p>
           <?php
           //loop through the database users and show the user's aboutme info:
+
           $sql = "SELECT * FROM users WHERE id=?";
           $stmt = $conn->prepare($sql);
-          $stmt->bind_param("s", $id);
+          $stmt->bind_param("i", $id);
           $stmt->execute();
           $result = $stmt->get_result();
           $row = $result->fetch_assoc();
+
           echo $row['about_me'];
+
            ?>
         </p>
       </div>

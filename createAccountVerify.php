@@ -6,6 +6,7 @@ $email = $_POST['email'];
 $userName = $_POST['userName'];
 $password = $_POST['password'];
 $passwordConfirm = $_POST['passwordConfirm'];
+$id = '';
 
 $refillFields = array($firstName, $lastName, $email, $userName);
 
@@ -76,32 +77,15 @@ if(isset($_POST['submitButton'])){
 //---------------------------------------------------------------------------
 //check if email already taken:
 
-    //create prepared statement
     $sql = "SELECT * FROM users where email=?;";
 
-    if(!$stmt = $conn->prepare($sql)){
-      echo "ERROR: ".$conn->error;
-      exit();
-    }
-
-    //bind parameters. The two arguments are "s" for string and then the variable storing the user's data input.
-    if(!$stmt->bind_param("s", $email)){
-      echo "mysql binding failed";
-      exit();
-    }
-
-    //execute
-    if(!$stmt->execute()){
-      echo "mysql statement execution failed";
-      exit();
-    }
-
-    //print results
-    //mysqli_result object gets returned
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
     $result = $stmt->get_result();
-    //turn mysqli_ result object into associative array
     $resultArray = $result->fetch_assoc();
 
+    //if the results are greater than 0, its taken
     if($result->num_rows>0){
       redirectToCreateAccount($refillFields, "emailTaken");
       exit();
@@ -109,16 +93,10 @@ if(isset($_POST['submitButton'])){
 //---------------------------------------------------------------------------
 //If we got this, far we are good to create the new account and insert this information into the database
 //create prepared statement
-    $sql = "INSERT INTO users (username, email, firstName, lastName, password, image) VALUES (?,?,?,?,?,?);";
+    $sql = "INSERT INTO users (username, email, firstName, lastName, password, image) VALUES (?,?,?,?,?,?)";
     $image = "none";
 
-    if(!$stmt = $conn->prepare($sql)){
-      echo "ERROR: ".$conn->error;
-      exit();
-    }
-
-//bind parameters. The two arguments are "s" for string and then the variable storing the user's data input.
-
+    $stmt = $conn->prepare($sql);
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     if(!$stmt->bind_param("ssssss", $userName, $email, $firstName, $lastName, $hashedPassword, $image)){
@@ -132,6 +110,18 @@ if(isset($_POST['submitButton'])){
       exit();
     }
 
+//Fetch the new automatically generated user ID--------------------------------------------------------
+
+    $sql = "SELECT * FROM users WHERE email=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    //NEW ID
+    $id = $row['id'];
+
 //---------------------------------------------------------------------------
     //Account created, send them to their profile page.
     $stmt->close();
@@ -139,7 +129,7 @@ if(isset($_POST['submitButton'])){
 
     session_start();
     $_SESSION['isLogged'] = true;
-    $_SESSION['id'] = $resultArray['id'];
+    $_SESSION['id'] = $id;
     $_SESSION['userName'] = $userName;
     $_SESSION['firstName'] = $firstName;
     $_SESSION['lastName'] = $lastName;
