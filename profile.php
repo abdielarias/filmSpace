@@ -89,6 +89,35 @@ if($imageLocation == "none" || $imageLocation == NULL){
       $privacyString = '<a href=""><img id="privacyLockImg" src="images/lockDown.png"></a>';
     }
 
+    //go into the likes table and find out if this post was liked or disliked. Change opacity of thumbs based on it:
+    $sql2 = "SELECT * FROM likes WHERE post_id=? and user_id=?";
+    $stmt2 = $conn->prepare($sql2);
+    $stmt2->bind_param("ii", $row['post_id'], $id);
+    $stmt2->execute();
+    $likesResult = $stmt2->get_result();
+    $likesRow = $likesResult->fetch_assoc();
+
+    $opacity100 = 'style="opacity: 100%;"';
+    $opacity50 = 'style="opacity: 50%;"';
+    $likesOpacity = '';
+    $dislikesOpacity = '';
+
+    //initial loading checks to see what opacity the thumbs need
+    if(isset($likesRow['isLiked'])){
+      if($likesRow['isLiked'] == 1)
+        $likesOpacity = $opacity100;
+    }else{
+      $likesOpacity = $opacity50;
+    }
+
+    //initial loading checks to see what opacity the thumbs need
+    if(isset($likesRow['isDisliked'])){
+      if($likesRow['isDisliked'] == 1)
+        $dislikesOpacity = $opacity100;
+    }else{
+      $dislikesOpacity = $opacity50;
+    }
+
     echo
     '
     <div class="postedReviewOnProfile">
@@ -104,8 +133,8 @@ if($imageLocation == "none" || $imageLocation == NULL){
     </div>
 
     &nbsp;
-    <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
-    <a href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
+    <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" '.$likesOpacity.' src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
+    <a href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" '.$dislikesOpacity.' src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     '.$privacyString.'
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -158,7 +187,7 @@ function thumbUp(event, post_id, callingElement){
 
         console.log("likes: "+num_likes);
         console.log("dislikes: "+num_dislikes);
-        
+
         var likeSpanElement = callingElement.nextSibling;
         likeSpanElement.innerHTML = num_likes;
 
