@@ -78,9 +78,9 @@ if($imageLocation == "none" || $imageLocation == NULL){
 
     //setup datetime datetime objects
     $createdDate = date_create($row['post_date']);
-    $formattedCreatedDate = date_format($createdDate,"H:m A - M d,Y");
+    $formattedCreatedDate = date_format($createdDate,"g:i A - M d,Y");
     $modifiedDate = date_create($row['modified_date']);
-    $formattedModifiedDate = date_format($modifiedDate,"H:m A - M d,Y");
+    $formattedModifiedDate = date_format($modifiedDate,"g:i A - M d,Y");
 
     $privacy = $row['private'];
     $privacyString = '';
