@@ -94,7 +94,7 @@ if(isset($_POST['submitButton'])){
 //If we got this, far we are good to create the new account and insert this information into the database
 //create prepared statement
     $sql = "INSERT INTO users (username, email, firstName, lastName, password, image) VALUES (?,?,?,?,?,?)";
-    $image = "none";
+    $image = "profilePics/defaultAvatar.png";
 
     $stmt = $conn->prepare($sql);
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
