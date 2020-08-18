@@ -8,26 +8,35 @@ function lockUp(event, post_id, callingElement){
   xhr.open("POST", "privacyLockOpen.php", true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
+  var params = 'post_id='+post_id;
+  xhr.send(params);
+
   xhr.onreadystatechange = function(){
 
-    if(xhr.readystate == 4 && xhr.status == 200){
+    if(xhr.readyState == 4 && xhr.status == 200){
 
-      if(xhr.responseText == "success"){
 
-        xhr.onload = function() {
-          callingElement.innerHTML = '<img id="privacyLockImg" src="images/lockUp.png">';
-        }
+      if(xhr.responseText == "not_signed_in"){
+        alert("Must be signed in to change privacy settings.");
+      }
+      else if(xhr.responseText == "success"){
+
+
+      callingElement.outerHTML = '<a href="#" onclick="lockDown(event, '+post_id+', this)"><img id="privacyLockImg" src="images/lockUp.png"></a>';
+      console.log("lock up");
+      
+      }
+      else {
+        console.log("Error encountered. Failed to change privacy settings.");
       }
 
     }
   }
-  var params = 'post_id='+post_id;
-  xhr.send(params);
-
-  console.log("Lock up");
 }
 
+
 function lockDown(event, post_id, callingElement){
+
   event.preventDefault();
 
   var xhr = new XMLHttpRequest();
@@ -37,19 +46,25 @@ function lockDown(event, post_id, callingElement){
 
   xhr.onreadystatechange = function(){
 
-    if(xhr.readystate == 4 && xhr.status == 200){
+    if(xhr.readyState == 4 && xhr.status == 200){
 
-      if(xhr.responseText == "success"){
 
-        xhr.onload = function() {
-          callingElement.innerHTML = '<img id="privacyLockImg" src="images/lockDown.png">';
-        }
+      if(xhr.responseText == "not_signed_in"){
+        alert("Must be signed in to change privacy settings.");
+      }
+      else if(xhr.responseText == "success"){
+
+
+      callingElement.outerHTML = '<a href="#" onclick="lockUp(event, '+post_id+', this)"><img id="privacyLockImg" src="images/lockDown.png"></a>';
+      console.log("lock down");
+      }
+      else {
+        console.log("Error encountered. Failed to change privacy settings.");
       }
 
     }
+
   }
   var params = 'post_id='+post_id;
   xhr.send(params);
-
-  console.log("Lock down");
 }

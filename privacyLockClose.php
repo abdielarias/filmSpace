@@ -8,7 +8,7 @@ if(isset($_POST['post_id']) && isset($_SESSION['id'])){
   $user_id = $_SESSION['id'];
   $post_id = (int)$_POST['post_id'];
 
-  $sql = "UPDATE userposts SET private = 0 WHERE post_id=? AND user_id=?";
+  $sql = "UPDATE userposts SET private = 1 WHERE post_id=? AND user_id=?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("ii", $post_id, $user_id);
 

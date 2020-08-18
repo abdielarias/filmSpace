@@ -2,7 +2,7 @@
 require 'header.php';
 require 'databaseConn.php';
 
-if(isset($_SESSION['$id'])){
+if(isset($_SESSION['id'])){
   $id = $_SESSION['id'];
 } else $id = null;
 
@@ -63,7 +63,6 @@ while($row = $result->fetch_assoc()){
   }
 
 
-
   if($row['user_id'] != $id){
 
     echo
@@ -87,6 +86,7 @@ while($row = $result->fetch_assoc()){
     ';
   }
   else{
+
     $privacy = $row['private'];
     $privacyString = '';
     if($privacy == "0"){
