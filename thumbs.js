@@ -9,10 +9,6 @@ function thumbUp(event, post_id, callingElement){
   xhr.open("POST", "thumbUp.php", true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-  xhr.onload = function() {
-    callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
-  }
-
   var params = "postID="+post_id;
   xhr.send(params);
   var num_likes = '';
@@ -28,21 +24,30 @@ function thumbUp(event, post_id, callingElement){
         //All actions expected 'after' the arrival of the http request must be here.
         //Code after this block may occur out of sync and prior to the arrival of the http response.
 
-        response = xhr.responseText.split("-");
-        num_dislikes = response[0];
-        num_likes = response[1];
+        if(xhr.responseText=="not_signed_in"){
+          alert("Please sign in to vote on posts.");
+        }
+        else{
 
-        var likeSpanElement = callingElement.nextSibling;
-        likeSpanElement.innerHTML = num_likes;
+          response = xhr.responseText.split("-");
+          num_dislikes = response[0];
+          num_likes = response[1];
+
+          var likeSpanElement = callingElement.nextSibling;
+          likeSpanElement.innerHTML = num_likes;
 
 
-        //change the other thumb button's opacity:
-        var dislikeButton = callingElement.nextSibling.nextSibling.nextSibling;
-        dislikeButton.innerHTML = '<img style="opacity: 50%;" id="thumbdown" src="images/thumbDown.png">';
+          //change the other thumb button's opacity:
+          var dislikeButton = callingElement.nextSibling.nextSibling.nextSibling;
+          dislikeButton.innerHTML = '<img style="opacity: 50%;" id="thumbdown" src="images/thumbDown.png">';
 
-        var dislikeCountSpan = callingElement.nextSibling.nextSibling.nextSibling.nextSibling;
-        dislikeCountSpan.innerHTML = num_dislikes;
+          var dislikeCountSpan = callingElement.nextSibling.nextSibling.nextSibling.nextSibling;
+          dislikeCountSpan.innerHTML = num_dislikes;
 
+
+          callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
+
+        }
 
       } else {
         console.log('xhr error: ' + xhr.status);
@@ -62,10 +67,6 @@ function thumbDown(event, post_id, callingElement){
   xhr.open("POST", "thumbDown.php", true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-  xhr.onload = function() {
-    callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbdown" src="images/thumbDown.png">';
-  }
-
   var params = "postID="+post_id;
   xhr.send(params);
   var num_dislikes = '';
@@ -84,20 +85,26 @@ function thumbDown(event, post_id, callingElement){
 
         //update the span element showing number of dislikes
 
-        response = xhr.responseText.split("-");
-        num_dislikes = response[0];
-        num_likes = response[1];
+        if(xhr.responseText=="not_signed_in"){
+          alert("Please sign in to vote on posts.");
+        } else {
 
-        var dislikeSpanElement = callingElement.nextSibling;
-        dislikeSpanElement.innerHTML = num_dislikes;
+          response = xhr.responseText.split("-");
+          num_dislikes = response[0];
+          num_likes = response[1];
 
-        //change the other thumb button's opacity:
-        var likeButton = callingElement.previousSibling.previousSibling.previousSibling;
-        likeButton.innerHTML = '<img style="opacity: 50%;" id="thumbup" src="images/thumb.png">';
+          var dislikeSpanElement = callingElement.nextSibling;
+          dislikeSpanElement.innerHTML = num_dislikes;
 
-        var likeCountSpan = callingElement.previousSibling.previousSibling;
-        likeCountSpan.innerHTML = num_likes;
+          //change the other thumb button's opacity:
+          var likeButton = callingElement.previousSibling.previousSibling.previousSibling;
+          likeButton.innerHTML = '<img style="opacity: 50%;" id="thumbup" src="images/thumb.png">';
 
+          var likeCountSpan = callingElement.previousSibling.previousSibling;
+          likeCountSpan.innerHTML = num_likes;
+
+          callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbdown" src="images/thumbDown.png">';
+        }
 
       } else {
         console.log('xhr error: ' + xhr.status);

@@ -1,14 +1,14 @@
 <?php
-
-session_start();
-include 'databaseConn.php';
-$user_id = (int)$_SESSION['id'];
-$num_likes = 0;
-$num_dislikes = 0;
-$postID = (int)$_POST['postID'];
-
 //go into the database and update the likes amount for this post
-if(isset($_POST['postID'])){
+session_start();
+
+if(isset($_POST['postID']) && isset($_SESSION['id'])){
+
+  include 'databaseConn.php';
+  $user_id = (int)$_SESSION['id'];
+  $num_likes = 0;
+  $num_dislikes = 0;
+  $postID = (int)$_POST['postID'];
 
   //check if a 'likes' table entry related to that post_id and user_id exist. If not, then insert a new row:
   //insert a new entry into likes table
@@ -77,4 +77,7 @@ if(isset($_POST['postID'])){
 
   //pass javascript the new number of likes
   echo $num_dislikes."-".$num_likes;
+}
+else {
+  echo "not_signed_in";
 }

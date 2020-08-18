@@ -2,7 +2,9 @@
 require 'header.php';
 require 'databaseConn.php';
 
-$id = $_SESSION['id'];
+if(isset($_SESSION['$id'])){
+  $id = $_SESSION['id'];
+} else $id = null;
 
 echo '
       <div class="recentReviewsTimeline">
@@ -26,35 +28,43 @@ while($row = $result->fetch_assoc()){
   $imageLocation = $userRow['image'];
 
   //go into the likes table and find out if this post was liked or disliked. Change opacity of thumbs based on it:
-  $sql2 = "SELECT * FROM likes WHERE post_id=? and user_id=?";
-  $stmt2 = $conn->prepare($sql2);
-  $stmt2->bind_param("ii", $row['post_id'], $id);
-  $stmt2->execute();
-  $likesResult = $stmt2->get_result();
-  $likesRow = $likesResult->fetch_assoc();
-
   $opacity100 = 'style="opacity: 100%;"';
   $opacity50 = 'style="opacity: 50%;"';
   $likesOpacity = '';
   $dislikesOpacity = '';
 
+  if($id != null){
 
-  //initial loading checks to see what opacity the thumbs need
-  if(isset($likesRow['isLiked'])){
-    if($likesRow['isLiked'] == 1)
-      $likesOpacity = $opacity100;
-  }else{
-    $likesOpacity = $opacity50;
+    $sql2 = "SELECT * FROM likes WHERE post_id=? and user_id=?";
+    $stmt2 = $conn->prepare($sql2);
+    $stmt2->bind_param("ii", $row['post_id'], $id);
+    $stmt2->execute();
+    $likesResult = $stmt2->get_result();
+    $likesRow = $likesResult->fetch_assoc();
+
+    //initial loading checks to see what opacity the thumbs need
+    if(isset($likesRow['isLiked'])){
+      if($likesRow['isLiked'] == 1)
+        $likesOpacity = $opacity100;
+    }else{
+      $likesOpacity = $opacity50;
+    }
+
+    if(isset($likesRow['isDisliked'])){
+      if($likesRow['isDisliked'] == 1)
+        $dislikesOpacity = $opacity100;
+    }else{
+      $dislikesOpacity = $opacity50;
+    }
   }
-
-  if(isset($likesRow['isDisliked'])){
-    if($likesRow['isDisliked'] == 1)
-      $dislikesOpacity = $opacity100;
-  }else{
+  else{
+    $likesOpacity = $opacity50;
     $dislikesOpacity = $opacity50;
   }
 
-  if($row['user_id'] != $_SESSION['id']){
+
+
+  if($row['user_id'] != $id){
 
     echo
     '

@@ -1,8 +1,12 @@
 <?php
-
 // This page is only for when login is successful
 require 'header.php';
 require 'databaseConn.php';
+
+if(!isset($_SESSION['userName'])){
+  header("Location: index.php?error=accessDenied");
+  exit();
+}
 
 $userName = $_SESSION['userName'];
 $id = $_SESSION['id'];
