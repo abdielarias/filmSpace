@@ -32,10 +32,6 @@ function thumbUp(event, post_id, callingElement){
         num_dislikes = response[0];
         num_likes = response[1];
 
-
-        console.log("likes: "+num_likes);
-        console.log("dislikes: "+num_dislikes);
-
         var likeSpanElement = callingElement.nextSibling;
         likeSpanElement.innerHTML = num_likes;
 
@@ -92,11 +88,8 @@ function thumbDown(event, post_id, callingElement){
         num_dislikes = response[0];
         num_likes = response[1];
 
-        console.log("likes: "+num_likes);
-        console.log("dislikes: "+num_dislikes);
         var dislikeSpanElement = callingElement.nextSibling;
         dislikeSpanElement.innerHTML = num_dislikes;
-
 
         //change the other thumb button's opacity:
         var likeButton = callingElement.previousSibling.previousSibling.previousSibling;

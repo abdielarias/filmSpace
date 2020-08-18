@@ -1,6 +1,8 @@
 <?php
-include 'header.php';
-include 'databaseConn.php';
+require 'header.php';
+require 'databaseConn.php';
+
+$id = $_SESSION['id'];
 
 echo '
       <div class="recentReviewsTimeline">
@@ -36,6 +38,7 @@ while($row = $result->fetch_assoc()){
   $likesOpacity = '';
   $dislikesOpacity = '';
 
+
   //initial loading checks to see what opacity the thumbs need
   if(isset($likesRow['isLiked'])){
     if($likesRow['isLiked'] == 1)
@@ -52,6 +55,7 @@ while($row = $result->fetch_assoc()){
   }
 
   if($row['user_id'] != $_SESSION['id']){
+
     echo
     '
     <div class="postedReviewOnProfile">
@@ -76,39 +80,12 @@ while($row = $result->fetch_assoc()){
     $privacy = $row['private'];
     $privacyString = '';
     if($privacy == "0"){
-      $privacyString = '<a href=""><img id="privacyLockImg" src="images/lockUp.png"></a>';
+      $privacyString = '<a href="#" onclick="lockDown(event, '.$row['post_id'].', this)"><img id="privacyLockImg" src="images/lockUp.png"></a>';
     }
     else {
-      $privacyString = '<a href=""><img id="privacyLockImg" src="images/lockDown.png"></a>';
+      $privacyString = '<a href="#" onclick="lockUp(event, '.$row['post_id'].', this)"><img id="privacyLockImg" src="images/lockDown.png"></a>';
     }
 
-    //go into the likes table and find out if this post was liked or disliked. Change opacity of thumbs based on it:
-    $sql2 = "SELECT * FROM likes WHERE post_id=? and user_id=?";
-    $stmt2 = $conn->prepare($sql2);
-    $stmt2->bind_param("ii", $row['post_id'], $id);
-    $stmt2->execute();
-    $likesResult = $stmt2->get_result();
-    $likesRow = $likesResult->fetch_assoc();
-
-    $opacity100 = 'style="opacity: 100%;"';
-    $opacity50 = 'style="opacity: 50%;"';
-    $likesOpacity = '';
-    $dislikesOpacity = '';
-
-    //initial loading checks to see what opacity the thumbs need
-    if(isset($likesRow['isLiked'])){
-      if($likesRow['isLiked'] == 1)
-        $likesOpacity = $opacity100;
-    }else{
-      $likesOpacity = $opacity50;
-    }
-
-    if(isset($likesRow['isDisliked'])){
-      if($likesRow['isDisliked'] == 1)
-        $dislikesOpacity = $opacity100;
-    }else{
-      $dislikesOpacity = $opacity50;
-    }
 
     echo
     '
@@ -149,3 +126,4 @@ include 'footer.php';
 
 <script src="thumbs.js"></script>
 <script src="deletePost.js"></script>
+<script src="privacyLock.js"></script>

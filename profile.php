@@ -85,10 +85,10 @@ if($imageLocation == "none" || $imageLocation == NULL){
     $privacy = $row['private'];
     $privacyString = '';
     if($privacy == "0"){
-      $privacyString = '<a href=""><img id="privacyLockImg" src="images/lockUp.png"></a>';
+      $privacyString = '<a href="#" onclick="lockDown(event, '.$row['post_id'].', this)"><img id="privacyLockImg" src="images/lockUp.png"></a>';
     }
     else {
-      $privacyString = '<a href=""><img id="privacyLockImg" src="images/lockDown.png"></a>';
+      $privacyString = '<a href="#" onclick="lockUp(event, '.$row['post_id'].', this)"><img id="privacyLockImg" src="images/lockDown.png"></a>';
     }
 
     //go into the likes table and find out if this post was liked or disliked. Change opacity of thumbs based on it:
@@ -152,6 +152,7 @@ if($imageLocation == "none" || $imageLocation == NULL){
 
 <script src="thumbs.js"></script>
 <script src="deletePost.js"></script>
+<script src="privacyLock.js"></script>
 
 <?php
 include 'footer.php';
