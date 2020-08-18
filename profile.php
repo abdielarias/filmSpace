@@ -130,7 +130,7 @@ if($imageLocation == "none" || $imageLocation == NULL){
     <div class="profileUsersPostImg"><img src='.$imageLocation.'></div>
     <span id="uName">'.$row['username'].'</span>
     <span id="deleteIconSpan"><a href="#" onclick="deletePost(event, '.$row['post_id'].', this)"><img src="images/deleteIcon.png"></a></span>
-    <span id="editPostIconSpan"><a href="#" onclick="editPost(event, '.$row['post_id'].', this)"><img src="images/pencil.png"></a></span>
+    <span id="editPostIconSpan"><a href="writeReview.php?post_id='.$row['post_id'].'"><img src="images/pencil.png"></a></span>
 
     <div id="reviewPostContent">
       <p>Review of: '.$row['subject'].'</p>

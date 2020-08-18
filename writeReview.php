@@ -2,41 +2,80 @@
 
 // This page is only for when login is successful
 include 'header.php';
+require 'databaseConn.php';
+
+if(!isset($_SESSION['id'])){
+  header("Location: index.php?error=accessDenied");
+  exit();
+}
 
 $userName = $_SESSION['userName'];
-$id = $_SESSION['id'];
+$user_id = $_SESSION['id'];
 $imageLocation = $_SESSION['image'];
+$postExists = false;
+
+//if this is set, then we know that we are editing an existing post
+if(isset($_GET['post_id'])){
+  $post_id = $_GET['post_id'];
+  $postExists = true;
+
+  //go into the database and pull some details for autofill
+  $sql = "SELECT * FROM userposts WHERE user_id=? and post_id=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ii", $user_id, $post_id);
+  $stmt->execute();
+  $results = $stmt->get_result();
+  $row = $results->fetch_assoc();
+}
+
 
 ?>
 
-<div class="writeReviewTopBanner">
 
-</div>
+<div class="reviewFormContainer">
+  <h5>Review a Film:</h5>
+  <form action="writeReviewVerify.php" method="POST">
+    <input type="hidden" id="date" name="date" value="">
 
-<div class="profileContainer">
-  <div class="reviewFormContainer">
-    <h5>Review a Film:</h5>
-    <form action="writeReviewVerify.php" method="POST">
-      <input type="hidden" id="date" name="date" value="">
-      <input autofocus id="filmTitleInput" type="text" name="filmTitle" placeholder="Write the title of the film...">
-      <textarea id="writingTextArea" placeholder="Write a review here..." name="content"></textarea>
-      <label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>
-      <input type="checkbox" name="isPrivate" id="privacyCheckbox">
-      <br>
-      <a href="profile.php" class="submitButton">Previous</a>
-      <input type="submit" class="submitButton postBtn" href="writeReview.php" name="submitReviewBtn" value="Submit Post">
-    </form>
 
     <?php
-    if(isset($_GET['message'])){
-      if($_GET['message'] == "success"){
-        echo "<p class='success'>Message Saved!</p>";
+    if($postExists){
+      echo '<input type="hidden" id="post_id" name="post_id" value="'.$row['post_id'].'">';
+      echo '<input autofocus id="filmTitleInput" type="text" name="filmTitle" value="'.$row['subject'].'">';
+      echo '<textarea id="writingTextArea" name="content">'.$row['content'].'</textarea>';
+      if($row['private'] == 1){
+        echo '<label for="isPrivate" id="privacyCheckBoxLabel">This post is private. Unselect to make public: </label>';
+        echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox" checked>';
+      } else {
+        echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
+        echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox">';
       }
+
+    } else{
+      echo '<input type="hidden" id="post_id" name="post_id" value="new">';
+      echo '<input autofocus id="filmTitleInput" type="text" name="filmTitle" placeholder="Write the title of the film...">';
+      echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content"></textarea>';
+      echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
+      echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox">';
     }
      ?>
-  </div>
 
+
+    <br>
+    <a href="profile.php" class="submitButton">Previous</a>
+    <input type="submit" class="submitButton postBtn" href="writeReview.php" name="submitReviewBtn" value="Submit Post">
+  </form>
+
+  <?php
+  if(isset($_GET['message'])){
+    if($_GET['message'] == "success"){
+      echo "<p class='success'>Message Saved!</p>";
+    }
+  }
+   ?>
 </div>
+
+
 
 <script>
   let datetime = new Date();
