@@ -39,13 +39,14 @@ function thumbUp(event, post_id, callingElement){
 
           //change the other thumb button's opacity:
           var dislikeButton = callingElement.nextSibling.nextSibling.nextSibling;
-          dislikeButton.innerHTML = '<img style="opacity: 50%;" id="thumbdown" src="images/thumbDown.png">';
+          dislikeButton.classList.remove("opacityForce100");
+          dislikeButton.classList.add("hoverOpacity");
 
           var dislikeCountSpan = callingElement.nextSibling.nextSibling.nextSibling.nextSibling;
           dislikeCountSpan.innerHTML = num_dislikes;
 
-
-          callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbup" src="images/thumb.png">';
+          callingElement.classList.remove("hoverOpacity");
+          callingElement.classList.add("opacityForce100");
 
         }
 
@@ -98,12 +99,14 @@ function thumbDown(event, post_id, callingElement){
 
           //change the other thumb button's opacity:
           var likeButton = callingElement.previousSibling.previousSibling.previousSibling;
-          likeButton.innerHTML = '<img style="opacity: 50%;" id="thumbup" src="images/thumb.png">';
+          likeButton.classList.add("hoverOpacity");
+          likeButton.classList.remove("opacityForce100");
 
           var likeCountSpan = callingElement.previousSibling.previousSibling;
           likeCountSpan.innerHTML = num_likes;
 
-          callingElement.innerHTML = '<img style="opacity: 100%;" id="thumbdown" src="images/thumbDown.png">';
+          callingElement.classList.remove("hoverOpacity");
+          callingElement.classList.add("opacityForce100");
         }
 
       } else {

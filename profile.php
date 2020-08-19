@@ -103,24 +103,22 @@ if($imageLocation == "none" || $imageLocation == NULL){
     $likesResult = $stmt2->get_result();
     $likesRow = $likesResult->fetch_assoc();
 
-    $opacity100 = 'style="opacity: 100%;"';
-    $opacity50 = 'style="opacity: 50%;"';
-    $likesOpacity = '';
-    $dislikesOpacity = '';
+    $opacity100 = 'opacityForce100';
+    $hoverOpacity = 'hoverOpacity';
+    $likesOpacity = $hoverOpacity;
+    $dislikesOpacity = $hoverOpacity;
 
     //initial loading checks to see what opacity the thumbs need
     if(isset($likesRow['isLiked'])){
-      if($likesRow['isLiked'] == 1)
+      if($likesRow['isLiked'] == 1){
         $likesOpacity = $opacity100;
-    }else{
-      $likesOpacity = $opacity50;
+      }
     }
 
     if(isset($likesRow['isDisliked'])){
-      if($likesRow['isDisliked'] == 1)
+      if($likesRow['isDisliked'] == 1){
         $dislikesOpacity = $opacity100;
-    }else{
-      $dislikesOpacity = $opacity50;
+      }
     }
 
     echo
@@ -138,8 +136,8 @@ if($imageLocation == "none" || $imageLocation == NULL){
     </div>
 
     &nbsp;
-    <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" '.$likesOpacity.' src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
-    <a href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" '.$dislikesOpacity.' src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
+    <a class="'.$likesOpacity.'" href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
+    &nbsp;&nbsp;&nbsp;&nbsp; <a class="'.$dislikesOpacity.'" href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     '.$privacyString.'
     &nbsp;&nbsp;&nbsp;&nbsp;

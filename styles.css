@@ -283,11 +283,6 @@ input {
 
 #thumbup{
   width:20px;
-  opacity: 50%;
-}
-
-#thumbup:hover{
-  opacity: 100%;
 }
 
 .thumbUpCount{
@@ -301,12 +296,18 @@ input {
 }
 
 #thumbdown{
-  margin-left:20px;
   width:20px;
+}
+
+.hoverOpacity{
   opacity: 50%;
 }
 
-#thumbdown:hover{
+.hoverOpacity:hover{
+  opacity: 100%;
+}
+
+.opacityForce100{
   opacity: 100%;
 }
 

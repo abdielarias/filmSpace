@@ -28,11 +28,12 @@ while($row = $result->fetch_assoc()){
   $imageLocation = $userRow['image'];
 
   //go into the likes table and find out if this post was liked or disliked. Change opacity of thumbs based on it:
-  $opacity100 = 'style="opacity: 100%;"';
-  $opacity50 = 'style="opacity: 50%;"';
-  $likesOpacity = '';
-  $dislikesOpacity = '';
+  $opacity100 = 'opacityForce100';
+  $hoverOpacity = 'hoverOpacity';
+  $likesOpacity = $hoverOpacity;
+  $dislikesOpacity = $hoverOpacity;
 
+  //If there is a registered user signed in:
   if($id != null){
 
     $sql2 = "SELECT * FROM likes WHERE post_id=? and user_id=?";
@@ -46,23 +47,15 @@ while($row = $result->fetch_assoc()){
     if(isset($likesRow['isLiked'])){
       if($likesRow['isLiked'] == 1)
         $likesOpacity = $opacity100;
-    }else{
-      $likesOpacity = $opacity50;
     }
 
     if(isset($likesRow['isDisliked'])){
       if($likesRow['isDisliked'] == 1)
         $dislikesOpacity = $opacity100;
-    }else{
-      $dislikesOpacity = $opacity50;
     }
   }
-  else{
-    $likesOpacity = $opacity50;
-    $dislikesOpacity = $opacity50;
-  }
 
-
+  //if this post does not belong to the current user:
   if($row['user_id'] != $id){
 
     echo
@@ -76,8 +69,8 @@ while($row = $result->fetch_assoc()){
         <p>'.$row['content'].'</p>
       </div>
 
-      <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" '.$likesOpacity.' src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
-      <a href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" '.$dislikesOpacity.' src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
+      <a class="'.$likesOpacity.'" href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
+      &nbsp;&nbsp;&nbsp;&nbsp; <a class="'.$dislikesOpacity.'" href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
       &nbsp;&nbsp;&nbsp;&nbsp;
@@ -87,6 +80,7 @@ while($row = $result->fetch_assoc()){
   }
   else{
 
+    //If this post was made by the current user:
     $privacy = $row['private'];
     $privacyString = '';
     if($privacy == "0"){
@@ -104,7 +98,7 @@ while($row = $result->fetch_assoc()){
     <div class="profileUsersPostImg"><img src='.$imageLocation.'></div>
     <span id="uName">'.$row['username'].'</span>
     <span id="deleteIconSpan"><a href="#" onclick="deletePost(event, '.$row['post_id'].', this)"><img src="images/deleteIcon.png"></a></span>
-    <span id="editPostIconSpan"><a href="#" onclick="editPost(event, '.$row['post_id'].', this)"><img src="images/pencil.png"></a></span>
+    <span id="editPostIconSpan"><a href="writeReview.php?post_id='.$row['post_id'].'"><img src="images/pencil.png"></a></span>
 
     <div id="reviewPostContent">
       <p>Review of: '.$row['subject'].'</p>
@@ -112,8 +106,8 @@ while($row = $result->fetch_assoc()){
     </div>
 
     &nbsp;
-    <a href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" '.$likesOpacity.' src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
-    <a href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" '.$dislikesOpacity.' src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
+    <a class="'.$likesOpacity.'" href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
+    &nbsp;&nbsp;&nbsp;&nbsp; <a class="'.$dislikesOpacity.'" href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     '.$privacyString.'
     &nbsp;&nbsp;&nbsp;&nbsp;
