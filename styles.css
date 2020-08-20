@@ -150,16 +150,12 @@ input {
 }
 
 .profileTopPanel{
-  overflow: hidden;
+  display:flex;
+  flex-direction: row;
+  flex-direction: nowrap;
+  justify-content: center;
   background-color: #121212;
   color: #ffe9d4;
-}
-
-.profile-smallWrapper{
-  overflow: hidden;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .profileImgPanel{
@@ -187,8 +183,7 @@ input {
 }
 
 .aboutPanel{
-  width: 60%;
-  float:left;
+  width: 250px;
   font-size: 12pt;
   text-align: left;
   display: block;
@@ -359,11 +354,53 @@ input {
 
 .writeReviewTopBanner{
   height: 100px;
+}
+
+.reviewFormContainer{
+  width: 50%;
+  margin:auto;
+  background-color: black;
+  color: #ffe9d4;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.reviewWrapper{
+  width: 80%;
+  margin:auto;
 
 }
-.reviewFormContainer{
-  width: 450px;
-  margin:auto;
+
+#filmTitleInput{
+  background-color: #1c1c1c;
+  color: #ffe9d4;
+  margin: 10px 0 10px 0px;
+  display: block;
+  border-style: none;
+  font-family: arial;
+  outline: none;
+  height: 20px;
+  border-radius: 5px;
+}
+
+#writingTextArea{
+  color: #ffe9d4;
+  border-style: none;
+  outline: none;
+  resize: none;
+  width: 95%;
+  height: 200px;
+  display: block;
+  margin:0;
+  background-color: #1c1c1c;
+  padding: 20px;
+  font-family: arial;
+  border-radius: 10px;
+}
+
+#writingTextArea:focus{
+  border-style: none;
 }
 
 #privacyCheckBoxLabel{
@@ -375,16 +412,6 @@ input {
 
 #privacyCheckbox{
   float:left;
-}
-
-#writingTextArea{
-  resize: none;
-  width: 400px;
-  height: 200px;
-  display: block;
-  margin:auto;
-  background-color: #c3e8d9;
-  padding: 20px;
 }
 
 .postBtn{
@@ -399,11 +426,11 @@ input {
   cursor: pointer;
 }
 
-#filmTitleInput{
-  background-color: #c3e8d9;
-  margin: 10px 0 10px 5px;
-  display: block;
+.buttonCenter{
+  width:230px;
+  margin:auto;
 }
+
 
 /*------ Recent Reviews page ------------------------------------------------*/
 

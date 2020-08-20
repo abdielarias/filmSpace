@@ -33,46 +33,55 @@ if(isset($_GET['post_id'])){
 
 
 <div class="reviewFormContainer">
-  <h5>Review a Film:</h5>
-  <form action="writeReviewVerify.php" method="POST">
-    <input type="hidden" id="date" name="date" value="">
+  <div class="reviewWrapper">
+    <h3>Review a Film:</h3>
+    <form action="writeReviewVerify.php" method="POST">
+      <input type="hidden" id="date" name="date" value="">
 
 
-    <?php
-    if($postExists){
-      echo '<input type="hidden" id="post_id" name="post_id" value="'.$row['post_id'].'">';
-      echo '<input autofocus id="filmTitleInput" type="text" name="filmTitle" value="'.$row['subject'].'">';
-      echo '<textarea id="writingTextArea" name="content">'.$row['content'].'</textarea>';
-      if($row['private'] == 1){
-        echo '<label for="isPrivate" id="privacyCheckBoxLabel">This post is private. Unselect to make public: </label>';
-        echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox" checked>';
-      } else {
+      <?php
+      if($postExists){
+        echo '<input type="hidden" id="post_id" name="post_id" value="'.$row['post_id'].'">';
+        echo '<input autofocus id="filmTitleInput" type="text" name="filmTitle" value="'.$row['subject'].'">';
+        echo '<br>';
+        echo '<textarea id="writingTextArea" name="content">'.$row['content'].'</textarea>';
+        if($row['private'] == 1){
+          echo '<br>';
+          echo '<label for="isPrivate" id="privacyCheckBoxLabel">This post is private. Unselect to make public: </label>';
+          echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox" checked>';
+        } else {
+          echo '<br>';
+          echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
+          echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox">';
+        }
+
+      } else{
+        echo '<input type="hidden" id="post_id" name="post_id" value="new">';
+        echo '<input autofocus id="filmTitleInput" type="text" name="filmTitle" placeholder="Write the title of the film...">';
+        echo '<br>';
+        echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content"></textarea>';
+        echo '<br>';
         echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
         echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox">';
       }
+       ?>
 
-    } else{
-      echo '<input type="hidden" id="post_id" name="post_id" value="new">';
-      echo '<input autofocus id="filmTitleInput" type="text" name="filmTitle" placeholder="Write the title of the film...">';
-      echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content"></textarea>';
-      echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
-      echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox">';
+
+      <br>
+      <div class="buttonCenter">
+        <a href="profile.php" class="submitButton">Previous</a>
+        <input type="submit" class="submitButton postBtn" href="writeReview.php" name="submitReviewBtn" value="Submit Post">
+      </div>
+    </form>
+
+    <?php
+    if(isset($_GET['message'])){
+      if($_GET['message'] == "success"){
+        echo "<p class='success'>Message Saved!</p>";
+      }
     }
      ?>
-
-
-    <br>
-    <a href="profile.php" class="submitButton">Previous</a>
-    <input type="submit" class="submitButton postBtn" href="writeReview.php" name="submitReviewBtn" value="Submit Post">
-  </form>
-
-  <?php
-  if(isset($_GET['message'])){
-    if($_GET['message'] == "success"){
-      echo "<p class='success'>Message Saved!</p>";
-    }
-  }
-   ?>
+   </div>
 </div>
 
 

@@ -19,46 +19,44 @@ if($imageLocation == "none" || $imageLocation == NULL){
 ?>
 
 <div class="profileTopPanel">
-  <div class="profile-smallWrapper">
-    <div class="profileImgPanel">
-      <img id="profileImg" src="<?php echo $imageLocation ?>">
+  <div class="profileImgPanel">
+    <img id="profileImg" src="<?php echo $imageLocation ?>">
 
-      <div class="uploadCaption">
-          <a href="profileEdit.php"><img id="uploadIcon" src="images/uploadIcon.png"></a>
-          <?php
-          if(isset($_GET['message'])){
-            if($_GET['message'] == "success"){
-              echo '<p class="success">Profile Picture Saved.</p>';
-            }
-            else if($_GET['message'] == "ReviewSuccessful") {
-                echo '<p class="success">Review Saved.</p>';
-            }
-          }
-           ?>
-      </div>
-    </div>
-
-    <div class="aboutPanel">
-
-      <h1 class="profileUserName"><?php echo  $userName;?></h1>
-      <br><br><br>
-
-      <p>
+    <div class="uploadCaption">
+        <a href="profileEdit.php"><img id="uploadIcon" src="images/uploadIcon.png"></a>
         <?php
-        //loop through the database users and show the user's about me info:
-
-        $sql = "SELECT * FROM users WHERE id=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-
-        echo $row['about_me'];
-
+        if(isset($_GET['message'])){
+          if($_GET['message'] == "success"){
+            echo '<p class="success">Profile Picture Saved.</p>';
+          }
+          else if($_GET['message'] == "ReviewSuccessful") {
+              echo '<p class="success">Review Saved.</p>';
+          }
+        }
          ?>
-      </p>
     </div>
+  </div>
+
+  <div class="aboutPanel">
+
+    <h1 class="profileUserName"><?php echo  $userName;?></h1>
+    <br><br><br>
+
+    <p>
+      <?php
+      //loop through the database users and show the user's about me info:
+
+      $sql = "SELECT * FROM users WHERE id=?";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("i", $id);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $row = $result->fetch_assoc();
+
+      echo $row['about_me'];
+
+       ?>
+    </p>
   </div>
 </div>
 
