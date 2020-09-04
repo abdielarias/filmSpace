@@ -165,6 +165,11 @@ body{
   grid-column-end: 3;
   align-self: center;
   justify-self: center;
+  letter-spacing: .3em;
+}
+
+.imgWrapper{
+  cursor: pointer;
 }
 
 /* end of Carousel styles ------------------------------------------------------------*/

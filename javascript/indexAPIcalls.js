@@ -10,6 +10,9 @@ var rightButton;
 var leftButton;
 var currentImage = document.querySelector("#currentImage");
 var currentTitle = document.querySelector("#carouselTitle");
+var clickableMovieImage = document.querySelector(".imgWrapper");
+currentImage.addEventListener("click", ()=>{window.location.href = "moviePage.php?movieID="+imagesArray[imageIndex].movieID;});
+
 
 fetch(nowPlayingUrl)
   .then((response) => response.json())
@@ -28,6 +31,7 @@ function createMovieCarousel(){
 
     let newImg = document.createElement("img");
     newImg.src = "https://image.tmdb.org/t/p/w780/" + movie.backdrop_path;
+    newImg.movieID = movie.id;
     newImg.movieTitle = movie.title;
     // newImg.classList.add("currentImage");
     // carousel.appendChild(newImg);
@@ -100,7 +104,4 @@ function imageAnimate(){
 function cycleCarousel(){
 
 // setInterval(rightClick, 4000);
-
-
-
 }
