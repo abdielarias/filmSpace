@@ -5,6 +5,7 @@ body{
   margin: 0;
   background-color: #1c1c1c;
   font-family: 'Sora';
+
 }
 
 #navbar {
@@ -38,7 +39,6 @@ body{
 }
 
 #navbar #homeBtnListItem {
-
   float: left;
   font-size: 1.5em;
 }
@@ -62,22 +62,111 @@ body{
  color: #e6d5ac;
 }
 
-.frontPosters {
-  height: 500px;
-  margin-left: 50px;
-  margin-top: 50px;
+/* Carousel styles ------------------------------------------------------------*/
+.hero{
+  box-sizing: border-box;
+  height: 90vh;
+  background-color: black;
 }
 
-#frontPosterContainer {
-  width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+.carouselContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  box-sizing: border-box;
+  background-color: black;
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
 }
 
-#comingSoon {
-  margin-left: 50px;
-  margin-top: 50px;
-  color: #e37100;
+.carouselBackground{
+  display: block;
+  box-sizing: border-box;
+  width:100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 50%;
+  filter: blur(5px);
+}
+
+.carousel{
+  position: absolute;
+  display: grid;
+  width: 900px;
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-rows: 1fr;
+  box-sizing: border-box;
+  justify-self: center;
+  align-self: center;
+  height: 100%;
+}
+
+.currentImage{
+  display:block;
+  height: 100%;
+  transition: .1s;
+
+}
+
+.currentImage:hover{
+  filter: brightness(80%);
+  cursor: pointer;
+}
+
+.imgWrapper{
+  height: 95%;
+  transition: .1s;
+  justify-self: center;
+  align-self: center;
+}
+
+.leftCarouselButton{
+  text-align: left;
+  align-self: center;
+  justify-self: center;
+  border-radius: 10px;
+  color: white;
+  padding:20px;
+  transition: .2s;
+}
+
+.leftCarouselButton:hover, .rightCarouselButton:hover{
+  background-color: rgba(0,0,0, 0.5);
+  cursor: pointer;
+}
+
+.rightCarouselButton{
+  text-align: right;
+  align-self: center;
+  justify-self: center;
+  border-radius: 10px;
+  color: white;
+  padding:20px;
+  transition: .2s;
+}
+
+.fade{
+
+  animation-name: fade;
+  animation-duration: 0.2s;
+}
+
+@keyframes fade{
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}
+
+/* end of Carousel styles ------------------------------------------------------------*/
+
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #454545;
+  font-size: .9em;
+  height:5vh;
 }
 
 .warning{
