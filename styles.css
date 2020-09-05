@@ -635,7 +635,13 @@ input {
 }
 
 .moviePage-credits{
-  height:60vh;
+  box-sizing: border-box;
+  font-family: arial;
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+  color: white;
+
   background-color: black;
   width:60vw;
   margin-left: auto;

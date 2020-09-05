@@ -27,11 +27,9 @@ $movieID = $_GET["movieID"];
     <div class="iframeWrapper">
     </div>
   </div>
+
   <div class="moviePage-credits">
-    <div class="cast">
-    </div>
-    <div class="crew">
-    </div>
+
   </div>
 </div>
 
@@ -178,12 +176,91 @@ fetch(movieURL)
 
 //Credits--------------------------------------------------------------------
 var creditsURL = "https://api.themoviedb.org/3/movie/"+movieID+"/credits?api_key="+API_KEY;
+var castArray;
+var crewArray;
+var creditsDiv = document.querySelector(".moviePage-credits");
+
 
 fetch(creditsURL)
 .then((response)=>response.json())
 .then((jsonData)=>{
+  castArray = jsonData.cast;
+  crewArray = jsonData.crew;
+  console.log(castArray);
+  console.log(crewArray);
 
-  console.log(jsonData);
+  //add a label that says CAST
+  let castLabel = document.createElement("h2");
+  castLabel.innerHTML = "CAST: ";
+  castLabel.style = `padding: 20px;`;
+  creditsDiv.appendChild(castLabel);
+
+  for(let i=0; i<castArray.length; i++){
+    //create a crewPanel for each person.
+    let personPanel = document.createElement("div");
+    personPanel.classList.add("cast");
+    let personImg = document.createElement("img");
+
+
+    personImg.src = "https://image.tmdb.org/t/p/w45/" + castArray[i].profile_path;
+    if(personImg.src == "https://image.tmdb.org/t/p/w45/null"){
+      personImg.src = "./profilePics/defaultPersonPic.jpg";
+    }
+
+    personPanel.appendChild(personImg);
+    personPanel.innerHTML += castArray[i].name + " as " + castArray[i].character;
+
+
+    creditsDiv.appendChild(personPanel);
+  }
+
+  //add a label that says CREW
+  let crewLabel = document.createElement("h2");
+  crewLabel.innerHTML = "CREW: ";
+  crewLabel.style = `padding: 20px;`;
+  creditsDiv.appendChild(crewLabel);
+
+  for(let i=0; i<crewArray.length; i++){
+    //create a crewPanel for each person.
+    let personPanel = document.createElement("div");
+    personPanel.classList.add("crew");
+
+    personPanel.innerHTML += crewArray[i].name + " - " + crewArray[i].job;
+
+
+    creditsDiv.appendChild(personPanel);
+  }
+
+
+
+  var castClassElements = document.querySelectorAll(".cast");
+
+  for(let i=0;i<castClassElements.length;i++){
+    castClassElements[i].style = `
+
+      display: grid;
+      grid-template-columns: 1fr 8fr;
+      padding: 10px;
+      margin-left:40px;
+      align-items: center;
+    `;
+  }
+
+  var crewClassElements = document.querySelectorAll(".crew");
+
+  for(let i=0;i<crewClassElements.length;i++){
+    crewClassElements[i].style = `
+
+    padding: 10px;
+    margin-left:40px;
+    `;
+  }
+
+  //finally, add the footer:
+  var footer = document.createElement("footer");
+  footer.innerHTML = "This product uses the TMDb API but is not endorsed or certified by TMDb.";
+  footer.style = `margin-top: 20px;`;
+  creditsDiv.appendChild(footer);
 
 })
 .catch((err)=>console.log(err));
