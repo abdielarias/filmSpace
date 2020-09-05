@@ -8,7 +8,11 @@ $movieID = $_GET["movieID"];
     <div class="moviePage-poster"></div>
     <div class="moviePage-desc">
       <div class="moviePage-title"></div>
-      <div class="moviePage-cert"><span id="cert"></span><span id="runtime"></span></div>
+      <div class="moviePage-cert">
+        <span id="cert"></span>
+        <span id="runtime"></span>
+        <span id="genres"></span>
+      </div>
     </div>
   </div>
 
@@ -32,6 +36,7 @@ var descDiv = document.querySelector(".moviePage-desc");
 var titleDiv = document.querySelector(".moviePage-title");
 var movieCertDiv = document.querySelector(".moviePage-cert");
 var runtime = document.querySelector("#runtime");
+var genres = document.querySelector("#genres");
 
 var movieID = <?php echo $movieID; ?>;
 var movieRating = document.querySelector("#cert");
@@ -57,7 +62,28 @@ fetch(movieURL)
   fetch("https://api.themoviedb.org/3/movie/"+movieID+"/release_dates?api_key="+API_KEY)
   .then((response) => response.json())
   .then((certs) => {
-      movieRating.innerHTML = certs.results[0].release_dates[0].certification;
+      console.log(certs);
+      let resultsArray;
+      let releaseDatesArray;
+      resultsArray = certs.results;
+
+      //loop through resultsArray to find the US releaseDates
+      for(let i = 0; i< certs.results.length; i++){
+        if(certs.results[i].iso_3166_1 == "US"){
+          //we have found the US release dates
+          releaseDatesArray = certs.results[i].release_dates;
+          console.log(releaseDatesArray);
+        }
+      }
+
+      if(releaseDatesArray){
+        //print the final release date rating
+        let lastIndex = releaseDatesArray.length-1;
+        movieRating.innerHTML = releaseDatesArray[lastIndex].certification;
+      }
+      else {
+        movieRating.innerHTML = "NR";
+      }
   })
   .catch((err) => console.log(err));
 
@@ -69,11 +95,15 @@ fetch(movieURL)
   desc.innerHTML = movie.overview;
   descDiv.appendChild(desc);
 
-
-
-
-
   //movie genres
+  for(let i=0; i<movie.genres.length; i++){
+    //if the element is the final element, do not add a comma after the word
+    if(i==movie.genres.length-1){
+      genres.innerHTML += movie.genres[i].name+" ";
+    }else{
+      genres.innerHTML += movie.genres[i].name+", ";
+    }
+  }
 
 
   //movie release date
