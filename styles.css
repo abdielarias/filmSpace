@@ -578,6 +578,15 @@ input {
   box-sizing: border-box;
 }
 
+.moviePage-title{
+  font-size: 3em;
+}
+
+.moviePage-desc #year{
+  font-size: 2em;
+  color:grey;
+}
+
 .moviePage-cert{
   display: flex;
   flex-direction: row;
@@ -593,6 +602,7 @@ input {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 3fr;
+  align-items: center;
 }
 
 .moviePage-trailerDiv{

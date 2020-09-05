@@ -7,7 +7,11 @@ $movieID = $_GET["movieID"];
   <div class="moviePage-topBanner">
     <div class="moviePage-poster"></div>
     <div class="moviePage-desc">
-      <div class="moviePage-title"></div>
+      <div>
+        <span class="moviePage-title">
+        </span>
+        <span id="year"></span>
+      </div>
       <div class="moviePage-cert">
         <span id="cert"></span>
         <span id="runtime"></span>
@@ -33,10 +37,11 @@ var trailerDiv = document.querySelector(".moviePage-trailerDiv");
 var iframeWrapper = document.querySelector(".iframeWrapper");
 var posterDiv = document.querySelector(".moviePage-poster");
 var descDiv = document.querySelector(".moviePage-desc");
-var titleDiv = document.querySelector(".moviePage-title");
+var title = document.querySelector(".moviePage-title");
 var movieCertDiv = document.querySelector(".moviePage-cert");
 var runtime = document.querySelector("#runtime");
 var genres = document.querySelector("#genres");
+var year = document.querySelector("#year");
 
 var movieID = <?php echo $movieID; ?>;
 var movieRating = document.querySelector("#cert");
@@ -54,9 +59,9 @@ fetch(movieURL)
   posterDiv.appendChild(poster);
 
   //title
-  var title = document.createElement("h1");
-  title.innerHTML = movie.title+" ("+movie.release_date.split("-")[0]+")";
-  titleDiv.appendChild(title);
+
+  title.innerHTML = movie.title;
+  year.innerHTML = "("+movie.release_date.split("-")[0]+")";
 
   //movie rating
   fetch("https://api.themoviedb.org/3/movie/"+movieID+"/release_dates?api_key="+API_KEY)
@@ -72,14 +77,19 @@ fetch(movieURL)
         if(certs.results[i].iso_3166_1 == "US"){
           //we have found the US release dates
           releaseDatesArray = certs.results[i].release_dates;
-          console.log(releaseDatesArray);
+          console.log("US found: "+releaseDatesArray);
         }
       }
 
       if(releaseDatesArray){
         //print the final release date rating
         let lastIndex = releaseDatesArray.length-1;
-        movieRating.innerHTML = releaseDatesArray[lastIndex].certification;
+        if(releaseDatesArray[lastIndex].certification == ""){
+          movieRating.innerHTML = "NR"
+        }
+        else{
+          movieRating.innerHTML = releaseDatesArray[lastIndex].certification;
+        }
       }
       else {
         movieRating.innerHTML = "NR";
