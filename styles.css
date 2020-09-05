@@ -567,7 +567,6 @@ input {
   display: grid;
   grid-template-columns: 4fr 8fr;
   grid-template-rows: 1fr 2fr;
-
   width: 60vw;
   margin-top: 20px;
   margin-left: auto;
@@ -580,9 +579,24 @@ input {
   display: grid;
   grid-template-columns: 1fr;
   box-sizing: border-box;
-  height: 90vh;
+
   width: 60vw;
   margin-left: auto;
   margin-right: auto;
   background-color: black;
+}
+
+.iframeWrapper{
+  overflow: hidden;
+  /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.moviePage-mid{
+  height:60vh;
+  background-color: black;
+  width:60vw;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -9,6 +9,10 @@ $movieID = $_GET["movieID"];
   </div>
 
   <div class="moviePage-bodyDiv">
+    <div class="iframeWrapper">
+    </div>
+  </div>
+  <div class="moviePage-mid">
 
   </div>
 </div>
@@ -18,6 +22,7 @@ $movieID = $_GET["movieID"];
 const API_KEY = "6109ef65464c6279114456237b791d38";
 var topBanner = document.querySelector(".moviePage-topBanner");
 var bodyDiv = document.querySelector(".moviePage-bodyDiv");
+var iframeWrapper = document.querySelector(".iframeWrapper");
 var movieID = <?php echo $movieID; ?>;
 const movieURL = "https://api.themoviedb.org/3/movie/"+movieID+"?api_key="+API_KEY+"&language=en-US";
 
@@ -52,16 +57,17 @@ fetch(movieURL)
       //create iframe & embed
       var iframe = document.createElement("iframe");
       iframe.src = "https://www.youtube.com/embed/"+trailer.results[0].key;
+      iframeWrapper.appendChild(iframe);
       console.log("width"+iframe.width);
       iframe.style = `
       position: absolute;
-      display:block;
-      box-sizing: border-box;
+      border: 0;
+      height: 100%;
+      left: 0;
+      top: 0;
       width: 100%;
-      padding-top: 56.25%;
-
       `;
-      bodyDiv.appendChild(iframe);
+
     }
   });
 
