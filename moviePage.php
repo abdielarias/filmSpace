@@ -11,11 +11,14 @@ $movieID = $_GET["movieID"];
         <span class="moviePage-title">
         </span>
         <span id="year"></span>
+        <div id="genres"></div>
       </div>
       <div class="moviePage-cert">
         <span id="cert"></span>
         <span id="runtime"></span>
-        <span id="genres"></span>
+        <span id="releaseDate"></span>
+      </div>
+      <div id="desc">
       </div>
     </div>
   </div>
@@ -24,8 +27,11 @@ $movieID = $_GET["movieID"];
     <div class="iframeWrapper">
     </div>
   </div>
-  <div class="moviePage-mid">
-
+  <div class="moviePage-credits">
+    <div class="cast">
+    </div>
+    <div class="crew">
+    </div>
   </div>
 </div>
 
@@ -42,6 +48,8 @@ var movieCertDiv = document.querySelector(".moviePage-cert");
 var runtime = document.querySelector("#runtime");
 var genres = document.querySelector("#genres");
 var year = document.querySelector("#year");
+var releaseDate = document.querySelector("#releaseDate");
+var desc = document.querySelector("#desc");
 
 var movieID = <?php echo $movieID; ?>;
 var movieRating = document.querySelector("#cert");
@@ -67,7 +75,7 @@ fetch(movieURL)
   fetch("https://api.themoviedb.org/3/movie/"+movieID+"/release_dates?api_key="+API_KEY)
   .then((response) => response.json())
   .then((certs) => {
-      console.log(certs);
+
       let resultsArray;
       let releaseDatesArray;
       resultsArray = certs.results;
@@ -77,7 +85,6 @@ fetch(movieURL)
         if(certs.results[i].iso_3166_1 == "US"){
           //we have found the US release dates
           releaseDatesArray = certs.results[i].release_dates;
-          console.log("US found: "+releaseDatesArray);
         }
       }
 
@@ -101,9 +108,7 @@ fetch(movieURL)
   runtime.innerHTML = Math.trunc(movie.runtime/60)+" hr "+movie.runtime%60+" min";
 
   //movie description
-  var desc = document.createElement("p");
   desc.innerHTML = movie.overview;
-  descDiv.appendChild(desc);
 
   //movie genres
   for(let i=0; i<movie.genres.length; i++){
@@ -118,6 +123,9 @@ fetch(movieURL)
 
   //movie release date
 
+  let dateArray = movie.release_date.split("-");
+  let date = new Date(dateArray[0], dateArray[1]-1, dateArray[2]);
+  releaseDate.innerHTML = date.getDate() + " " + date.toLocaleString('default', { month: 'long' }) + " "+ date.getFullYear() + " (USA)";
 
   //make request to get a json object with a possible trailer attached. Check if it's youtube, then show trailer with a youtube link
   fetch("https://api.themoviedb.org/3/movie/"+movieID+"/videos?api_key="+API_KEY+"&language=en-US")
@@ -141,15 +149,6 @@ fetch(movieURL)
 
     }
   });
-
-  //Director(s)
-
-  //Writer(s)
-
-  //stars
-
-
-
 
   //run a new stylesheet for the new elements:
   poster.style = `
@@ -175,6 +174,19 @@ fetch(movieURL)
 })
 .catch((error)=>{console.log(error);});
 
+
+
+//Credits--------------------------------------------------------------------
+var creditsURL = "https://api.themoviedb.org/3/movie/"+movieID+"/credits?api_key="+API_KEY;
+
+fetch(creditsURL)
+.then((response)=>response.json())
+.then((jsonData)=>{
+
+  console.log(jsonData);
+
+})
+.catch((err)=>console.log(err));
 
 
 
