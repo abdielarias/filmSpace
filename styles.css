@@ -565,8 +565,8 @@ input {
   box-sizing: border-box;
   color: white;
   display: grid;
-  grid-template-columns: 4fr 8fr;
-  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
   width: 60vw;
   margin-top: 20px;
   margin-left: auto;
@@ -574,7 +574,28 @@ input {
   background-color: black;
 }
 
-.moviePage-bodyDiv{
+.moviePage-poster{
+  box-sizing: border-box;
+}
+
+.moviePage-cert{
+  display: flex;
+  flex-direction: row;
+}
+
+.moviePage-cert span{
+  padding-right: 50px;
+}
+
+.moviePage-desc{
+  box-sizing: border-box;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 3fr;
+}
+
+.moviePage-trailerDiv{
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
