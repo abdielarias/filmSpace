@@ -33,12 +33,9 @@ function createMovieCarousel(){
     newImg.src = "https://image.tmdb.org/t/p/w780/" + movie.backdrop_path;
     newImg.movieID = movie.id;
     newImg.movieTitle = movie.title;
-    // newImg.classList.add("currentImage");
-    // carousel.appendChild(newImg);
     imagesArray.push(newImg);
   });
 
-  // carousel.innerHTML = ``;
   leftButton = document.querySelector(".leftCarouselButton");
   leftButton.addEventListener("click", leftClick);
 
@@ -47,9 +44,7 @@ function createMovieCarousel(){
   //blurry background version of the image
   carouselBackground.style.backgroundImage = `url('${imagesArray[imageIndex].src}')`;
 
-  // carousel.appendChild(imagesArray[0]);
   currentImage.style = `
-  display:block;
   display:block;
   height: 100%;
   transition: .1s;
