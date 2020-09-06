@@ -135,11 +135,11 @@ if($imageLocation == "none" || $imageLocation == NULL){
     <span id="deleteIconSpan"><a href="#" onclick="deletePost(event, '.$row['post_id'].', this)"><img src="images/deleteIcon.png"></a></span>
     <span id="editPostIconSpan"><a href="writeReview.php?post_id='.$row['post_id'].'"><img src="images/pencil.png"></a></span>
 
-    <div id="reviewPostContent" class="contentOf'.$row['post_id'].'">
+    <div class="reviewPostContent contentOf'.$row['post_id'].'">
       <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
 
 
-      <p>'.$row['content'].'</p>
+      <span>'.$row['content'].'</span>
     </div>
 
     &nbsp;
