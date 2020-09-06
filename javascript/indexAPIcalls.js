@@ -49,6 +49,8 @@ function createMovieCarousel(){
   height: 100%;
   transition: .1s;
   `;
+  
+  imageAnimate();
 
   rightButton = document.querySelector(".rightCarouselButton");
   rightButton.addEventListener("click", rightClick);

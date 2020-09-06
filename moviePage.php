@@ -208,7 +208,10 @@ fetch(creditsURL)
     }
 
     personPanel.appendChild(personImg);
-    personPanel.innerHTML += castArray[i].name + " as " + castArray[i].character;
+    personPanel.innerHTML += castArray[i].name;
+    if(castArray[i].character){
+      personPanel.innerHTML += " as " + castArray[i].character;
+    }
 
 
     creditsDiv.appendChild(personPanel);

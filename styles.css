@@ -103,10 +103,10 @@ body{
   grid-column-gap: 50px
 }
 
-.currentImage{
-  display:block;
-  height: 100%;
-  transition: .1s;
+#currentImage{
+  display: none;
+  /* height: 100%;
+  transition: .1s; */
 
 }
 
