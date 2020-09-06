@@ -1,6 +1,6 @@
 <?php
 
-// This page is only for when login is successful
+// This page is only for when login is successful, and we only arrive here if we have a movieID GET variable in the url
 include 'header.php';
 require 'databaseConn.php';
 
@@ -9,10 +9,16 @@ if(!isset($_SESSION['id'])){
   exit();
 }
 
+if(!isset($_GET['movieID'])){
+  echo "Location: index.php?error=accessDeniedNoMovieID";
+  exit();
+}
+
 $userName = $_SESSION['userName'];
 $user_id = $_SESSION['id'];
 $imageLocation = $_SESSION['image'];
 $postExists = false;
+$movie_id = $_GET['movieID'];
 
 //if this is set, then we know that we are editing an existing post
 if(isset($_GET['post_id'])){
@@ -31,7 +37,6 @@ if(isset($_GET['post_id'])){
 
 ?>
 
-
 <div class="reviewFormContainer">
   <div class="reviewWrapper">
     <h3>Review a Film:</h3>
@@ -42,7 +47,9 @@ if(isset($_GET['post_id'])){
       <?php
       if($postExists){
         echo '<input type="hidden" id="post_id" name="post_id" value="'.$row['post_id'].'">';
-        echo '<input autofocus id="filmTitleInput" type="text" name="filmTitle" value="'.$row['subject'].'">';
+        echo '<input type="hidden" id="movie_id" name="movie_id" value="">';
+        echo '<img src="" id="moviePoster">';
+        echo '<h2 id="movieTitle"></h2>';
         echo '<br>';
         echo '<textarea id="writingTextArea" name="content">'.$row['content'].'</textarea>';
         if($row['private'] == 1){
@@ -57,7 +64,9 @@ if(isset($_GET['post_id'])){
 
       } else{
         echo '<input type="hidden" id="post_id" name="post_id" value="new">';
-        echo '<input autofocus id="filmTitleInput" type="text" name="filmTitle" placeholder="Write the title of the film...">';
+        echo '<input type="hidden" id="movie_id" name="movie_id" value="">';
+        echo '<img src="" id="moviePoster">';
+        echo '<h2 id="movieTitle"></h2>';
         echo '<br>';
         echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content"></textarea>';
         echo '<br>';
@@ -70,7 +79,7 @@ if(isset($_GET['post_id'])){
       <br>
       <div class="buttonCenter">
         <a href="profile.php" class="submitButton">Previous</a>
-        <input type="submit" class="submitButton postBtn" href="writeReview.php" name="submitReviewBtn" value="Submit Post">
+        <input type="submit" class="submitButton postBtn"  name="submitReviewBtn" value="Submit Post">
       </div>
     </form>
 
@@ -87,6 +96,35 @@ if(isset($_GET['post_id'])){
 
 
 <script>
+
+//fetch the movie info from the API (poster, title)----------------------------
+
+  var movieID = <?php echo $_GET['movieID'] ?>;
+  const API_KEY = "6109ef65464c6279114456237b791d38";
+  const movieURL = "https://api.themoviedb.org/3/movie/"+movieID+"?api_key="+API_KEY+"&language=en-US";
+  var moviePoster = document.querySelector("#moviePoster");
+  var movieTitle = document.querySelector("#movieTitle");
+
+  var hiddenInputMovieID = document.querySelector("#movie_id");
+  hiddenInputMovieID.value = movieID;
+
+  fetch(movieURL)
+  .then((res)=>res.json())
+  .then((movie)=>{
+    console.log(movie);
+    moviePoster.src = "https://image.tmdb.org/t/p/w780/"+movie.poster_path;
+    movieTitle.innerHTML = movie.title;
+
+
+  })
+  .catch((err)=>console.log(err));
+
+
+
+
+
+
+//Time information-----------------------------------------------------------
   let datetime = new Date();
 
   let year = datetime.getFullYear();

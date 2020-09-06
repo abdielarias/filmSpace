@@ -18,6 +18,8 @@ if($imageLocation == "none" || $imageLocation == NULL){
 }
 ?>
 
+
+
 <div class="profileTopPanel">
   <div class="profileImgPanel">
     <img id="profileImg" src="<?php echo $imageLocation ?>">
@@ -30,6 +32,9 @@ if($imageLocation == "none" || $imageLocation == NULL){
             echo '<p class="success">Profile Picture Saved.</p>';
           }
           else if($_GET['message'] == "ReviewSuccessful") {
+              echo '<p class="success">Review Saved.</p>';
+          }
+          else if($_GET['message'] == "newReviewCompleted") {
               echo '<p class="success">Review Saved.</p>';
           }
         }
@@ -60,10 +65,12 @@ if($imageLocation == "none" || $imageLocation == NULL){
   </div>
 </div>
 
+<script src = "./javascript/fetchMovieInfo.js"></script>
+
 <div class="profileReviewsContainer">
 
   <div class="profileBtnSet">
-    <a class="submitButton createPostBtn" href="writeReview.php">Create New Film Review</a>
+    <!--  -->
     <h2>Your recent reviews:</h2>
   </div>
 
@@ -128,8 +135,10 @@ if($imageLocation == "none" || $imageLocation == NULL){
     <span id="deleteIconSpan"><a href="#" onclick="deletePost(event, '.$row['post_id'].', this)"><img src="images/deleteIcon.png"></a></span>
     <span id="editPostIconSpan"><a href="writeReview.php?post_id='.$row['post_id'].'"><img src="images/pencil.png"></a></span>
 
-    <div id="reviewPostContent">
-      <p>Review of: '.$row['subject'].'</p>
+    <div id="reviewPostContent" class="contentOf'.$row['post_id'].'">
+      <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
+
+
       <p>'.$row['content'].'</p>
     </div>
 
@@ -153,6 +162,8 @@ if($imageLocation == "none" || $imageLocation == NULL){
 <script src="thumbs.js"></script>
 <script src="deletePost.js"></script>
 <script src="privacyLock.js"></script>
+
+
 
 <?php
 include 'footer.php';

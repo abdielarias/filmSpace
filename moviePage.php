@@ -21,6 +21,9 @@ $movieID = $_GET["movieID"];
       <div id="desc">
       </div>
     </div>
+    <div class="reviewCorner">
+
+    </div>
   </div>
 
   <div class="moviePage-trailerDiv">
@@ -48,7 +51,7 @@ var genres = document.querySelector("#genres");
 var year = document.querySelector("#year");
 var releaseDate = document.querySelector("#releaseDate");
 var desc = document.querySelector("#desc");
-
+var reviewCorner = document.querySelector(".reviewCorner");
 var movieID = <?php echo $movieID; ?>;
 var movieRating = document.querySelector("#cert");
 const movieURL = "https://api.themoviedb.org/3/movie/"+movieID+"?api_key="+API_KEY+"&language=en-US";
@@ -124,6 +127,15 @@ fetch(movieURL)
   let dateArray = movie.release_date.split("-");
   let date = new Date(dateArray[0], dateArray[1]-1, dateArray[2]);
   releaseDate.innerHTML = date.getDate() + " " + date.toLocaleString('default', { month: 'long' }) + " "+ date.getFullYear() + " (USA)";
+
+
+  //Create post buttonCenter <a class="submitButton createPostBtn" href="writeReview.php?movieID">Create New Film Review</a>
+  var postBtn = document.createElement("a");
+  postBtn.classList.add("submitButton");
+  postBtn.classList.add("createPostBtn");
+  postBtn.href = "writeReview.php?movieID="+movieID;
+  postBtn.innerHTML = "Write a Review";
+  reviewCorner.appendChild(postBtn);
 
   //make request to get a json object with a possible trailer attached. Check if it's youtube, then show trailer with a youtube link
   fetch("https://api.themoviedb.org/3/movie/"+movieID+"/videos?api_key="+API_KEY+"&language=en-US")
