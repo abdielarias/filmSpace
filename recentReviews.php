@@ -100,7 +100,7 @@ while($row = $result->fetch_assoc()){
     <div class="profileUsersPostImg"><img src='.$imageLocation.'></div>
     <span id="uName">'.$row['username'].'</span>
     <span id="deleteIconSpan"><a href="#" onclick="deletePost(event, '.$row['post_id'].', this)"><img src="images/deleteIcon.png"></a></span>
-    <span id="editPostIconSpan"><a href="writeReview.php?post_id='.$row['post_id'].'"><img src="images/pencil.png"></a></span>
+    <span id="editPostIconSpan"><a href="writeReview.php?post_id='.$row['post_id'].'&movieID='.$row['movie_id'].'"><img src="images/pencil.png"></a></span>
 
     <div class="reviewPostContent contentOf'.$row['post_id'].'">
       <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
