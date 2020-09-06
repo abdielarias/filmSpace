@@ -1,3 +1,5 @@
+<script src = "./javascript/fetchMovieInfo.js"></script>
+
 <?php
 require 'header.php';
 require 'databaseConn.php';
@@ -64,9 +66,9 @@ while($row = $result->fetch_assoc()){
       <div class="profileUsersPostImg"><img src='.$imageLocation.'></div>
       <span id="uName">'.$row['username'].'</span>
 
-      <div id="reviewPostContent">
-        <p>Review of: '.$row['subject'].'</p>
-        <p>'.$row['content'].'</p>
+      <div class="reviewPostContent contentOf'.$row['post_id'].'">
+        <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
+        <span>'.$row['content'].'</span>
       </div>
 
       <a class="'.$likesOpacity.'" href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
@@ -100,9 +102,9 @@ while($row = $result->fetch_assoc()){
     <span id="deleteIconSpan"><a href="#" onclick="deletePost(event, '.$row['post_id'].', this)"><img src="images/deleteIcon.png"></a></span>
     <span id="editPostIconSpan"><a href="writeReview.php?post_id='.$row['post_id'].'"><img src="images/pencil.png"></a></span>
 
-    <div id="reviewPostContent">
-      <p>Review of: '.$row['subject'].'</p>
-      <p>'.$row['content'].'</p>
+    <div class="reviewPostContent contentOf'.$row['post_id'].'">
+      <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
+      <span>'.$row['content'].'</span>
     </div>
 
     &nbsp;
