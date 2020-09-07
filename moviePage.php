@@ -244,7 +244,7 @@ fetch(movieURL)
 
   title.style =  `
   box-sizing: border-box;
-  color:white;
+  color:#ffe9d4;
 
   `;
 
@@ -352,19 +352,5 @@ fetch(creditsURL)
 
 })
 .catch((err)=>console.log(err));
-
-
-//create post button event listener
-// var createBtn = document.querySelector("#createReviewBtn");
-// createBtn.addEventListener("click", (event)=>{
-//
-// event.preventDefault();
-// console.log("createBtn");
-// if(){
-//
-//
-// }
-//
-// });
 
 </script>

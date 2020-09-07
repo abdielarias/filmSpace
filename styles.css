@@ -3,32 +3,23 @@ index page
 */
 body{
   margin: 0;
-  background-color: #1c1c1c;
+  background-color: black;
   font-family: 'Sora';
 
 }
 
 #navbar {
+  box-sizing: border-box;
   background-color: rgb(0,0,0);
   padding-left: 50px;
   padding-right: 50px;
 }
 
-#navbar ul {
-  margin: 0;
-  overflow: hidden;
-  padding-inline-start: 0px;
-  /*border-style: solid;
-  border-color: black;*/
-}
-
-#navbar li {
+#navbar div {
   padding: 10px 0px 10px 0px;
-  float: right;
-  list-style-type: none;
 }
 
-#navbar li img {
+#navbar div img {
   width: 20px;
 }
 
@@ -38,18 +29,25 @@ body{
   font-size: 12pt;
 }
 
-#navbar #homeBtnListItem {
-  float: left;
+#navbar #homeBtn {
   font-size: 1.5em;
+  display: inline-block;
 }
 
-#navbar ul li #homeBtnAnchor{
+#navRightBlock{
+  float: right;
+  display: inline-block;
+
+
+}
+
+#navbar div #homeBtnAnchor{
   color: #e37100;
 }
 
 #navbar a {
-  color: #e37100;
-  display:block;
+  display: inline-block;
+  color: #d13b00;
   text-decoration: none;
   padding: 10px;
 }
@@ -62,11 +60,14 @@ body{
  color: #e6d5ac;
 }
 
+
+
 /* Carousel styles ------------------------------------------------------------*/
 .hero{
   box-sizing: border-box;
   height: 90vh;
   background-color: black;
+  clear:both;
 }
 
 .carouselContainer {
@@ -195,11 +196,16 @@ footer{
 Sign In Page
 */
 
+.fullscreen{
+  height: 100vh;
+}
+
 .signinPanel {
+  color: #ffe9d4;
   padding:10px;
   min-height: 300px;
-  border-radius: 5px;
-  background-color: #a9c7bb;
+  border-radius: 15px;
+  background-color: #0f0f0f;
   text-align: center;
   margin-top: 50px;
   width: 500px;
@@ -207,12 +213,14 @@ Sign In Page
   margin-right: auto;
 }
 
+
+
 .submitButton {
   color: #e37100;
   font-weight: bold;
   display: inline-block;
   padding:10px;
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: #1a1c1b;
   margin-top:100px;
   margin-bottom: 20px;
@@ -229,8 +237,45 @@ Sign In Page
   color: #ffe9d4;
 }
 
-input {
-  padding:5px;
+.signinPanel input {
+  background-color: #1a1c1b;
+  color: #ffe9d4;
+  clear: both;
+  box-sizing: border-box;
+  padding:10px;
+  margin: 5px;
+  border-radius: 10px;
+  float:left;
+  border:none;
+}
+
+.signinPanel input:focus{
+  outline: none;
+}
+
+.signinPanel form{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signinPanel form .submitButton{
+  float:right;
+  color: #e37100;
+  font-weight: bold;
+  display: inline-block;
+  padding:10px;
+  border-radius: 15px;
+  background-color: #1a1c1b;
+  
+  margin-bottom: 20px;
+  text-decoration: none;
+  text-align: center;
+  align-self: center;
+}
+
+.signinPanel form .submitButton:hover{
+  float:right;
 }
 
 /*--Profile Page --------------------------------------------------------------------*/
@@ -240,7 +285,7 @@ input {
   padding:10px;
   min-height: 200px;
   border-radius: 15px;
-  background-color: black;
+  background-color: #0f0f0f;
   text-align: center;
   margin-top: 50px;
   width: 50%;
@@ -259,7 +304,7 @@ input {
   flex-direction: row;
   flex-direction: nowrap;
   justify-content: center;
-  background-color: #121212;
+  background-color: #0f0f0f;
   color: #ffe9d4;
 }
 
@@ -484,7 +529,7 @@ input {
 .reviewFormContainer{
   width: 600px;
   margin:auto;
-  background-color: black;
+  background-color: #0f0f0f;
   color: #ffe9d4;
   border-radius: 15px;
   padding: 20px;
@@ -578,7 +623,7 @@ input {
   padding:10px;
   min-height: 200px;
   border-radius: 15px;
-  background-color: black;
+  background-color: #0f0f0f;
   text-align: center;
   margin-top: 50px;
   width: 50%;
@@ -609,7 +654,9 @@ input {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  background-color: black;
+  background-color: #0f0f0f;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 
 .moviePage-poster{
@@ -631,7 +678,7 @@ input {
 
 .moviePage-desc{
   box-sizing: border-box;
-  color: white;
+  color: #ffe9d4;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 2fr;

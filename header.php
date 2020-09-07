@@ -18,33 +18,35 @@ if(session_status()==PHP_SESSION_NONE) {
     <header>
 
       <nav id="navbar">
-        <ul>
-
-          <li id="homeBtnListItem"><a id="homeBtnAnchor" href="index.php">practice site</a></li>
-
-          <?php
-
-            if(isset($_SESSION['isLogged'])){
-                if($_SESSION['isLogged'] == true){
-                  echo '<li class="navButton"><a href="signOut.php">Sign Out</a></li>';
-                  echo'<li class="navButton"><a href="profile.php">My Profile</a></li>';
-                }
-                else {
-                  echo '<li class="navButton"><a href="signin.php">Sign In</a></li>';
-                }
-            }
-            else {
-              echo '<li class="navButton"><a href="signin.php">Sign In</a></li>';
-            }
-
-          ?>
-
-          <li class="navButton"><a href="">Popular Films</a></li>
-          <li class="navButton"><a href="">Question of the Week</a></li>
-          <li class="navButton"><a href="recentReviews.php">Recent Reviews</a></li>
 
 
-        </ul>
+          <div id="homeBtn"><a id="homeBtnAnchor" href="index.php">practice site</a></div>
+
+          <div id="navRightBlock">
+            <a href="">Popular Films</a>
+            <a href="">Question of the Week</a>
+            <a href="recentReviews.php">Recent Reviews</a>
+            <?php
+
+              if(isset($_SESSION['isLogged'])){
+                  if($_SESSION['isLogged'] == true){
+                    echo'<a href="profile.php">My Profile</a>';
+                    echo '<a href="signOut.php">Sign Out</a>';
+                  }
+                  else {
+                    echo '<a href="signin.php">Sign In</a>';
+                  }
+              }
+              else {
+                echo '<a href="signin.php">Sign In</a>';
+              }
+
+            ?>
+        </div>
+
+
+
+
 
       </nav>
     </header>
