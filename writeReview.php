@@ -51,15 +51,18 @@ if(isset($_GET['post_id'])){
         echo '<img src="" id="moviePoster">';
         echo '<h2 id="movieTitle"></h2>';
         echo '<br>';
-        echo '<textarea id="writingTextArea" name="content">'.$row['content'].'</textarea>';
+        echo '<textarea id="writingTextArea" name="content" onkeyup="displayWordCount()" maxlength="500">'.$row['content'].'</textarea>';
+        echo '<br>';
+        echo '<div style="text-align:right; font-family:arial;"><span id="wordCount">0 characters. </span>(limit: 500 characters) </div>';
+        echo '<br>';
         if($row['private'] == 1){
           echo '<br>';
-          echo '<label for="isPrivate" id="privacyCheckBoxLabel">This post is private. Unselect to make public: </label>';
-          echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox" checked>';
+          echo '<div style="text-align:right; font-family:arial; display: inline-block; float:right;"><label for="isPrivate" id="privacyCheckBoxLabel">This post is private. Unselect to make public: </label>';
+          echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox" checked></div>';
         } else {
           echo '<br>';
-          echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
-          echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox">';
+          echo '<div style="text-align:right; display: inline-block; float:right;"><label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
+          echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox"></div>';
         }
 
       } else{
@@ -68,10 +71,12 @@ if(isset($_GET['post_id'])){
         echo '<img src="" id="moviePoster">';
         echo '<h2 id="movieTitle"></h2>';
         echo '<br>';
-        echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content"></textarea>';
+        echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content" onkeyup="displayWordCount()" maxlength="500"></textarea>';
+        echo '<span id="wordCount">0 characters. </span>(limit: 500 characters) ';
         echo '<br>';
+        echo '<div style="text-align:right; font-family:arial; display: inline-block; float:right;">';
         echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
-        echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox">';
+        echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox"></div>';
       }
        ?>
 
@@ -96,6 +101,15 @@ if(isset($_GET['post_id'])){
 
 
 <script>
+
+displayWordCount();
+
+//word counter.
+function displayWordCount(){
+  var wordCountDisplayer = document.querySelector("#wordCount");
+  var charCount = document.querySelector("#writingTextArea").value.length;
+  wordCountDisplayer.innerHTML = charCount+" characters. ";
+}
 
 //fetch the movie info from the API (poster, title)----------------------------
 

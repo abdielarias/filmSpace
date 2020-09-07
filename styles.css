@@ -267,7 +267,7 @@ Sign In Page
   padding:10px;
   border-radius: 15px;
   background-color: #1a1c1b;
-  
+
   margin-bottom: 20px;
   text-decoration: none;
   text-align: center;
@@ -534,6 +534,7 @@ Sign In Page
   border-radius: 15px;
   padding: 20px;
   margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .reviewWrapper{
@@ -586,6 +587,10 @@ Sign In Page
 
 #writingTextArea:focus{
   border-style: none;
+}
+
+#wordCount{
+  text-align: center;
 }
 
 #privacyCheckBoxLabel{
