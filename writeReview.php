@@ -114,6 +114,11 @@ if(isset($_GET['post_id'])){
     console.log(movie);
     moviePoster.src = "https://image.tmdb.org/t/p/w780/"+movie.poster_path;
     movieTitle.innerHTML = movie.title;
+    moviePoster.style=`cursor:pointer;`;
+    //href=
+    moviePoster.addEventListener("click",()=>{
+      window.location.href="moviePage.php?movieID="+movieID;
+    });
 
 
   })

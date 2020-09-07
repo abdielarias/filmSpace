@@ -69,7 +69,12 @@ $movieID = $_GET["movieID"];
           ';
         }
         else{
-          echo '<a class="submitButton createPostBtn" id="createReviewBtn" href="writeReview.php?movieID='.$movieID .'">Create a New Film Review</a>';
+          echo '<a class="submitButton createPostBtn" id="createReviewBtn" href="writeReview.php?movieID='.$movieID .'">Create a New Film Review</a>
+          <div id="contentText">
+            What did you think of this film?
+
+          </div>
+          ';
         }
       }
       else {

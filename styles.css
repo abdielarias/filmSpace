@@ -217,6 +217,8 @@ Sign In Page
   margin-top:100px;
   margin-bottom: 20px;
   text-decoration: none;
+  text-align: center;
+  align-self: center;
 }
 
 .submitButton:visited{
@@ -674,6 +676,10 @@ input {
   color: #ffe9d4;
   padding:20px;
   border-radius: 15px;
+}
+
+.reviewCorner a #createReviewBtn{
+  align-items: center;
 }
 
 .bottomRight{
