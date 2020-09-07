@@ -14,7 +14,7 @@ echo '
       ';
 
 //loop through the database userposts and show each of this users posts:
-$result = $conn->query("SELECT * FROM userposts WHERE private=0 ORDER BY post_date DESC");
+$result = $conn->query("SELECT * FROM userposts WHERE private=0 ORDER BY modified_date DESC");
 
 while($row = $result->fetch_assoc()){
 

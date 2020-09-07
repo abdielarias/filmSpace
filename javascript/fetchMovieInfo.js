@@ -24,10 +24,8 @@ function getMovie(movieID, postID){
     var poster = document.createElement("img");
     poster.src = "https://image.tmdb.org/t/p/w780/"+movie.poster_path;
     posterAndTitleDiv.appendChild(poster);
-    poster.style = `width:100px;`;
-
-
-
+    poster.style = `width:100px; cursor:pointer;`;
+    poster.addEventListener("click", ()=>{window.location.href = "moviePage.php?movieID="+movieID;});
 
     content.appendChild(posterAndTitleDiv);
 

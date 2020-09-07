@@ -382,6 +382,7 @@ input {
   align-items: center;
   justify-content: center;
   text-align: center;
+
 }
 
 .reviewPostContent span{
@@ -390,6 +391,12 @@ input {
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 2;
+}
+
+.posterAndTitleDiv{
+
+  border-radius: 15px;
+  padding: 20px;
 }
 
 #thumbup{
@@ -608,7 +615,7 @@ input {
 }
 
 .moviePage-title{
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .moviePage-cert{
@@ -630,7 +637,7 @@ input {
 }
 
 .moviePage-desc #year{
-  font-size: 2em;
+  font-size: 1.5em;
   color:grey;
 }
 
@@ -661,10 +668,17 @@ input {
 }
 
 .reviewCorner #contentText{
-  background-color: #ffe9d4;
-  color:black;
+  font-family: arial;
+  display: grid;
+  background-color: #1c1c1c;
+  color: #ffe9d4;
   padding:20px;
   border-radius: 15px;
+}
+
+.bottomRight{
+  justify-self: end;
+  align-self: end;
 }
 
 .moviePage-trailerDiv{

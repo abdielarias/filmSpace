@@ -77,7 +77,7 @@ if($imageLocation == "none" || $imageLocation == NULL){
   <?php
 
   //loop through the database userposts and show each of this users posts:
-  $sql = "SELECT * FROM userposts WHERE user_id=? ORDER BY post_date DESC";
+  $sql = "SELECT * FROM userposts WHERE user_id=? ORDER BY modified_date DESC";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("s", $id);
   $stmt->execute();

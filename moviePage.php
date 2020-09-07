@@ -54,8 +54,18 @@ $movieID = $_GET["movieID"];
           $modifiedDate = date_create($row['modified_date']);
           $formattedModifiedDate = date_format($modifiedDate,"g:i A - M d,Y");
 
-          echo '<div id="userName">'.$_SESSION['userName'].'\'s review:</div><div id="contentText">'.$row['content'].'</div>
-              <span class="timeOnPostedReview">last modified: '.$formattedModifiedDate.'</span>
+          echo '
+          <div id="userName">'.$_SESSION['userName'].'\'s review:</div>
+          <div id="contentText">
+            '.$row['content'].'
+            <span id="editPostIconSpan" class="bottomRight">
+              <a href="writeReview.php?post_id='.$row['post_id'].'&movieID='.$row['movie_id'].'">
+                <img src="images/pencil.png">
+              </a>
+            </span>
+          </div>
+          <span class="timeOnPostedReview">last modified: '.$formattedModifiedDate.'</span>
+
           ';
         }
         else{
@@ -64,7 +74,18 @@ $movieID = $_GET["movieID"];
       }
       else {
 
-        echo '<a class="submitButton createPostBtn" id="createReviewBtn" href="writeReview.php?movieID='.$movieID .'">Sign in to Write a Review</a>';
+        echo '
+        <div id="userName">Your review:</div>
+        <div id="contentText">
+          Sign in or create a free account to write a review. On each film page, you will readily be able to look back at your opinion of a previously seen film.
+          <span id="editPostIconSpan" class="bottomRight">
+
+
+          </span>
+        </div>
+
+
+        ';
       }
 
 
