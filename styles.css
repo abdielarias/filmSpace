@@ -644,9 +644,27 @@ input {
 }
 
 .reviewCorner{
+  box-sizing: border-box;
+  padding: 20px;
   margin:20px;
-  border-style:solid;
-  border-color: grey;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5fr;
+  justify-content: center;
+}
+
+.reviewCorner #userName{
+  color: #e37100;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.reviewCorner #contentText{
+  background-color: #ffe9d4;
+  color:black;
+  padding:20px;
+  border-radius: 15px;
 }
 
 .moviePage-trailerDiv{

@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+require 'databaseConn.php';
 $movieID = $_GET["movieID"];
 ?>
 
@@ -22,7 +23,53 @@ $movieID = $_GET["movieID"];
       </div>
     </div>
     <div class="reviewCorner">
+      <!-- IF we are logged in, php will check if a post from you for this movie exists. If it does, show it, otherwise show Create New Review BTN.
+      BUT if we are not signed in, we will show simply label that says sign in to post a review of this film -->
+      <?php
+      //Search to see if post exists
+      if(isset($_SESSION['id'])){
+        $SIGNED_IN = true;
+        $user_id = $_SESSION['id'];
+      } else {
+        $SIGNED_IN = false;
+      }
 
+      if($SIGNED_IN){
+
+        //check database for $HAS_POST = false;
+        $sql = "SELECT * FROM userposts WHERE user_id=? and movie_id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $user_id, $movieID);
+        $stmt->execute();
+        $results = $stmt->get_result();
+        $row = $results->fetch_assoc();
+        $HAS_POST = false;
+        if($row) $HAS_POST = true;
+
+        if($HAS_POST){
+
+          //setup datetime datetime objects
+          $createdDate = date_create($row['post_date']);
+          $formattedCreatedDate = date_format($createdDate,"g:i A - M d,Y");
+          $modifiedDate = date_create($row['modified_date']);
+          $formattedModifiedDate = date_format($modifiedDate,"g:i A - M d,Y");
+
+          echo '<div id="userName">'.$_SESSION['userName'].'\'s review:</div><div id="contentText">'.$row['content'].'</div>
+              <span class="timeOnPostedReview">last modified: '.$formattedModifiedDate.'</span>
+          ';
+        }
+        else{
+          echo '<a class="submitButton createPostBtn" id="createReviewBtn" href="writeReview.php?movieID='.$movieID .'">Create a New Film Review</a>';
+        }
+      }
+      else {
+
+        echo '<a class="submitButton createPostBtn" id="createReviewBtn" href="writeReview.php?movieID='.$movieID .'">Sign in to Write a Review</a>';
+      }
+
+
+
+       ?>
     </div>
   </div>
 
@@ -51,7 +98,7 @@ var genres = document.querySelector("#genres");
 var year = document.querySelector("#year");
 var releaseDate = document.querySelector("#releaseDate");
 var desc = document.querySelector("#desc");
-var reviewCorner = document.querySelector(".reviewCorner");
+// var reviewCorner = document.querySelector(".reviewCorner");
 var movieID = <?php echo $movieID; ?>;
 var movieRating = document.querySelector("#cert");
 const movieURL = "https://api.themoviedb.org/3/movie/"+movieID+"?api_key="+API_KEY+"&language=en-US";
@@ -129,13 +176,13 @@ fetch(movieURL)
   releaseDate.innerHTML = date.getDate() + " " + date.toLocaleString('default', { month: 'long' }) + " "+ date.getFullYear() + " (USA)";
 
 
-  //Create post buttonCenter <a class="submitButton createPostBtn" href="writeReview.php?movieID">Create New Film Review</a>
-  var postBtn = document.createElement("a");
-  postBtn.classList.add("submitButton");
-  postBtn.classList.add("createPostBtn");
-  postBtn.href = "writeReview.php?movieID="+movieID;
-  postBtn.innerHTML = "Write a Review";
-  reviewCorner.appendChild(postBtn);
+  //Create post button <a class="submitButton createPostBtn" href="writeReview.php?movieID">Create New Film Review</a>
+  // var postBtn = document.createElement("a");
+  // postBtn.classList.add("submitButton");
+  // postBtn.classList.add("createPostBtn");
+  // postBtn.href = "writeReview.php?movieID="+movieID;
+  // postBtn.innerHTML = "Write a Review";
+  // reviewCorner.appendChild(postBtn);
 
   //make request to get a json object with a possible trailer attached. Check if it's youtube, then show trailer with a youtube link
   fetch("https://api.themoviedb.org/3/movie/"+movieID+"/videos?api_key="+API_KEY+"&language=en-US")
@@ -281,7 +328,17 @@ fetch(creditsURL)
 .catch((err)=>console.log(err));
 
 
-
-
+//create post button event listener
+// var createBtn = document.querySelector("#createReviewBtn");
+// createBtn.addEventListener("click", (event)=>{
+//
+// event.preventDefault();
+// console.log("createBtn");
+// if(){
+//
+//
+// }
+//
+// });
 
 </script>
