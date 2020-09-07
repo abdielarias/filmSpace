@@ -8,11 +8,13 @@ include 'header.php';
 ?>
 <div class="fullscreen">
   <div class="signinPanel">
-    <p>You've signed out. That's a wrap!</p>
+    <p>That's a wrap!</p><p> Redirecting you home...</p>
     <img src="images/logoutReel.png" width="200px">
   </div>
 </div>
-
+<script>
+  setTimeout(()=>{window.location.href="index.php"}, 4000);
+</script>
 <?php
 include 'footer.php';
 ?>
