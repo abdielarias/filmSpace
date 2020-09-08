@@ -22,9 +22,10 @@ if(session_status()==PHP_SESSION_NONE) {
 
           <div id="homeBtn"><a id="homeBtnAnchor" href="index.php">practice site</a></div>
 
+
+
           <div id="navRightBlock">
             <a href="">Popular Films</a>
-            <a href="">Question of the Week</a>
             <a href="recentReviews.php">Recent Reviews</a>
             <?php
 
@@ -44,7 +45,17 @@ if(session_status()==PHP_SESSION_NONE) {
             ?>
         </div>
 
+        <div id="searchContainer"><input type="text" id="searchBox" maxlength="100" placeholder="search for a movie..."><img src="./images/searchIcon.png" alt="enter search" id="searchBtn"></div>
+        <script>
+            var searchBox = document.querySelector("#searchBox");
+            var searchBtn = document.querySelector("#searchBtn");
+            searchBtn.addEventListener("click", ()=>{window.location.href="search.php?search="+searchBox.value});
 
+            searchBox.addEventListener("keyup", ()=>{
+              if (event.keyCode === 13)
+                window.location.href="search.php?search="+searchBox.value
+            });
+        </script>
 
 
 

@@ -42,7 +42,7 @@ body{
 }
 
 #navbar div #homeBtnAnchor{
-  color: #e37100;
+  color: #d13b00;
 }
 
 #navbar a {
@@ -106,9 +106,6 @@ body{
 
 #currentImage{
   display: none;
-  /* height: 100%;
-  transition: .1s; */
-
 }
 
 .currentImage:hover{
@@ -124,11 +121,10 @@ body{
 }
 
 .leftCarouselButton{
-
   align-self: center;
   justify-self: center;
   border-radius: 10px;
-  color: white;
+  color: #ffe9d4;
   padding:20px;
   transition: .2s;
 }
@@ -139,17 +135,15 @@ body{
 }
 
 .rightCarouselButton{
-
   align-self: center;
   justify-self: center;
   border-radius: 10px;
-  color: white;
+  color: #ffe9d4;
   padding:20px;
   transition: .2s;
 }
 
 .fade{
-
   animation-name: fade;
   animation-duration: 0.2s;
 }
@@ -160,8 +154,7 @@ body{
 }
 
 #carouselTitle{
-
-  color: white;
+  color: #ffe9d4;
   grid-column-start: 2;
   grid-column-end: 3;
   align-self: center;
@@ -201,7 +194,7 @@ Sign In Page
 }
 
 .signinPanel {
-  color: #ffe9d4;
+  color: #d13b00;
   padding:10px;
   min-height: 300px;
   border-radius: 15px;
@@ -216,7 +209,7 @@ Sign In Page
 
 
 .submitButton {
-  color: #e37100;
+  color: #d13b00;
   font-weight: bold;
   display: inline-block;
   padding:10px;
@@ -261,13 +254,14 @@ Sign In Page
 
 .signinPanel form .submitButton{
   float:right;
-  color: #e37100;
-  font-weight: bold;
+  font-size: inherit;
+  font-family: inherit;
+  color: #d13b00;
+
   display: inline-block;
   padding:10px;
   border-radius: 15px;
   background-color: #1a1c1b;
-
   margin-bottom: 20px;
   text-decoration: none;
   text-align: center;
@@ -276,6 +270,8 @@ Sign In Page
 
 .signinPanel form .submitButton:hover{
   float:right;
+  color: #ffe9d4;
+  cursor: pointer;
 }
 
 /*--Profile Page --------------------------------------------------------------------*/
@@ -295,7 +291,7 @@ Sign In Page
 }
 
 .profileReviewsContainer h2{
-  color: #e37100;
+  color: #d13b00;
   float:left;
 }
 
@@ -327,7 +323,7 @@ Sign In Page
 }
 
 .profileUserName{
-  color: #e37100;
+  color: #d13b00;
   float:left;
   margin: 0;
 }
@@ -428,8 +424,12 @@ Sign In Page
   clear:both;
   align-items: center;
   justify-content: center;
-  text-align: center;
 
+
+}
+
+.reviewPostContent span{
+  text-indent: 3em;
 }
 
 .reviewPostContent span{
@@ -441,9 +441,9 @@ Sign In Page
 }
 
 .posterAndTitleDiv{
-
   border-radius: 15px;
   padding: 20px;
+  text-align: center;
 }
 
 #thumbup{
@@ -639,7 +639,7 @@ Sign In Page
 }
 
 #recentReviewsLabel{
-  color: #e37100;
+  color: #d13b00;
 }
 
 /*----------moviePage styles-------------------------------------------------*/
@@ -716,7 +716,7 @@ Sign In Page
 }
 
 .reviewCorner #userName{
-  color: #e37100;
+  color: #d13b00;
   text-align: center;
   font-size: 1.5em;
 }
@@ -764,10 +764,42 @@ Sign In Page
   display: flex;
   flex-direction: column;
   padding-left: 100px;
-  color: white;
-
-  background-color: black;
+  color: #ffe9d4;
+  background-color: #0f0f0f;
   width:60vw;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Search Box on header and Search.php styles */
+#searchContainer{
+  display: inline-grid;
+  grid-template-columns: auto 50px;
+  float: right;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+#searchBox{
+  border-radius: 15px;
+  background-color: #1c1c1c;
+  border-style: none;
+  outline: none;
+  color: #ffe9d4;
+  padding: 5px 15px 5px 15px;
+  width: 300px;
+}
+
+#searchBtn{
+  width: 20px;
+  padding:10px;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  margin-left: 10px;
+
+}
+
+#searchBtn:hover{
+  cursor: pointer;
 }

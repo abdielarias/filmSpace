@@ -179,7 +179,16 @@ fetch(movieURL)
   .catch((err) => console.log(err));
 
   //movie length
-  runtime.innerHTML = Math.trunc(movie.runtime/60)+" hr "+movie.runtime%60+" min";
+  if(movie.runtime > 0){
+    if(movie.runtime > 60){
+      runtime.innerHTML = Math.trunc(movie.runtime/60)+" hr "+movie.runtime%60+" min";
+    } else {
+      runtime.innerHTML = movie.runtime+" min";
+    }
+  }
+  else{
+    runtime.innerHTML = "runtime: TBA";
+  }
 
   //movie description
   desc.innerHTML = movie.overview;
@@ -239,7 +248,7 @@ fetch(movieURL)
   box-sizing: border-box;
   width: 100%;
   padding:20px;
-
+  
   `;
 
   title.style =  `

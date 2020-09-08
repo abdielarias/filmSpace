@@ -11,6 +11,7 @@ var leftButton;
 var currentImage = document.querySelector("#currentImage");
 var currentTitle = document.querySelector("#carouselTitle");
 var clickableMovieImage = document.querySelector(".imgWrapper");
+var timer;
 currentImage.addEventListener("click", ()=>{window.location.href = "moviePage.php?movieID="+imagesArray[imageIndex].movieID;});
 
 
@@ -61,6 +62,10 @@ function createMovieCarousel(){
 
 function rightClick(){
 
+  clearInterval(timer);
+  cycleCarousel();
+
+
   imageIndex++;
   if(imageIndex>imagesArray.length-1){
      imageIndex=0;
@@ -76,6 +81,9 @@ function rightClick(){
 }
 
 function leftClick(){
+
+  clearInterval(timer);
+  cycleCarousel();
 
   imageIndex--;
   if(imageIndex<0){
@@ -98,7 +106,10 @@ function imageAnimate(){
   setTimeout(()=>{currentImage.classList.remove("fade")}, 300);
 }
 
+
+
 function cycleCarousel(){
 
-// setInterval(rightClick, 4000);
+  timer = setInterval(rightClick, 5000);
+
 }
