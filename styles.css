@@ -803,3 +803,34 @@ Sign In Page
 #searchBtn:hover{
   cursor: pointer;
 }
+
+#searchResults{
+  clear:both;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:
+  color: #ffe9d4;
+}
+
+#searchResults img{
+  justify-self: center;
+}
+
+#searchResults img:hover{
+  cursor: pointer;
+}
+
+#searchResults h2{
+  justify-self: left;
+}
+
+#searchResults h3{
+  justify-self: left;
+}
+
+.resultPanel{
+
+  display: inline-grid;
+  grid-template-columns: 30% 30% 30%;
+  color: #ffe9d4;
+}

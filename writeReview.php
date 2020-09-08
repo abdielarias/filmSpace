@@ -53,15 +53,15 @@ if(isset($_GET['post_id'])){
         echo '<br>';
         echo '<textarea id="writingTextArea" name="content" onkeyup="displayWordCount()" maxlength="500">'.$row['content'].'</textarea>';
         echo '<br>';
-        echo '<div style="text-align:right; font-family:arial;"><span id="wordCount">0 characters. </span>(limit: 500 characters) </div>';
+        echo '<div style="text-align:right; font-family:arial; float:right;"><span id="wordCount">0 characters. </span>(limit: 500 characters)';
         echo '<br>';
         if($row['private'] == 1){
           echo '<br>';
-          echo '<div style="text-align:right; font-family:arial; display: inline-block; float:right;"><label for="isPrivate" id="privacyCheckBoxLabel">This post is private. Unselect to make public: </label>';
+          echo '<label for="isPrivate" id="privacyCheckBoxLabel">This post is private. Unselect to make public: </label>';
           echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox" checked></div>';
         } else {
           echo '<br>';
-          echo '<div style="text-align:right; display: inline-block; float:right;"><label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
+          echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
           echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox"></div>';
         }
 
@@ -72,9 +72,11 @@ if(isset($_GET['post_id'])){
         echo '<h2 id="movieTitle"></h2>';
         echo '<br>';
         echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content" onkeyup="displayWordCount()" maxlength="500"></textarea>';
-        echo '<span id="wordCount">0 characters. </span>(limit: 500 characters) ';
         echo '<br>';
         echo '<div style="text-align:right; font-family:arial; display: inline-block; float:right;">';
+        echo '<span id="wordCount">0 characters. </span>(limit: 500 characters) ';
+        echo '<br>';
+        echo '<br>';
         echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
         echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox"></div>';
       }
