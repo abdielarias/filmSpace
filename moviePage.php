@@ -137,7 +137,12 @@ fetch(movieURL)
 
   //movie poster
   var poster = document.createElement("img");
-  poster.src = "https://image.tmdb.org/t/p/w780/"+movie.poster_path;
+  if(movie.poster_path){
+    poster.src = "https://image.tmdb.org/t/p/w780/"+movie.poster_path;
+  }
+  else{
+      poster.src = "./images/noPosterBig.jpg";
+  }
   posterDiv.appendChild(poster);
 
   //title
@@ -248,7 +253,7 @@ fetch(movieURL)
   box-sizing: border-box;
   width: 100%;
   padding:20px;
-  
+
   `;
 
   title.style =  `

@@ -190,7 +190,7 @@ Sign In Page
 */
 
 .fullscreen{
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .signinPanel {
@@ -756,6 +756,7 @@ Sign In Page
   /* 16:9 aspect ratio */
   padding-top: 56.25%;
   position: relative;
+  background-color: #1c1c1c;
 }
 
 .moviePage-credits{
@@ -769,6 +770,8 @@ Sign In Page
   width:60vw;
   margin-left: auto;
   margin-right: auto;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 /* Search Box on header and Search.php styles */
@@ -808,29 +811,47 @@ Sign In Page
   clear:both;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows:
+  max-width: 50%;
   color: #ffe9d4;
+  margin-right: auto;
+  margin-left: auto;
+
 }
 
 #searchResults img{
   justify-self: center;
-}
-
-#searchResults img:hover{
-  cursor: pointer;
+  align-self: center;
 }
 
 #searchResults h2{
   justify-self: left;
+  align-self: center;
 }
 
 #searchResults h3{
   justify-self: left;
+  align-self: center;
 }
 
 .resultPanel{
-
+  background-color: #0f0f0f;
   display: inline-grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 30% 50% 20%;
   color: #ffe9d4;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  height: 150px;
+
+}
+
+.resultPanel:hover{
+  cursor: pointer;
+}
+
+.pagination{
+  color: #ffe9d4;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
