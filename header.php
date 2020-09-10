@@ -25,7 +25,7 @@ if(session_status()==PHP_SESSION_NONE) {
 
 
           <div id="navRightBlock">
-            <a href="">Popular Films</a>
+            <a href="popularFilms.php">Popular Films</a>
             <a href="recentReviews.php">Recent Reviews</a>
             <?php
 

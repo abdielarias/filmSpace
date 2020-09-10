@@ -21,6 +21,15 @@ $movieID = $_GET["movieID"];
       </div>
       <div id="desc">
       </div>
+      <div id="directorWriter">
+        <div id="writer">
+          Writer: <br><br>
+        </div>
+
+        <div id="director">
+          Director: <br><br>
+        </div>
+      </div>
     </div>
     <div class="reviewCorner">
       <!-- IF we are logged in, php will check if a post from you for this movie exists. If it does, show it, otherwise show Create New Review BTN.
@@ -69,7 +78,7 @@ $movieID = $_GET["movieID"];
           ';
         }
         else{
-          echo '<a class="submitButton createPostBtn" id="createReviewBtn" href="writeReview.php?movieID='.$movieID .'">Create a New Film Review</a>
+          echo '<a class="submitButton marginZero" id="createReviewBtn" href="writeReview.php?movieID='.$movieID .'">Create a New Film Review</a>
           <div id="contentText">
             What did you think of this film?
 
@@ -105,7 +114,8 @@ $movieID = $_GET["movieID"];
   </div>
 
   <div class="moviePage-credits">
-
+    <div class="creditsWrapper">
+    </div>
   </div>
 </div>
 
@@ -124,7 +134,8 @@ var genres = document.querySelector("#genres");
 var year = document.querySelector("#year");
 var releaseDate = document.querySelector("#releaseDate");
 var desc = document.querySelector("#desc");
-// var reviewCorner = document.querySelector(".reviewCorner");
+var writer = document.querySelector("#writer");
+var director = document.querySelector("#director");
 var movieID = <?php echo $movieID; ?>;
 var movieRating = document.querySelector("#cert");
 const movieURL = "https://api.themoviedb.org/3/movie/"+movieID+"?api_key="+API_KEY+"&language=en-US";
@@ -137,6 +148,7 @@ fetch(movieURL)
 
   //movie poster
   var poster = document.createElement("img");
+  poster.classList.add("moviePage-poster");
   if(movie.poster_path){
     poster.src = "https://image.tmdb.org/t/p/w780/"+movie.poster_path;
   }
@@ -215,15 +227,6 @@ fetch(movieURL)
   let date = new Date(dateArray[0], dateArray[1]-1, dateArray[2]);
   releaseDate.innerHTML = date.getDate() + " " + date.toLocaleString('default', { month: 'long' }) + " "+ date.getFullYear() + " (USA)";
 
-
-  //Create post button <a class="submitButton createPostBtn" href="writeReview.php?movieID">Create New Film Review</a>
-  // var postBtn = document.createElement("a");
-  // postBtn.classList.add("submitButton");
-  // postBtn.classList.add("createPostBtn");
-  // postBtn.href = "writeReview.php?movieID="+movieID;
-  // postBtn.innerHTML = "Write a Review";
-  // reviewCorner.appendChild(postBtn);
-
   //make request to get a json object with a possible trailer attached. Check if it's youtube, then show trailer with a youtube link
   fetch("https://api.themoviedb.org/3/movie/"+movieID+"/videos?api_key="+API_KEY+"&language=en-US")
   .then((res) => res.json())
@@ -232,41 +235,14 @@ fetch(movieURL)
     if(site == "YouTube"){
       //create iframe & embed
       var iframe = document.createElement("iframe");
+      iframe.classList.add("moviePage-iFrame");
       iframe.src = "https://www.youtube.com/embed/"+trailer.results[0].key;
       iframeWrapper.appendChild(iframe);
       console.log("width"+iframe.width);
-      iframe.style = `
-      position: absolute;
-      border: 0;
-      height: 100%;
-      left: 0;
-      top: 0;
-      width: 100%;
-      `;
 
     }
   });
 
-  //run a new stylesheet for the new elements:
-  poster.style = `
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  padding:20px;
-
-  `;
-
-  title.style =  `
-  box-sizing: border-box;
-  color:#ffe9d4;
-
-  `;
-
-  descDiv.style = `
-  box-sizing: border-box;
-  font-family: arial;
-  width: 100%;
-  `
 
 })
 .catch((error)=>{console.log(error);});
@@ -277,7 +253,7 @@ fetch(movieURL)
 var creditsURL = "https://api.themoviedb.org/3/movie/"+movieID+"/credits?api_key="+API_KEY;
 var castArray;
 var crewArray;
-var creditsDiv = document.querySelector(".moviePage-credits");
+var creditsDiv = document.querySelector(".creditsWrapper");
 
 
 fetch(creditsURL)
@@ -331,31 +307,19 @@ fetch(creditsURL)
 
 
     creditsDiv.appendChild(personPanel);
-  }
 
+    //If position is director...append
+    if(crewArray[i].job == "Director"){
+      director.innerHTML += crewArray[i].name;
+      director.innerHTML += "<br>";
+    }
 
+    //If position is writer...append
+    if(crewArray[i].job == "Writer" || crewArray[i].job == "Screenplay" || crewArray[i].job == "Screenwriter"){
+      writer.innerHTML += crewArray[i].name;
+      writer.innerHTML += "<br>";
+    }
 
-  var castClassElements = document.querySelectorAll(".cast");
-
-  for(let i=0;i<castClassElements.length;i++){
-    castClassElements[i].style = `
-
-      display: grid;
-      grid-template-columns: 1fr 8fr;
-      padding: 10px;
-      margin-left:40px;
-      align-items: center;
-    `;
-  }
-
-  var crewClassElements = document.querySelectorAll(".crew");
-
-  for(let i=0;i<crewClassElements.length;i++){
-    crewClassElements[i].style = `
-
-    padding: 10px;
-    margin-left:40px;
-    `;
   }
 
   //finally, add the footer:

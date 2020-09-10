@@ -85,7 +85,7 @@ if(isset($_GET['post_id'])){
 
       <br>
       <div class="buttonCenter">
-        <a href="profile.php" class="submitButton">Previous</a>
+        <a href="profile.php" class="submitButton">Cancel</a>
         <input type="submit" class="submitButton postBtn"  name="submitReviewBtn" value="Submit Post">
       </div>
     </form>

@@ -532,7 +532,7 @@ Sign In Page
 }
 
 .reviewFormContainer{
-  width: 600px;
+  width: 700px;
   margin:auto;
   background-color: #0f0f0f;
   color: #ffe9d4;
@@ -581,7 +581,7 @@ Sign In Page
   outline: none;
   resize: none;
   width: 95%;
-  height: 200px;
+  height: 100px;
   display: block;
   margin:0;
   background-color: #1c1c1c;
@@ -701,8 +701,11 @@ Sign In Page
   color: #ffe9d4;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 2fr;
+  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
   align-items: center;
+  font-family: arial;
+  width: 100%;
+  padding-top: 20px;
 }
 
 .moviePage-desc #year{
@@ -717,6 +720,26 @@ Sign In Page
 .moviePage-desc #desc{
   /* width:50%; */
   align-self: start;
+
+}
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#directorWriter{
+
+
+}
+
+#director{
+  float: left;
+}
+
+#writer{
+  float: right;
 }
 
 .reviewCorner{
@@ -743,6 +766,7 @@ Sign In Page
   color: #ffe9d4;
   padding:20px;
   border-radius: 15px;
+  height: 315px;
 }
 
 .reviewCorner a #createReviewBtn{
@@ -779,7 +803,7 @@ Sign In Page
   font-family: arial;
   display: flex;
   flex-direction: column;
-  padding-left: 100px;
+
   color: #ffe9d4;
   background-color: #0f0f0f;
   width:60vw;
@@ -787,6 +811,16 @@ Sign In Page
   margin-right: auto;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
+}
+
+.creditsWrapper{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.marginZero{
+  margin: 0;
 }
 
 /* Search Box on header and Search.php styles */
@@ -866,10 +900,51 @@ Sign In Page
   color: rgb(255, 245, 235);
 }
 
-.pagination{
-  color: #ffe9d4;
-  width: 250px;
-  margin-left: auto;
-  margin-right: auto;
+#loadMoreBtn:hover{
+  cursor: pointer;
 
+}
+
+/* Popular Movies page */
+#popularFilmsBanner{
+  background-color: #0f0f0f;
+  text-align: center;
+  min-height: 100px;
+  padding:20px;
+  font-size: 2.5em;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+#popularFilmsLabel{
+  color: #d13b00;
+}
+
+.cast{
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  padding: 10px;
+  margin-left:40px;
+  align-items: center;
+}
+
+.crew{
+  padding: 10px;
+  margin-left:40px;
+}
+
+.moviePage-poster{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding:20px;
+}
+
+.moviePage-iFrame{
+  position: absolute;
+  border: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
 }

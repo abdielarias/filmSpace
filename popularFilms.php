@@ -3,18 +3,19 @@ include 'header.php';
 ?>
 
 <div class="fullscreen">
-  <div id="searchResults">
-
+  <div id="popularFilmsBanner">
+    <h2 id="popularFilmsLabel">Popular Films</h2>
   </div>
 
-  <div class="pagination">
+  <div id="searchResults">
+
   </div>
 </div>
 
 
 <script>
 
-var searchQuery = "<?php echo $_GET['search'] ?>";
+
 var resultContainer = document.querySelector("#searchResults");
 var pageNum = 1;
 
@@ -37,7 +38,7 @@ loadMoreBtn.addEventListener("click", ()=>{
 function fetchResults(pageNum){
 
   const API_KEY = "6109ef65464c6279114456237b791d38";
-  const searchURL = "https://api.themoviedb.org/3/search/movie?api_key="+API_KEY+"&language=en-US&query="+searchQuery+"&page="+pageNum;
+  const searchURL = "https://api.themoviedb.org/3/movie/popular?api_key="+API_KEY+"&language=en-US&page="+pageNum;
 
   fetch(searchURL)
     .then((response) => response.json())
@@ -86,6 +87,7 @@ function fetchResults(pageNum){
   }
 
   fetchResults(pageNum);
+
 
 
 
