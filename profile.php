@@ -21,6 +21,7 @@ if($imageLocation == "none" || $imageLocation == NULL){
 
 
 <div class="profileTopPanel">
+  
   <div class="profileImgPanel">
     <img id="profileImg" src="<?php echo $imageLocation ?>">
 
