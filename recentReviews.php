@@ -9,8 +9,11 @@ if(isset($_SESSION['id'])){
 } else $id = null;
 
 echo '
+      <div id="recentReviewsBanner">
+        <h2 id="recentReviewsLabel">Recent Reviews</h2>
+      </div>
+      
       <div class="recentReviewsTimeline">
-      <h2 id="recentReviewsLabel">Recent Reviews</h2>
       ';
 
 //loop through the database userposts and show each of this users posts:
