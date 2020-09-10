@@ -22,13 +22,16 @@ $movieID = $_GET["movieID"];
       <div id="desc">
       </div>
       <div id="directorWriter">
-        <div id="writer">
-          Writer: <br><br>
+        <div style="margin:5px;">
+          <div style="height:100%;float: left;">Director:&nbsp;&nbsp;&nbsp;</div>
+          <div id="director" style="float: left;"></div>
+        </div>
+        <br><br>
+        <div style="margin:5px;">
+          <div style="height:100%;float: left;">Writer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          <div id="writer" style="float: left;"></div>
         </div>
 
-        <div id="director">
-          Director: <br><br>
-        </div>
       </div>
     </div>
     <div class="reviewCorner">
@@ -89,9 +92,9 @@ $movieID = $_GET["movieID"];
       else {
 
         echo '
-        <div id="userName">Your review:</div>
+        <div id="userName">Your Review:</div>
         <div id="contentText">
-          Sign in or create a free account to write a review. On each film page, you will readily be able to look back at your opinion of a previously seen film.
+          Sign in or create a free account to write a review. On each film\'s page, you will be able to see your review of a previously seen film.
           <span id="editPostIconSpan" class="bottomRight">
 
 

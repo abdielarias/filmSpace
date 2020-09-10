@@ -701,7 +701,7 @@ Sign In Page
   color: #ffe9d4;
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   align-items: center;
   font-family: arial;
   width: 100%;
@@ -730,16 +730,16 @@ Sign In Page
 }
 
 #directorWriter{
-
+  overflow: auto;
 
 }
 
 #director{
-  float: left;
+
 }
 
 #writer{
-  float: right;
+
 }
 
 .reviewCorner{
