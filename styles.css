@@ -685,11 +685,13 @@ Sign In Page
 
 .moviePage-title{
   font-size: 2em;
+  font-weight: bold;
 }
 
 .moviePage-cert{
   display: flex;
   flex-direction: row;
+  font-size: .8em;
 }
 
 .moviePage-cert span{
@@ -699,9 +701,9 @@ Sign In Page
 .moviePage-desc{
   box-sizing: border-box;
   color: #ffe9d4;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr; */
+  margin-bottom: 25px;
   align-items: center;
   font-family: arial;
   width: 100%;
@@ -717,10 +719,15 @@ Sign In Page
   padding-top: 20px;
 }
 
+#genres{
+  font-size: .8em;
+}
+
 .moviePage-desc #desc{
   /* width:50%; */
   align-self: start;
-
+  font-size: .8em;
+  font-family: verdana, arial, sans-serif;
 }
 
 .center{
@@ -731,7 +738,7 @@ Sign In Page
 
 #directorWriter{
   overflow: auto;
-
+  font-size: .8em;
 }
 
 #director{
@@ -745,8 +752,7 @@ Sign In Page
 .reviewCorner{
   box-sizing: border-box;
   padding: 20px;
-  margin:20px;
-
+  /* margin:0px 20px 20px 20px; */
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 5fr;
@@ -760,13 +766,14 @@ Sign In Page
 }
 
 .reviewCorner #contentText{
-  font-family: arial;
+  font-family: verdana;
+  font-size: .8em;
   display: grid;
   background-color: #1c1c1c;
   color: #ffe9d4;
   padding:20px;
   border-radius: 15px;
-  height: 315px;
+  min-height: 180px;
 }
 
 .reviewCorner a #createReviewBtn{
@@ -934,6 +941,12 @@ Sign In Page
 }
 
 .moviePage-poster{
+
+
+  /* padding:20px; */
+}
+
+.moviePage-poster-img{
   display: block;
   box-sizing: border-box;
   width: 100%;

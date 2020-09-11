@@ -7,8 +7,13 @@ include 'header.php';
 
   </div>
 
-  <div class="pagination">
-  </div>
+  <?php
+
+  if($_GET['search'] == ""){
+    echo '<p style="text-align:center; color:white;">Please type a title or a keyword in the search bar above to find a movie.</p>';
+  }
+
+  ?>
 </div>
 
 

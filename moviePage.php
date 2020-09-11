@@ -12,15 +12,15 @@ $movieID = $_GET["movieID"];
         <span class="moviePage-title">
         </span>
         <span id="year"></span>
-        <div id="genres"></div>
+        <div id="genres"></div><br>
       </div>
       <div class="moviePage-cert">
         <span id="cert"></span>
         <span id="runtime"></span>
         <span id="releaseDate"></span>
-      </div>
+      </div><br><br>
       <div id="desc">
-      </div>
+      </div><br><br>
       <div id="directorWriter">
         <div style="margin:5px;">
           <div style="height:100%;float: left;">Director:&nbsp;&nbsp;&nbsp;</div>
@@ -151,9 +151,9 @@ fetch(movieURL)
 
   //movie poster
   var poster = document.createElement("img");
-  poster.classList.add("moviePage-poster");
+  poster.classList.add("moviePage-poster-img");
   if(movie.poster_path){
-    poster.src = "https://image.tmdb.org/t/p/w780/"+movie.poster_path;
+    poster.src = "https://image.tmdb.org/t/p/w500/"+movie.poster_path;
   }
   else{
       poster.src = "./images/noPosterBig.jpg";
