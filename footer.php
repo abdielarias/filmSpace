@@ -2,7 +2,7 @@
 
 ?>
 <footer>
-This product uses the TMDb API but is not endorsed or certified by TMDb.
+  <span id="cred">a website by Abdiel Arias-Santiago</span>
 </footer>
 
 </body>
