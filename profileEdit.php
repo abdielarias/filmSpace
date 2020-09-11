@@ -18,13 +18,14 @@ if($imageName == "none" OR $imageName == NULL){
 
   <div class="profileTopPanel">
     <div class="profileImgPanel">
-      <img id="profileImg" src="<?php echo $imageName ?>">
-      <h1 class="profileUserName"><?php echo  $userName ?></h1>
-      <div class="uploadCaption">
-
+      <a href="profile.php"><img id="profileImg" src="<?php echo $imageName ?>"></a>
+      <br>
+      Edit your profile picture by selecting a file to upload.
+      <div class="uploadPicForm">
+        <br><br><br>
           <form action="profileEditVerify.php" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file"><br>
-            <button type="submit" name="uploadProfileImgBtn">Save</button>
+            <input type="file" name="file" value="foo" class="submitButton" style="margin:0;cursor:pointer;"><br><br>
+            <button type="submit" name="uploadProfileImgBtn" class="submitButton" style="margin:0;cursor:pointer;">Save</button>
           </form>
 
 
@@ -32,7 +33,7 @@ if($imageName == "none" OR $imageName == NULL){
     </div>
   </div>
 
-  <div class="aboutPanel">
+  <!-- <div class="aboutPanel">
 
     <h1 id="aboutMe">Bio:</h1>
     <textarea type="text" name="bio" style="display:inline-block;">
@@ -44,7 +45,7 @@ if($imageName == "none" OR $imageName == NULL){
         deserunt mollit anim id est laborum.
     </textarea>
 
-  </div>
+  </div> -->
 
 
         <?php

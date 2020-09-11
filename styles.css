@@ -219,11 +219,11 @@ Sign In Page
   padding:10px;
   border-radius: 15px;
   background-color: #1a1c1b;
-  margin-top:100px;
-  margin-bottom: 20px;
   text-decoration: none;
   text-align: center;
   align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .submitButton:visited{
@@ -310,11 +310,21 @@ Sign In Page
 }
 
 .profileImgPanel{
-  width: 150px;
+  width: 300px;
   overflow: hidden;
   padding: 20px;
-  float: left;
-  margin-left: 30px;
+  text-align: center;
+}
+
+#picToolTip{
+  visibility: hidden;
+  color: white;
+  text-align: center;
+
+}
+
+#picToolTip:hover{
+
 }
 
 #profileImg{
@@ -327,10 +337,15 @@ Sign In Page
   font-size: 10pt;
 }
 
+.uploadPicForm{
+
+}
+
 .profileUserName{
   color: #d13b00;
-  float:left;
+  text-align: center;
   margin: 0;
+
 }
 
 .aboutPanel{
@@ -661,8 +676,11 @@ Sign In Page
 /*----------moviePage styles-------------------------------------------------*/
 
 .moviePage{
-  height: 90vh;
-
+  min-height: 90vh;
+  width: 1000px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .moviePage-topBanner{
@@ -671,10 +689,7 @@ Sign In Page
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  width: 60vw;
   margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
   background-color: #0f0f0f;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
@@ -692,7 +707,7 @@ Sign In Page
 .moviePage-cert{
   display: flex;
   flex-direction: row;
-  font-size: .8em;
+  font-size: .7em;
 }
 
 .moviePage-cert span{
@@ -706,7 +721,7 @@ Sign In Page
   grid-template-columns: 1fr; */
   margin-bottom: 25px;
   align-items: center;
-  font-family: arial;
+  font-family: verdana, arial, sans-serif;
   width: 100%;
   padding-top: 20px;
 }
@@ -759,6 +774,7 @@ Sign In Page
   grid-template-rows: 10% auto; */
   justify-content: center;
   grid-row-gap: 15px;
+  text-align: center;
 }
 
 .reviewCorner #userName{
@@ -778,11 +794,14 @@ Sign In Page
   padding:20px;
   border-radius: 15px;
   height: 300px;
-  width: 275px;
+  
+  text-align: left;
 }
 
 .reviewCorner a #createReviewBtn{
-  align-items: center;
+  display: block;
+  margin: auto;
+  text-align: center;
 }
 
 .bottomRight{
@@ -795,8 +814,6 @@ Sign In Page
   display: grid;
   grid-template-columns: 1fr;
   box-sizing: border-box;
-
-  width: 60vw;
   margin-left: auto;
   margin-right: auto;
   background-color: black;
@@ -815,12 +832,8 @@ Sign In Page
   font-family: arial;
   display: flex;
   flex-direction: column;
-
   color: #ffe9d4;
   background-color: #0f0f0f;
-  width:60vw;
-  margin-left: auto;
-  margin-right: auto;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
@@ -861,11 +874,13 @@ Sign In Page
   background-color: #1c1c1c;
   border-radius: 15px;
   margin-left: 10px;
+  opacity: 80%;
 
 }
 
 #searchBtn:hover{
   cursor: pointer;
+  opacity: 100%;
 }
 
 #searchResults{

@@ -21,12 +21,32 @@ if($imageLocation == "none" || $imageLocation == NULL){
 
 
 <div class="profileTopPanel">
-  
+
   <div class="profileImgPanel">
-    <img id="profileImg" src="<?php echo $imageLocation ?>">
+    <a href="profileEdit.php"><img id="profileImg" src="<?php echo $imageLocation ?>"></a>
 
     <div class="uploadCaption">
-        <a href="profileEdit.php"><img id="uploadIcon" src="images/uploadIcon.png"></a>
+
+        <h1 class="profileUserName"><?php echo  $userName;?></h1>
+        <p id="picToolTip">Click to change profile pic.</p>
+
+        <script>
+          var img = document.querySelector("#profileImg");
+          var tooltip = document.querySelector("#picToolTip");
+
+          img.addEventListener("mouseover", ()=>{
+            console.log("hovered");
+              tooltip.style=`visibility: visible;`;
+          });
+
+          img.addEventListener("mouseout", ()=>{
+            console.log("hovered");
+              tooltip.style=`visibility: hidden;`;
+          });
+
+        </script>
+
+
         <?php
         if(isset($_GET['message'])){
           if($_GET['message'] == "success"){
@@ -43,27 +63,7 @@ if($imageLocation == "none" || $imageLocation == NULL){
     </div>
   </div>
 
-  <div class="aboutPanel">
 
-    <h1 class="profileUserName"><?php echo  $userName;?></h1>
-    <br><br><br>
-
-    <p>
-      <?php
-      //loop through the database users and show the user's about me info:
-
-      $sql = "SELECT * FROM users WHERE id=?";
-      $stmt = $conn->prepare($sql);
-      $stmt->bind_param("i", $id);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $row = $result->fetch_assoc();
-
-      echo $row['about_me'];
-
-       ?>
-    </p>
-  </div>
 </div>
 
 <script src = "./javascript/fetchMovieInfo.js"></script>
