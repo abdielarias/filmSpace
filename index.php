@@ -15,7 +15,19 @@ include 'header.php';
     </div>
   </div>
 </div>
+<h1 id="featureTitle">Features of this site:</h1>
+<div class="featuresBanner">
+  <div class="featuresPanel">
 
+  </div>
+  <div class="featuresPanel">
+    <h1></h1>
+  </div>
+  <div class="featuresPanel">
+    <h1></h1>
+  </div>
+</div>
+<br><br><br>
 <script src="./javascript/indexAPIcalls.js"></script>
 <script src="./javascript/carousel.js"></script>
 

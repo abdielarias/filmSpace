@@ -41,6 +41,7 @@ include 'header.php';
       }
   }
    ?>
+   <br><br><br>
     <div class="center">
      <a class="submitButton" href="signin.php">Sign In</a>
      <a class="submitButton" href="createAccount.php">Create Account</a>

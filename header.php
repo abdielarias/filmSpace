@@ -20,7 +20,8 @@ if(session_status()==PHP_SESSION_NONE) {
       <nav id="navbar">
 
 
-          <div id="homeBtn"><a id="homeBtnAnchor" href="index.php">practice site</a></div>
+          <div id="homeBtn"><a id="homeBtnAnchor" href="index.php"><img id="headerLogo" src="./images/cube.png" >
+            <span style="align-self:center;border-bottom-style:solid;border-bottom-color: #8c2800;">Film Space</span></a></div>
 
 
 
