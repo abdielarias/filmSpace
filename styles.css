@@ -367,14 +367,15 @@ Sign In Page
 
 .postedReviewOnProfile{
   font-size: 1em;
-  font-family: arial;
+  font-family: verdana, arial, sans-serif;
   padding:15px;
   clear:both;
   text-align: left;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   background-color: #1c1c1c;
   color: #ffe9d4;
   border-radius: 15px;
@@ -753,19 +754,22 @@ Sign In Page
   box-sizing: border-box;
   padding: 20px;
   /* margin:0px 20px 20px 20px; */
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 10% auto; */
   justify-content: center;
+  grid-row-gap: 15px;
 }
 
 .reviewCorner #userName{
   color: #d13b00;
   text-align: center;
   font-size: 1.5em;
+  padding:10px;
 }
 
 .reviewCorner #contentText{
+  box-sizing: border-box;
   font-family: verdana;
   font-size: .8em;
   display: grid;
@@ -773,7 +777,8 @@ Sign In Page
   color: #ffe9d4;
   padding:20px;
   border-radius: 15px;
-  min-height: 180px;
+  height: 300px;
+  width: 275px;
 }
 
 .reviewCorner a #createReviewBtn{

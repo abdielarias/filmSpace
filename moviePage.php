@@ -94,8 +94,8 @@ $movieID = $_GET["movieID"];
         echo '
         <div id="userName">Your Review:</div>
         <div id="contentText">
-          Sign in or create a free account to write a review. On each film\'s page, you will be able to see your review of a previously seen film.
-          <span id="editPostIconSpan" class="bottomRight">
+          Sign in or create a free account to write a review.
+          
 
 
           </span>
