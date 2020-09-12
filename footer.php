@@ -2,7 +2,8 @@
 
 ?>
 <footer>
-  <span id="cred">a website by Abdiel Arias-Santiago</span>
+  <span id="cred">&nbsp;&nbsp;&nbsp;a website by Abdiel Arias-Santiago</span><br><br>
+This product uses the TMDb API but is not endorsed or certified by TMDb.
 </footer>
 
 </body>

@@ -108,7 +108,7 @@ header{
 /* Carousel styles ------------------------------------------------------------*/
 .hero{
   box-sizing: border-box;
-  height: 70vh;
+  height: 90vh;
   background-color: black;
   clear: both;
 }
@@ -230,12 +230,17 @@ header{
 
 .featuresPanel{
   width: 350px;
-  height: 150px;
-  background-color: #0f0f0f;
+  height: 200px;
+  background-color: #1c1c1c;
   color: #d13b00;
   align-self: center;
   justify-self: center;
   border-radius: 15px;
+}
+
+.featuresPanel ul{
+  color: #ffe9d4;
+  font-family: verdana, arial;
 }
 
 footer{
