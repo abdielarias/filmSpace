@@ -29,9 +29,9 @@ include 'header.php';
     <div class="featuresPanel">
       <h3 style="text-align: center;">Search</h3>
       <ul>
-        <li>search bar</li>
-        <li>search results page</li>
-        <li>Uses The Movie Database API</li>
+        <li>Search bar</li>
+        <li>Search results page</li>
+        <li>TMDb API</li>
         <li>"load more" button for dynamic JS fetching</li>
       </ul>
     </div>

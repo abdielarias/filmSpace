@@ -40,7 +40,7 @@ include 'header.php';
      ?>
 
       <input type="password" name="password" placeholder="Password"><br>
-      <input type="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password"><br>
+      <input type="password" name="passwordConfirm" placeholder="Confirm Password"><br>
       <input type="submit" name="submitButton" value="submit" class="submitButton"><br>
     </form>
 
