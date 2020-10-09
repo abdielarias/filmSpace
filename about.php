@@ -42,6 +42,7 @@ include 'header.php';
         <li>view a stream of public reviews</li>
         <li>ability to make reviews private</li>
         <li>like or dislike reviews</li>
+        <li>All handled with AJAX</li>
       </ul>
     </div>
   </div>

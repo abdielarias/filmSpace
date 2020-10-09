@@ -13,6 +13,7 @@ if(session_status()==PHP_SESSION_NONE) {
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/cube.png"/>
   </head>
   <body>
     <header>
@@ -28,7 +29,7 @@ if(session_status()==PHP_SESSION_NONE) {
           <div id="navRightBlock">
             <a href="popularFilms.php">Popular Films</a>
             <a href="recentReviews.php">Recent Reviews</a>
-            <a href="about.php">About</a>
+            <!-- <a href="about.php">About</a> -->
             <?php
 
               if(isset($_SESSION['isLogged'])){
