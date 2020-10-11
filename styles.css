@@ -1,6 +1,8 @@
-/* Css
-index page
-*/
+@font-face {
+  font-family: Sora;
+  src: url(sora/static/sora-extrabold.ttf);
+}
+
 body{
   margin: 0;
   background-color: black;
@@ -197,12 +199,14 @@ header{
 }
 
 #carouselTitle{
+  text-align: center;
   color: #ffe9d4;
   grid-column-start: 2;
   grid-column-end: 3;
   align-self: center;
   justify-self: center;
   letter-spacing: .3em;
+  font-size: 1.2em;
 }
 
 .imgWrapper{
@@ -772,6 +776,7 @@ Sign In Page
 
 .moviePage-title{
   font-size: 2em;
+  font-family: "Sora";
   font-weight: bold;
 }
 
@@ -798,7 +803,8 @@ Sign In Page
 }
 
 .moviePage-desc #year{
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
+  font-weight: bold;
   color:grey;
 }
 
@@ -939,19 +945,38 @@ Sign In Page
 }
 
 #searchResults h2{
+  font-size: 1.2em;
   justify-self: left;
   align-self: center;
 }
 
 #searchResults h3{
-  justify-self: left;
+  font-size: .9em;
+  justify-self: center;
   align-self: center;
+}
+
+#searchResults h4{
+  text-align: center;
+  font-size: .8em;
+  justify-self: center;
+  align-self: center;
+  padding:10px;
+}
+
+.tmdbScore{
+  font-size: 2em;
+  justify-self: center;
+  text-align: center;
+  color: #d13b00;
+  font-family: "Sora", Verdana;
 }
 
 .resultPanel{
   background-color: rgb(15, 15, 15);
   display: inline-grid;
-  grid-template-columns: 30% 50% 20%;
+  justify-content: center;
+  grid-template-columns: 30% 30% 20% 20%;
   color: #ffe9d4;
   border-radius: 15px;
   margin-bottom: 5px;
@@ -1000,9 +1025,17 @@ Sign In Page
 }
 
 .moviePage-poster{
-
-
   /* padding:20px; */
+}
+
+#moviePageScore{
+  display: grid;
+  grid-template-rows:auto auto;
+  background-color: #1c1c1c;
+  padding:10px;
+  border-radius: 15px;
+  color: #ffe9d4;
+  /* font-size: .8em; */
 }
 
 .moviePage-poster-img{

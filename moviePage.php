@@ -11,14 +11,15 @@ $movieID = $_GET["movieID"];
       <div>
         <span class="moviePage-title">
         </span>
-        <span id="year"></span>
+        <span id="year"></span>&nbsp;&nbsp;<br>
         <div id="genres"></div><br>
       </div>
       <div class="moviePage-cert">
         <span id="cert"></span>
         <span id="runtime"></span>
         <span id="releaseDate"></span>
-      </div><br><br>
+      </div>
+      <br><br>
       <div id="desc">
       </div><br><br>
       <div id="directorWriter">
@@ -35,6 +36,7 @@ $movieID = $_GET["movieID"];
       </div>
     </div>
     <div class="reviewCorner">
+      <div id="moviePageScore"></div>
       <!-- IF we are logged in, php will check if a post from you for this movie exists. If it does, show it, otherwise show Create New Review BTN.
       BUT if we are not signed in, we will show simply label that says sign in to post a review of this film -->
       <?php
@@ -140,6 +142,7 @@ var releaseDate = document.querySelector("#releaseDate");
 var desc = document.querySelector("#desc");
 var writer = document.querySelector("#writer");
 var director = document.querySelector("#director");
+var moveScore = document.querySelector("#moviePageScore");
 var movieID = <?php echo $movieID; ?>;
 var movieRating = document.querySelector("#cert");
 const movieURL = "https://api.themoviedb.org/3/movie/"+movieID+"?api_key="+API_KEY+"&language=en-US";
@@ -210,6 +213,9 @@ fetch(movieURL)
   else{
     runtime.innerHTML = "runtime: TBA";
   }
+
+  //TMDB Score
+  moveScore.innerHTML = "<span class='tmdbScore'>"+movie.vote_average+"</span> <span style='text-align:center;font-size:.8em;'>TMDb Average Score</span>";
 
   //movie description
   desc.innerHTML = movie.overview;

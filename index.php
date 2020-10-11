@@ -12,7 +12,7 @@ include 'header.php';
         <img src="" id="currentImage" alt="api carousel">
       </div>
         <span class="rightCarouselButton">&#10095;</span>
-      <span id="carouselTitle">Title</span>
+      <div id="carouselTitle"></div>
     </div>
   </div>
 </div>

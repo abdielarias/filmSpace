@@ -11,8 +11,7 @@ if(session_status()==PHP_SESSION_NONE) {
     <meta charset="utf-8">
     <title>Film Space</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <!-- <link href="Sora/static/Sora-ExtraBold.ttf" rel="stylesheet"> -->
     <link rel="icon" type="image/png" href="images/cube.png"/>
   </head>
   <body>
@@ -20,15 +19,17 @@ if(session_status()==PHP_SESSION_NONE) {
 
       <nav id="navbar">
 
-
           <div id="homeBtn"><a id="homeBtnAnchor" href="index.php"><img id="headerLogo" src="./images/cube.png" >
             <span style="align-self:center;border-bottom-style:solid;border-bottom-color: #8c2800;">Film Space</span></a></div>
 
 
 
           <div id="navRightBlock">
-            <a href="popularFilms.php">Popular Films</a>
+            <a href="popularFilms.php">Most Popular</a>
+            <a href="topRated.php">Top Rated</a>
+            <a href="nowPlaying.php">Now Playing</a>
             <a href="recentReviews.php">Recent Reviews</a>
+
             <!-- <a href="about.php">About</a> -->
             <?php
 

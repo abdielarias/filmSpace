@@ -4,7 +4,7 @@ include 'header.php';
 
 <div class="fullscreen">
   <div id="popularFilmsBanner">
-    <h2 id="popularFilmsLabel">Most Popular Films</h2>
+    <h2 id="popularFilmsLabel">Now Playing</h2>
   </div>
 
   <div id="searchResults">
@@ -37,8 +37,7 @@ loadMoreBtn.addEventListener("click", ()=>{
 function fetchResults(pageNum){
 
   const API_KEY = "6109ef65464c6279114456237b791d38";
-  const searchURL = "https://api.themoviedb.org/3/movie/popular?api_key="+API_KEY+"&language=en-US";
-  // "https://api.themoviedb.org/3/movie/latest?api_key=6109ef65464c6279114456237b791d38&language=en-US"
+  const searchURL = "https://api.themoviedb.org/3/movie/now_playing?api_key="+API_KEY+"&language=en-US";
 
   fetch(searchURL)
     .then((response) => response.json())
