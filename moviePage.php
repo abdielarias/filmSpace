@@ -36,10 +36,10 @@ $movieID = $_GET["movieID"];
       </div>
     </div>
     <div class="reviewCorner">
-      <div id="moviePageScore"></div>
+      <div id="moviePageScore"></div><br>
       <!-- IF we are logged in, php will check if a post from you for this movie exists. If it does, show it, otherwise show Create New Review BTN.
       BUT if we are not signed in, we will show simply label that says sign in to post a review of this film -->
-      <?php
+  <?php
       //Search to see if post exists
       if(isset($_SESSION['id'])){
         $SIGNED_IN = true;
@@ -84,7 +84,7 @@ $movieID = $_GET["movieID"];
         }
         else{
           echo '<a class="submitButton" id="createReviewBtn" href="writeReview.php?movieID='.$movieID .'">Create a New Film Review</a>
-          <br><br>
+          <br>
           <div id="contentText">
             What did you think of this film?
 
@@ -98,19 +98,10 @@ $movieID = $_GET["movieID"];
         <div id="userName">Your Review:</div>
         <div id="contentText">
           Sign in or create a free account to write a review.
-
-
-
-          </span>
         </div>
-
-
         ';
       }
-
-
-
-       ?>
+?>
     </div>
   </div>
 
@@ -124,6 +115,8 @@ $movieID = $_GET["movieID"];
     </div>
   </div>
 </div>
+
+<?php include 'footer.php'; ?>
 
 <script>
 
@@ -293,11 +286,15 @@ fetch(creditsURL)
     }
 
     personPanel.appendChild(personImg);
-    personPanel.innerHTML += castArray[i].name;
+    let castName = document.createElement("span");
+    castName.style=`margin-left:10px`;
+    castName.innerHTML += castArray[i].name;
+
     if(castArray[i].character){
-      personPanel.innerHTML += " as " + castArray[i].character;
+      castName.innerHTML += " as " + castArray[i].character;
     }
 
+    personPanel.appendChild(castName);
 
     creditsDiv.appendChild(personPanel);
   }
@@ -332,11 +329,11 @@ fetch(creditsURL)
 
   }
 
-  //finally, add the footer:
-  var footer = document.createElement("footer");
-  footer.innerHTML = "This product uses the TMDb API but is not endorsed or certified by TMDb.";
-  footer.style = `margin-top: 20px;`;
-  creditsDiv.appendChild(footer);
+  // //finally, add the footer:
+  // var footer = document.createElement("footer");
+  // footer.innerHTML = "This product uses the TMDb API but is not endorsed or certified by TMDb.";
+  // footer.style = `margin-top: 20px;`;
+  // creditsDiv.appendChild(footer);
 
 })
 .catch((err)=>console.log(err));

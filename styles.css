@@ -288,6 +288,9 @@ Sign In Page
 
 
 .submitButton {
+  font-family: "Sora";
+  outline: none;
+  border: none;
   color: #d13b00;
   font-weight: bold;
   display: inline-block;
@@ -307,6 +310,7 @@ Sign In Page
 
 .submitButton:hover{
   color: #ffe9d4;
+  cursor: pointer;
 }
 
 .signinPanel input {
@@ -869,16 +873,15 @@ Sign In Page
   background-color: #1c1c1c;
   color: #ffe9d4;
   padding:20px;
-  border-radius: 15px;
+  border-radius: 5px;
   height: 300px;
-
   text-align: left;
 }
 
-.reviewCorner a #createReviewBtn{
+.reviewCorner #createReviewBtn{
   display: block;
-  margin: auto;
   text-align: center;
+  border-radius: 5px;
 }
 
 .bottomRight{
@@ -913,6 +916,7 @@ Sign In Page
   background-color: #0f0f0f;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
+
 }
 
 .creditsWrapper{
@@ -1017,11 +1021,17 @@ Sign In Page
   padding: 10px;
   margin-left:40px;
   align-items: center;
+  background-color: #1c1c1c;
+  margin-bottom:10px;
+  border-radius: 5px;
 }
 
 .crew{
   padding: 10px;
   margin-left:40px;
+  background-color: #1c1c1c;
+  margin-bottom:10px;
+  border-radius: 5px;
 }
 
 .moviePage-poster{
@@ -1033,7 +1043,7 @@ Sign In Page
   grid-template-rows:auto auto;
   background-color: #1c1c1c;
   padding:10px;
-  border-radius: 15px;
+  border-radius: 5px;
   color: #ffe9d4;
   /* font-size: .8em; */
 }
