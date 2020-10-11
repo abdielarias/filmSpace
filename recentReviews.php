@@ -1,8 +1,14 @@
-<script src = "./javascript/fetchMovieInfo.js"></script>
 
 <?php
 require 'header.php';
 require 'databaseConn.php';
+
+?>
+
+<!-- this loads a function called getMovie() -->
+<script src = "./javascript/fetchMovieInfo.js"></script>
+
+<?php
 
 if(isset($_SESSION['id'])){
   $id = $_SESSION['id'];
@@ -12,7 +18,7 @@ echo '
       <div id="recentReviewsBanner">
         <h2 id="recentReviewsLabel">Recent Reviews</h2>
       </div>
-      
+
       <div class="recentReviewsTimeline">
       ';
 

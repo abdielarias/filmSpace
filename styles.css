@@ -244,12 +244,12 @@ header{
 }
 
 footer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-top: 1px solid #1c1c1c;
   color: #454545;
   font-size: .9em;
   height:5vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .warning{

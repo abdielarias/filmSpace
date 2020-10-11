@@ -44,7 +44,7 @@ else $emailUsername = "";
     ?>
     <br><br><br>
     <a href="createAccount.php" class="submitButton">Create a New Account</a>
-    <a href="password-reset-request.php" class="submitButton">Forgot Password</a>
+    <a href="passwordResetRequest.php" class="submitButton">Forgot Password</a>
   </div>
 </div>
 <?php
