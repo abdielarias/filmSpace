@@ -38,7 +38,6 @@ loadMoreBtn.addEventListener("click", ()=>{
 });
 
 
-
 function fetchResults(pageNum){
 
   const API_KEY = "6109ef65464c6279114456237b791d38";

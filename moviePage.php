@@ -135,7 +135,7 @@ var releaseDate = document.querySelector("#releaseDate");
 var desc = document.querySelector("#desc");
 var writer = document.querySelector("#writer");
 var director = document.querySelector("#director");
-var moveScore = document.querySelector("#moviePageScore");
+var movieScore = document.querySelector("#moviePageScore");
 var movieID = <?php echo $movieID; ?>;
 var movieRating = document.querySelector("#cert");
 const movieURL = "https://api.themoviedb.org/3/movie/"+movieID+"?api_key="+API_KEY+"&language=en-US";
@@ -208,7 +208,7 @@ fetch(movieURL)
   }
 
   //TMDB Score
-  moveScore.innerHTML = "<span class='tmdbScore'>"+movie.vote_average+"</span> <span style='text-align:center;font-size:.8em;'>TMDb Average Score</span>";
+  movieScore.innerHTML = "<span class='tmdbScore'>"+movie.vote_average+"</span> <span style='text-align:center;font-size:.8em;'>TMDb Average Score</span>";
 
   //movie description
   desc.innerHTML = movie.overview;

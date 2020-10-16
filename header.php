@@ -10,7 +10,7 @@ if(session_status()==PHP_SESSION_NONE) {
   <head>
     <meta charset="utf-8">
     <title>Film Space</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?<?php echo time(); ?>">
     <!-- <link href="Sora/static/Sora-ExtraBold.ttf" rel="stylesheet"> -->
     <link rel="icon" type="image/png" href="images/cube.png"/>
   </head>
@@ -26,9 +26,9 @@ if(session_status()==PHP_SESSION_NONE) {
 
           <div id="navRightBlock">
             <a href="popularFilms.php">Most Popular</a>
-            <a href="topRated.php">Top Rated</a>
-            <a href="nowPlaying.php">Now Playing</a>
-            <a href="recentReviews.php">Recent Reviews</a>
+            <!-- <a href="topRated.php">Top Rated</a>
+            <a href="nowPlaying.php">Now Playing</a> -->
+            <a href="recentReviews.php">Community Reviews</a>
 
             <!-- <a href="about.php">About</a> -->
             <?php

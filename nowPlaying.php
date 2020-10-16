@@ -37,7 +37,7 @@ loadMoreBtn.addEventListener("click", ()=>{
 function fetchResults(pageNum){
 
   const API_KEY = "6109ef65464c6279114456237b791d38";
-  const searchURL = "https://api.themoviedb.org/3/movie/now_playing?api_key="+API_KEY+"&language=en-US";
+  const searchURL = "https://api.themoviedb.org/3/movie/now_playing?api_key="+API_KEY+"&language=en-US"+"&page="+pageNum;
 
   fetch(searchURL)
     .then((response) => response.json())
