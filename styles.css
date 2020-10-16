@@ -7,7 +7,7 @@
   font-family: Sora;
   src: url(Sora/static/Sora-ExtraBold.ttf);
 }
-
+@media only screen and (min-width: 769px){
 body{
   margin: 0;
   background-color: black;
@@ -761,7 +761,7 @@ Sign In Page
 
 .moviePage{
   min-height: 90vh;
-  width: 1000px;
+  max-width: 1000px;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -773,10 +773,9 @@ Sign In Page
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  margin-top: 20px;
+
   background-color: #0f0f0f;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
+
 }
 
 .moviePage-poster{
@@ -807,15 +806,20 @@ Sign In Page
 }
 
 .moviePage-title{
-  font-size: 1.5em;
+  color: #d13b00;
+  font-size: 2em;
   font-weight: bold;
   font-family: 'Sora';
-}
-
-.moviePage-desc #year{
-  /* font-size: 1.5em; */
-  font-weight: bold;
-  color:grey;
+  max-width: 1000px;
+  padding-left:20px;
+  background-color: #0f0f0f;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  text-align: center;
+  border-bottom: 2px solid #1c1c1c;
 }
 
 .moviePage-desc #moviePage-title, #genres{
@@ -855,10 +859,6 @@ Sign In Page
 .reviewCorner{
   box-sizing: border-box;
   padding: 20px;
-  /* margin:0px 20px 20px 20px; */
-  /* display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 10% auto; */
   justify-content: center;
   grid-row-gap: 15px;
   text-align: center;
@@ -929,7 +929,8 @@ Sign In Page
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  min-width: 600px;
+  max-width: 700px;
 }
 
 .marginZero{
@@ -1069,4 +1070,5 @@ Sign In Page
   left: 0;
   top: 0;
   width: 100%;
+}
 }

@@ -5,13 +5,13 @@ $movieID = $_GET["movieID"];
 ?>
 
 <div class="moviePage">
+
+  <div class="moviePage-title"></div>
   <div class="moviePage-topBanner">
     <div class="moviePage-poster"></div>
     <div class="moviePage-desc">
       <div>
-        <span class="moviePage-title">
-        </span>
-        <span id="year"></span>&nbsp;&nbsp;<br>
+
         <div id="genres"></div><br>
       </div>
       <div class="moviePage-cert">
@@ -130,7 +130,7 @@ var title = document.querySelector(".moviePage-title");
 var movieCertDiv = document.querySelector(".moviePage-cert");
 var runtime = document.querySelector("#runtime");
 var genres = document.querySelector("#genres");
-var year = document.querySelector("#year");
+// var year = document.querySelector("#year");
 var releaseDate = document.querySelector("#releaseDate");
 var desc = document.querySelector("#desc");
 var writer = document.querySelector("#writer");
@@ -160,7 +160,7 @@ fetch(movieURL)
   //title
 
   title.innerHTML = movie.title;
-  year.innerHTML = "("+movie.release_date.split("-")[0]+")";
+  title.innerHTML += " <span id='year' style='font-size:.5em;color:grey;'>("+movie.release_date.split("-")[0]+")</span>";
 
   //movie rating
   fetch("https://api.themoviedb.org/3/movie/"+movieID+"/release_dates?api_key="+API_KEY)

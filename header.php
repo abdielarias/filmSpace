@@ -8,10 +8,20 @@ if(session_status()==PHP_SESSION_NONE) {
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="utf-8">
     <title>Film Space</title>
+
+    <!-- Phone Styles -->
+    <link rel="stylesheet" href="tabletStyles.css">
+
+    <!-- Tablet Styles -->
+    <link rel="stylesheet" href="tabletStyles.css">
+
+    <!-- Desktop Styles -->
     <link rel="stylesheet" href="styles.css?<?php echo time(); ?>">
-    <!-- <link href="Sora/static/Sora-ExtraBold.ttf" rel="stylesheet"> -->
+
+    <!-- logo  -->
     <link rel="icon" type="image/png" href="images/cube.png"/>
   </head>
   <body>
