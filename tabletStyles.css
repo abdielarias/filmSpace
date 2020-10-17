@@ -1,4 +1,4 @@
-@media only screen and (min-width: 375px) and (max-width: 768px){
+@media only screen and (min-width: 466px) and (max-width: 850px){
 
   @font-face {
     font-family: Sora2;
@@ -9,11 +9,14 @@
     font-family: Sora;
     src: url(Sora/static/Sora-ExtraBold.ttf);
   }
+
+
+
   body{
     margin: 0;
     background-color: black;
     font-family: 'Sora', 'Sora2', sans-serif;
-
+    min-height: 150vh;
   }
 
   header{
@@ -76,6 +79,8 @@
     overflow: hidden;
     margin-right: 10px;
     margin-top: 12px;
+    margin-bottom: 20px;
+    clear:both;
   }
 
   #searchBox{
@@ -105,21 +110,25 @@
 
 
   /* Carousel styles ------------------------------------------------------------*/
+
   .hero{
     box-sizing: border-box;
-    height: 90vh;
+    height: 50vh;
     background-color: black;
     clear: both;
   }
 
+
+
   .carouselContainer {
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: auto auto;
     box-sizing: border-box;
     background-color: black;
     position: relative;
     height: 100%;
-    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .carouselBackground{
@@ -136,7 +145,7 @@
 
   .carousel{
     position: absolute;
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 1fr 8fr 1fr;
     grid-template-rows: 90% 10%;
     box-sizing: border-box;
@@ -163,6 +172,7 @@
   }
 
   .leftCarouselButton{
+    display: none;
     align-self: center;
     justify-self: center;
     border-radius: 10px;
@@ -177,6 +187,7 @@
   }
 
   .rightCarouselButton{
+    display: none;
     align-self: center;
     justify-self: center;
     border-radius: 10px;
@@ -203,7 +214,7 @@
     align-self: center;
     justify-self: center;
     letter-spacing: .3em;
-    font-size: 1.2em;
+
   }
 
   .imgWrapper{
@@ -487,6 +498,9 @@
     padding:5px;
     color: #454545;
     text-align: right;
+    width:300px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .profileUsersPostImg{
@@ -761,15 +775,14 @@
   .moviePage-topBanner{
     box-sizing: border-box;
     color: white;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: 1fr;
     background-color: #0f0f0f;
     width: 100%;
   }
 
   .moviePage-poster{
     box-sizing: border-box;
+    width:40%;
+    float:left;
   }
 
 
@@ -794,6 +807,8 @@
     width: 100%;
     padding-top: 20px;
     padding-right: 20px;
+    float:right;
+    width:60%;
   }
 
   .moviePage-title{
@@ -822,6 +837,7 @@
 
   .moviePage-desc #desc{
     /* width:50%; */
+    padding-right:20px;
     align-self: start;
     font-size: .8em;
     font-family: verdana, arial, sans-serif;
@@ -847,6 +863,7 @@
   }
 
   .reviewCorner{
+    clear:both;
     box-sizing: border-box;
     padding-top: 20px;
     padding-left: 100px;
@@ -856,6 +873,7 @@
     grid-row-gap: 15px;
     text-align: center;
     grid-column: auto / span 2;
+    border-top: 2px solid #1c1c1c;
   }
 
   .reviewCorner #userName{
@@ -869,13 +887,16 @@
     box-sizing: border-box;
     font-family: verdana;
     font-size: .8em;
-    display: grid;
     background-color: #1c1c1c;
     color: #ffe9d4;
     padding:20px;
     border-radius: 5px;
+    margin-left: auto;
+    margin-right:auto;
+    width:300px;
     height: 300px;
     text-align: left;
+    word-wrap: break-word;
   }
 
   .reviewCorner #createReviewBtn{
@@ -1036,10 +1057,6 @@
     border-radius: 5px;
   }
 
-  .moviePage-poster{
-    /* padding:20px; */
-  }
-
   #moviePageScore{
     display: grid;
     grid-template-rows:auto auto;
@@ -1047,7 +1064,9 @@
     padding:10px;
     border-radius: 5px;
     color: #ffe9d4;
-    /* font-size: .8em; */
+    width:280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .moviePage-poster-img{

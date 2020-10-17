@@ -1,5 +1,1083 @@
-@media only screen and (max-width: 375px){
-  .moviePage {
-    background-color: lightgreen;
-  }
+@media only screen and (max-width: 465px){
+
+@font-face {
+font-family: Sora2;
+src: url(sora/static/sora-extrabold.ttf);
+}
+
+@font-face {
+font-family: Sora;
+src: url(Sora/static/Sora-ExtraBold.ttf);
+}
+body{
+margin: 0;
+background-color: black;
+font-family: 'Sora', 'Sora2', sans-serif;
+
+}
+
+header{
+overflow: auto;
+}
+
+#headerLogo{
+width: 40px;
+}
+
+#navbar {
+box-sizing: border-box;
+background-color: rgb(0,0,0);
+}
+
+#navbar .navButton {
+padding-top: 15px;
+padding-bottom: 10px;
+font-size: 12pt;
+}
+
+#navbar #homeBtn {
+font-size: 1.5em;
+display: block;
+text-align: center;
+}
+
+#navRightBlock a{
+text-align: center;
+display:block;
+background-color: #1c1c1c;
+margin-bottom:2px;
+
+}
+
+#navbar div #homeBtnAnchor{
+color: #d13b00;
+display: inline-grid;
+grid-template-columns: auto auto auto;
+align-items: center;
+}
+
+#navbar a {
+display: block;
+color: #d13b00;
+text-decoration: none;
+padding: 10px;
+
+}
+
+
+
+#navbar a:visited{
+color: #inherit;
+}
+
+#navbar a:hover{
+color: #e6d5ac;
+}
+
+#searchContainer{
+display: grid;
+grid-template-columns: auto auto;
+justify-content: center;
+overflow: hidden;
+margin-right: 10px;
+margin-top: 12px;
+margin-bottom: 10px;
+}
+
+#searchBox{
+border-radius: 15px;
+background-color: #1c1c1c;
+border-style: none;
+outline: none;
+color: #ffe9d4;
+padding: 5px 15px 5px 15px;
+}
+
+#searchBtn{
+width: 20px;
+padding:10px;
+background-color: #1c1c1c;
+border-radius: 15px;
+margin-left: 3px;
+opacity: 80%;
+
+}
+
+#searchBtn:hover{
+cursor: pointer;
+opacity: 100%;
+}
+
+
+/* Carousel styles ------------------------------------------------------------*/
+.hero{
+box-sizing: border-box;
+height: 35vh;
+background-color: black;
+clear: both;
+}
+
+.carouselContainer {
+display: grid;
+grid-template-rows: 1fr;
+box-sizing: border-box;
+background-color: black;
+position: relative;
+height: 100%;
+overflow: hidden;
+}
+
+.carouselBackground{
+display: block;
+box-sizing: border-box;
+height: 100%;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+z-index: 0;
+opacity: 20%;
+filter: blur(5px);
+}
+
+.carousel{
+position: absolute;
+display: grid;
+grid-template-columns: 1fr 8fr 1fr;
+grid-template-rows: 90% 10%;
+box-sizing: border-box;
+justify-self: center;
+align-self: center;
+height: 100%;
+grid-column-gap: 50px
+}
+
+#currentImage{
+display: none;
+}
+
+.currentImage:hover{
+filter: brightness(80%);
+cursor: pointer;
+}
+
+.imgWrapper{
+height: 95%;
+transition: .1s;
+justify-self: center;
+align-self: center;
+}
+
+.leftCarouselButton{
+align-self: center;
+justify-self: center;
+border-radius: 10px;
+color: #ffe9d4;
+padding:20px;
+transition: .2s;
+}
+
+.leftCarouselButton:hover, .rightCarouselButton:hover{
+background-color: rgba(0,0,0, 0.5);
+cursor: pointer;
+}
+
+.rightCarouselButton{
+align-self: center;
+justify-self: center;
+border-radius: 10px;
+color: #ffe9d4;
+padding:20px;
+transition: .2s;
+}
+
+.fade{
+animation-name: fade;
+animation-duration: 0.2s;
+}
+
+@keyframes fade{
+from {opacity: 0;}
+to   {opacity: 1;}
+}
+
+#carouselTitle{
+text-align: center;
+color: #ffe9d4;
+grid-column-start: 2;
+grid-column-end: 3;
+align-self: center;
+justify-self: center;
+letter-spacing: .3em;
+font-size: .8em;
+}
+
+.imgWrapper{
+cursor: pointer;
+}
+
+/* Features Banner on index page -------------------------------------------*/
+
+#cred{
+color: #8c2800;
+font-size: 12px;
+text-align: center;
+}
+
+#featureTitle{
+color: #d13b00;
+margin-left: 100px;
+}
+
+.featuresBanner{
+clear:both;
+display: grid;
+grid-template-columns: auto auto auto auto;
+}
+
+.featuresPanel{
+width: 350px;
+height: 200px;
+background-color: #1c1c1c;
+color: #d13b00;
+align-self: center;
+justify-self: center;
+border-radius: 15px;
+}
+
+.featuresPanel ul{
+color: #ffe9d4;
+font-family: verdana, arial;
+}
+
+footer{
+border-top: 1px solid #1c1c1c;
+color: #454545;
+font-size: .9em;
+height:5vh;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+
+.warning{
+color: red;
+}
+
+.success{
+color: green;
+}
+
+/*---------------------------------------------------
+Sign In Page
+*/
+
+.fullscreen{
+min-height: 100vh;
+}
+
+.signinPanel {
+color: #d13b00;
+padding:10px;
+min-height: 300px;
+border-radius: 15px;
+background-color: #0f0f0f;
+text-align: center;
+margin-top: 50px;
+width: 500px;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+
+.submitButton {
+font-family: "Sora";
+outline: none;
+border: none;
+color: #d13b00;
+font-weight: bold;
+display: inline-block;
+padding:10px;
+border-radius: 15px;
+background-color: #1a1c1b;
+text-decoration: none;
+text-align: center;
+align-self: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+.submitButton:visited{
+color: #inherit;
+}
+
+.submitButton:hover{
+color: #ffe9d4;
+cursor: pointer;
+}
+
+.signinPanel input {
+background-color: #1a1c1b;
+color: #ffe9d4;
+clear: both;
+box-sizing: border-box;
+padding:10px;
+margin: 5px;
+border-radius: 10px;
+float:left;
+border:none;
+}
+
+.signinPanel input:focus{
+outline: none;
+}
+
+.signinPanel form{
+display: inline-block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.signinPanel form .submitButton{
+float:right;
+font-size: inherit;
+font-family: inherit;
+color: #d13b00;
+
+display: inline-block;
+padding:10px;
+border-radius: 15px;
+background-color: #1a1c1b;
+margin-bottom: 20px;
+text-decoration: none;
+text-align: center;
+align-self: center;
+}
+
+.signinPanel form .submitButton:hover{
+float:right;
+color: #ffe9d4;
+cursor: pointer;
+}
+
+/*--Profile Page --------------------------------------------------------------------*/
+
+.profileReviewsContainer{
+
+padding:10px;
+min-height: 200px;
+border-radius: 15px;
+background-color: #0f0f0f;
+text-align: center;
+margin-top: 50px;
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+overflow: hidden;
+}
+
+.profileReviewsContainer h2{
+color: #d13b00;
+float: center;
+}
+
+.profileTopPanel{
+clear: both;
+display:flex;
+flex-direction: row;
+flex-direction: nowrap;
+justify-content: center;
+background-color: #0f0f0f;
+color: #ffe9d4;
+}
+
+.profileImgPanel{
+width: 300px;
+overflow: hidden;
+padding: 20px;
+text-align: center;
+}
+
+#picToolTip{
+visibility: hidden;
+color: white;
+text-align: center;
+
+}
+
+#picToolTip:hover{
+
+}
+
+#profileImg{
+width: 150px;
+border-radius: 50%;
+}
+
+.uploadCaption{
+text-align: left;
+font-size: 10pt;
+}
+
+.uploadPicForm{
+
+}
+
+.profileUserName{
+color: #d13b00;
+text-align: center;
+margin: 0;
+
+}
+
+.aboutPanel{
+width: 250px;
+font-size: 12pt;
+text-align: left;
+display: block;
+padding: 20px;
+font-weight: lighter;
+}
+
+#aboutMe{
+font-size: 12pt;
+clear: both;
+}
+
+.profileBtnSet{
+margin-left: auto;
+margin-right: auto;
+clear:both;
+overflow: hidden;
+width: 75%;
+}
+
+.createPostBtn{
+margin: 15px 0 0 0;
+float: right;
+}
+
+.profileContainer h2{
+text-align: left;
+margin: 40px 0 0 80px;
+}
+
+.postedReviewOnProfile{
+font-size: 1em;
+font-family: verdana, arial, sans-serif;
+padding:15px;
+clear:both;
+text-align: left;
+width: 80%;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 20px;
+margin-top: 20px;
+background-color: #1c1c1c;
+color: #ffe9d4;
+border-radius: 15px;
+}
+
+.postedReviewOnProfile p{
+clear:both;
+}
+
+.timeOnPostedReview{
+display: block;
+overflow: hidden;
+margin-top:10px;
+font-size: .8em;
+border-top-style: solid;
+border-top-color: #454545;
+border-top-width: 1px;
+padding:5px;
+color: #454545;
+text-align: right;
+width:300px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.profileUsersPostImg{
+float:left;
+text-align: center;
+height: 50px;
+width:50px;
+border-radius: 50%;
+overflow: hidden;
+display: inline-block;
+margin-bottom:0px;
+margin-left: 5px;
+margin-top:5px
+}
+
+.profileUsersPostImg img{
+vertical-align: middle;
+height: 50px;
+}
+
+#uName{
+margin-left:20px;
+margin-top:10px;
+float:left;
+}
+
+.reviewPostContent{
+display: grid;
+grid-template-columns: 1fr 3fr;
+padding:20px;
+overflow: hidden;
+clear:both;
+align-items: center;
+justify-content: center;
+
+
+}
+
+.reviewPostContent span{
+/* text-indent: 3em; */
+}
+
+.reviewPostContent span{
+margin-left: 50px;
+grid-column-start: 2;
+grid-column-end: 5;
+grid-row-start: 1;
+grid-row-end: 2;
+}
+
+.posterAndTitleDiv{
+border-radius: 15px;
+padding: 20px;
+text-align: center;
+}
+
+#thumbup{
+width:20px;
+}
+
+.thumbUpCount{
+display: inline-block;
+margin-left: 10px;
+}
+
+.thumbDownCount{
+display: inline-block;
+margin-left: 10px;
+}
+
+#thumbdown{
+width:20px;
+}
+
+.hoverOpacity{
+opacity: 50%;
+}
+
+.hoverOpacity:hover{
+opacity: 100%;
+}
+
+.opacityForce100{
+opacity: 100%;
+}
+
+#privacyLockImg{
+width:20px;
+opacity: 50%;
+}
+
+#privacyLockImg:hover{
+opacity: 100%;
+}
+
+#editPostIconSpan{
+float: right;
+opacity: 50%;
+}
+
+#editPostIconSpan:hover{
+float: right;
+opacity: 100%;
+}
+
+#editPostIconSpan img{
+width:20px;
+margin-right:10px;
+}
+
+#deleteIconSpan{
+opacity: 50%;
+float:right;
+}
+
+#deleteIconSpan img{
+width:20px;
+}
+
+#deleteIconSpan:hover{
+opacity: 100%;
+}
+
+
+/*Upload Page ----------------------------------------------------------*/
+
+#uploadIcon{
+width: 20px;
+}
+
+/*----writeReview page -------------------------------------------------*/
+
+.writeReviewTopBanner{
+height: 100px;
+}
+
+.reviewFormContainer{
+width: 700px;
+margin:auto;
+background-color: #0f0f0f;
+color: #ffe9d4;
+border-radius: 15px;
+padding: 20px;
+margin-top: 50px;
+margin-bottom: 100px;
+}
+
+.reviewWrapper{
+width: 90%;
+margin:auto;
+
+}
+
+.reviewFormContainer #moviePoster{
+display: block;
+float: left;
+width:150px;
+padding: 20px;
+padding-left: 5px;
+}
+
+.reviewFormContainer #movieTitle{
+display: block;
+float: left;
+padding: 20px;
+font-size: 2em;
+}
+
+#filmTitleInput{
+background-color: #1c1c1c;
+color: #ffe9d4;
+margin: 10px 0 10px 0px;
+display: block;
+border-style: none;
+font-family: arial;
+outline: none;
+height: 20px;
+border-radius: 5px;
+}
+
+#writingTextArea{
+color: #ffe9d4;
+border-style: none;
+outline: none;
+resize: none;
+width: 95%;
+height: 100px;
+display: block;
+margin:0;
+background-color: #1c1c1c;
+padding: 20px;
+font-family: arial;
+border-radius: 10px;
+}
+
+#writingTextArea:focus{
+border-style: none;
+}
+
+#wordCount{
+text-align: center;
+}
+
+#privacyCheckBoxLabel{
+margin-left: 5px;
+float:left;
+font-weight: normal;
+font-size: .9em;
+}
+
+#privacyCheckbox{
+float:left;
+}
+
+.postBtn{
+margin-top: 20px;
+font-family: 'Sora';
+border-style: none;
+padding: 10px;
+font-size: 12pt;
+}
+
+.postBtn:hover{
+cursor: pointer;
+}
+
+.buttonCenter{
+width:230px;
+margin:auto;
+}
+
+
+/*------ Recent Reviews page ------------------------------------------------*/
+
+#recentReviewsBanner{
+background-color: #0f0f0f;
+text-align: center;
+min-height: 100px;
+padding:20px;
+font-size: 2.5em;
+overflow: auto;
+}
+
+.recentReviewsTimeline{
+clear: both;
+padding:10px;
+min-height: 200px;
+border-radius: 15px;
+background-color: #0f0f0f;
+text-align: center;
+margin-top: 50px;
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+overflow: hidden;
+color: #454545;
+}
+
+#recentReviewsLabel{
+color: #d13b00;
+}
+
+/*----------moviePage styles-------------------------------------------------*/
+
+.moviePage{
+min-height: 90vh;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.moviePage-topBanner{
+box-sizing: border-box;
+color: white;
+background-color: #0f0f0f;
+width: 100%;
+}
+
+.moviePage-poster{
+box-sizing: border-box;
+width:40%;
+float:left;
+}
+
+
+.moviePage-cert{
+display: flex;
+flex-direction: row;
+font-size: .7em;
+}
+
+.moviePage-cert span{
+padding-right: 20px;
+}
+
+.moviePage-desc{
+box-sizing: border-box;
+color: #ffe9d4;
+/* display: grid;
+grid-template-columns: 1fr; */
+margin-bottom: 25px;
+align-items: center;
+font-family: verdana, arial, sans-serif;
+width: 100%;
+padding-top: 20px;
+padding-right: 20px;
+float:right;
+width:60%;
+}
+
+.moviePage-title{
+color: #d13b00;
+font-size: 2em;
+font-weight: bold;
+font-family: 'Sora';
+max-width: 1000px;
+padding-left:20px;
+background-color: #0f0f0f;
+margin-top: 20px;
+padding:20px;
+border-top-right-radius: 15px;
+border-top-left-radius: 15px;
+text-align: center;
+border-bottom: 2px solid #1c1c1c;
+}
+
+.moviePage-desc #moviePage-title, #genres{
+padding-top: 20px;
+}
+
+#genres{
+font-size: .8em;
+}
+
+.moviePage-desc #desc{
+/* width:50%; */
+padding-right:20px;
+align-self: start;
+font-size: .7em;
+font-family: verdana, arial, sans-serif;
+}
+
+.center{
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+#directorWriter{
+overflow: auto;
+font-size: .8em;
+}
+
+#director{
+
+}
+
+#writer{
+
+}
+
+.reviewCorner{
+clear:both;
+box-sizing: border-box;
+padding-top: 20px;
+padding-bottom: 20px;
+justify-content: center;
+grid-row-gap: 15px;
+text-align: center;
+grid-column: auto / span 2;
+border-top: 2px solid #1c1c1c;
+}
+
+.reviewCorner #userName{
+color: #d13b00;
+text-align: center;
+font-size: 1.5em;
+padding:10px;
+}
+
+.reviewCorner #contentText{
+box-sizing: border-box;
+font-family: verdana;
+font-size: .8em;
+margin-left: auto;
+margin-right: auto;
+background-color: #1c1c1c;
+color: #ffe9d4;
+padding:20px;
+border-radius: 5px;
+width:300px;
+height: 300px;
+text-align: left;
+word-wrap: break-word;
+}
+
+.reviewCorner #createReviewBtn{
+display: block;
+text-align: center;
+border-radius: 5px;
+}
+
+.bottomRight{
+justify-self: end;
+align-self: end;
+}
+
+.moviePage-trailerDiv{
+position: relative;
+display: grid;
+grid-template-columns: 1fr;
+box-sizing: border-box;
+margin-left: auto;
+margin-right: auto;
+background-color: black;
+}
+
+.iframeWrapper{
+overflow: hidden;
+/* 16:9 aspect ratio */
+padding-top: 56.25%;
+position: relative;
+background-color: #1c1c1c;
+}
+
+.moviePage-credits{
+box-sizing: border-box;
+font-family: arial;
+display: flex;
+flex-direction: column;
+color: #ffe9d4;
+background-color: #0f0f0f;
+border-bottom-right-radius: 15px;
+border-bottom-left-radius: 15px;
+
+}
+
+.creditsWrapper{
+display: block;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+.marginZero{
+margin: 0;
+}
+
+/* Search Box on header and Search.php styles */
+
+
+#searchResults{
+clear:both;
+display: grid;
+grid-template-columns: 1fr;
+max-width: 50%;
+color: #ffe9d4;
+margin-right: auto;
+margin-left: auto;
+
+}
+
+#searchResults img{
+justify-self: center;
+align-self: center;
+}
+
+#searchResults h2{
+font-size: 1.2em;
+justify-self: left;
+align-self: center;
+}
+
+#searchResults h3{
+font-size: .9em;
+justify-self: center;
+align-self: center;
+}
+
+#searchResults h4{
+text-align: center;
+font-size: .8em;
+justify-self: center;
+align-self: center;
+padding:10px;
+}
+
+.tmdbScore{
+font-size: 2em;
+justify-self: center;
+text-align: center;
+color: #d13b00;
+font-family: 'Sora';
+}
+
+.resultPanel{
+background-color: rgb(15, 15, 15);
+display: inline-grid;
+justify-content: center;
+grid-template-columns: 30% 30% 20% 20%;
+color: #ffe9d4;
+border-radius: 15px;
+margin-bottom: 5px;
+height: 150px;
+opacity: 80%;
+transition: .1s;
+}
+
+.resultPanel:hover{
+cursor: pointer;
+background-color: #2e2e2e;
+color: rgb(255, 245, 235);
+}
+
+#loadMoreBtn:hover{
+cursor: pointer;
+
+}
+
+/* Popular Movies page */
+#popularFilmsBanner{
+background-color: #0f0f0f;
+text-align: center;
+min-height: 100px;
+padding:20px;
+font-size: 2.5em;
+overflow: auto;
+margin-bottom: 20px;
+}
+
+#popularFilmsLabel{
+color: #d13b00;
+}
+
+.cast{
+display: grid;
+grid-template-columns: 1fr 6fr;
+padding: 10px;
+margin-left: 10px;
+margin-right: 10px;
+align-items: center;
+background-color: #1c1c1c;
+margin-bottom:10px;
+border-radius: 5px;
+}
+
+.crew{
+padding: 10px;
+background-color: #1c1c1c;
+margin-bottom:10px;
+border-radius: 5px;
+margin-left: 10px;
+margin-right: 10px;
+}
+
+#moviePageScore{
+display: grid;
+grid-template-rows:auto auto;
+background-color: #1c1c1c;
+padding:10px;
+border-radius: 5px;
+color: #ffe9d4;
+width:280px;
+margin-left: auto;
+margin-right: auto;
+/* font-size: .8em; */
+}
+
+.moviePage-poster-img{
+display: block;
+box-sizing: border-box;
+width: 100%;
+padding:20px;
+}
+
+.moviePage-iFrame{
+position: absolute;
+border: 0;
+height: 100%;
+left: 0;
+top: 0;
+width: 100%;
+}
+
+
 }

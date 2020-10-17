@@ -7,12 +7,15 @@
   font-family: Sora;
   src: url(Sora/static/Sora-ExtraBold.ttf);
 }
-@media only screen and (min-width: 769px){
+@media only screen and (min-width: 851px){
+
+
+
 body{
   margin: 0;
   background-color: black;
   font-family: 'Sora', 'Sora2', sans-serif;
-
+  min-height: 110vh;
 }
 
 header{
@@ -118,6 +121,56 @@ header{
   height: 90vh;
   background-color: black;
   clear: both;
+
+}
+
+
+
+@media only screen and (max-width:1350px){
+
+  .hero{
+    box-sizing: border-box;
+    height: 30vh;
+    background-color: black;
+    clear: both;
+  }
+
+  #searchContainer{
+    clear:both;
+    display: grid;
+    grid-template-columns: auto 50px;
+    float: right;
+    overflow: hidden;
+    margin-right: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  #carouselTitle{
+    font-size: .8em;
+  }
+
+}
+@media only screen and (max-width:1725px){
+  .hero{
+    box-sizing: border-box;
+    height: 60vh;
+    background-color: black;
+    clear: both;
+  }
+}
+
+@media only screen and (max-width:950px){
+  .hero{
+    box-sizing: border-box;
+    height: 50vh;
+    background-color: black;
+    clear: both;
+    font-size: 7pt;
+  }
+  #carouselTitle{
+    font-size: 9pt;
+  }
 }
 
 .carouselContainer {
@@ -253,6 +306,9 @@ header{
 }
 
 footer{
+  clear:both;
+  position: relative;
+  bottom:0;
   border-top: 1px solid #1c1c1c;
   color: #454545;
   font-size: .9em;
@@ -495,6 +551,9 @@ Sign In Page
   padding:5px;
   color: #454545;
   text-align: right;
+  width:300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profileUsersPostImg{
@@ -875,13 +934,14 @@ Sign In Page
   box-sizing: border-box;
   font-family: verdana;
   font-size: .8em;
-  display: grid;
+  width:300px;
   background-color: #1c1c1c;
   color: #ffe9d4;
   padding:20px;
   border-radius: 5px;
   height: 300px;
   text-align: left;
+  word-wrap: break-word;
 }
 
 .reviewCorner #createReviewBtn{

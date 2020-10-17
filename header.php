@@ -12,14 +12,18 @@ if(session_status()==PHP_SESSION_NONE) {
     <meta charset="utf-8">
     <title>Film Space</title>
 
-    <!-- Phone Styles -->
-    <link rel="stylesheet" href="tabletStyles.css">
+
+
+
+
+    <!-- Desktop Styles -->
+    <link rel="stylesheet" href="styles.css?<?php echo time(); ?>">
 
     <!-- Tablet Styles -->
     <link rel="stylesheet" href="tabletStyles.css">
 
-    <!-- Desktop Styles -->
-    <link rel="stylesheet" href="styles.css?<?php echo time(); ?>">
+    <!-- Phone Styles -->
+    <link rel="stylesheet" href="phoneStyles.css">
 
     <!-- logo  -->
     <link rel="icon" type="image/png" href="images/cube.png"/>
