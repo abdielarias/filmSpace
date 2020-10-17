@@ -160,7 +160,7 @@ fetch(movieURL)
   //title
 
   title.innerHTML = movie.title;
-  title.innerHTML += " <span id='year' style='font-size:.5em;color:grey;'>("+movie.release_date.split("-")[0]+")</span>";
+  title.innerHTML += " <span style='font-size:.5em;color:grey;'>("+movie.release_date.split("-")[0]+")</span>";
 
   //movie rating
   fetch("https://api.themoviedb.org/3/movie/"+movieID+"/release_dates?api_key="+API_KEY)
