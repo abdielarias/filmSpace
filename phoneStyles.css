@@ -292,9 +292,8 @@ border-radius: 15px;
 background-color: #0f0f0f;
 text-align: center;
 margin-top: 50px;
-width: 500px;
-margin-left: auto;
-margin-right: auto;
+margin-left: 20px;
+margin-right: 20px;
 }
 
 
@@ -314,6 +313,7 @@ text-align: center;
 align-self: center;
 margin-left: auto;
 margin-right: auto;
+margin-top:5px;
 }
 
 .submitButton:visited{
@@ -477,18 +477,19 @@ font-family: verdana, arial, sans-serif;
 padding:15px;
 clear:both;
 text-align: left;
-width: 80%;
-margin-left: auto;
-margin-right: auto;
+margin-left: 10px;
+margin-right: 10px;
 margin-bottom: 20px;
 margin-top: 20px;
 background-color: #1c1c1c;
 color: #ffe9d4;
 border-radius: 15px;
+height:520px;
+
 }
 
 .postedReviewOnProfile p{
-clear:both;
+  width:140px;
 }
 
 .timeOnPostedReview{
@@ -502,7 +503,6 @@ border-top-width: 1px;
 padding:5px;
 color: #454545;
 text-align: right;
-width:300px;
 margin-left: auto;
 margin-right: auto;
 }
@@ -532,34 +532,47 @@ float:left;
 }
 
 .reviewPostContent{
-display: grid;
-grid-template-columns: 1fr 3fr;
-padding:20px;
-overflow: hidden;
+
+
+overflow: auto;
 clear:both;
 align-items: center;
 justify-content: center;
+}
 
+.reviewPostContent p{
+  float:left;
+  font-size: 1.2em;
+}
+.reviewPostContent img{
+  float:right;
+}
 
+.reviewText{
+word-wrap: break-word;
+font-size: .8em;
+margin-bottom: 20px;
+height: 192px;
+text-indent: 20px;
 }
 
 .reviewPostContent span{
-/* text-indent: 3em; */
-}
+margin-left: 5px;
 
-.reviewPostContent span{
-margin-left: 50px;
-grid-column-start: 2;
-grid-column-end: 5;
-grid-row-start: 1;
-grid-row-end: 2;
+
 }
 
 .posterAndTitleDiv{
-border-radius: 15px;
-padding: 20px;
+height:150px;
+border-radius: 5px;
+margin-top: 10px;
+margin-bottom: 10px;
 text-align: center;
+background-color: black;
+padding:10px;
 }
+
+
 
 #thumbup{
 width:20px;
@@ -750,15 +763,11 @@ overflow: auto;
 
 .recentReviewsTimeline{
 clear: both;
-padding:10px;
 min-height: 200px;
 border-radius: 15px;
 background-color: #0f0f0f;
 text-align: center;
 margin-top: 50px;
-width: 50%;
-margin-left: auto;
-margin-right: auto;
 overflow: hidden;
 color: #454545;
 }
@@ -899,6 +908,7 @@ width:300px;
 height: 300px;
 text-align: left;
 word-wrap: break-word;
+
 }
 
 .reviewCorner #createReviewBtn{

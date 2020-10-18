@@ -55,6 +55,7 @@ function fetchResults(pageNum){
         resultPanel.classList.add("resultPanel");
         let newImg = document.createElement("img");
         let title = document.createElement("h2");
+        let tmdbRating = document.createElement("h4");
         let year = document.createElement("h3");
 
         if(movie.poster_path){
@@ -64,6 +65,10 @@ function fetchResults(pageNum){
           newImg.src = "./images/noPoster.jpg";
         }
         title.innerHTML = movie.title;
+
+        if(movie.vote_average){
+          tmdbRating.innerHTML = "<span class='tmdbScore'>"+movie.vote_average+"</span><br>TMDB Average Score";
+        }
 
         if(movie.release_date){
           year.innerHTML = movie.release_date.split("-")[0];
@@ -75,7 +80,7 @@ function fetchResults(pageNum){
         resultPanel.appendChild(newImg);
         resultPanel.appendChild(title);
         resultPanel.appendChild(year);
-
+        resultPanel.appendChild(tmdbRating);
 
         resultContainer.appendChild(resultPanel);
 

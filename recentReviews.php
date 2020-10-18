@@ -77,8 +77,9 @@ while($row = $result->fetch_assoc()){
 
       <div class="reviewPostContent contentOf'.$row['post_id'].'">
         <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
-        <span>'.$row['content'].'</span>
+
       </div>
+      <div class="reviewText">'.$row['content'].'</div>
 
       <a class="'.$likesOpacity.'" href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
       &nbsp;&nbsp;&nbsp;&nbsp; <a class="'.$dislikesOpacity.'" href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
