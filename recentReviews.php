@@ -72,14 +72,17 @@ while($row = $result->fetch_assoc()){
     echo
     '
     <div class="postedReviewOnProfile">
-      <div class="profileUsersPostImg"><img src='.$imageLocation.'></div>
-      <span id="uName">'.$row['username'].'</span>
+
+      <div style="overflow:auto;">
+        <div class="profileUsersPostImg"><img src='.$imageLocation.'></div>
+        <span id="uName">'.$row['username'].'</span>
+      </div>
 
       <div class="reviewPostContent contentOf'.$row['post_id'].'">
         <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
-
+        <div class="reviewText">'.$row['content'].'</div>
       </div>
-      <div class="reviewText">'.$row['content'].'</div>
+
 
       <a class="'.$likesOpacity.'" href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
       &nbsp;&nbsp;&nbsp;&nbsp; <a class="'.$dislikesOpacity.'" href="#" onclick="thumbDown(event, '.$row['post_id'].', this)"><img id="thumbdown" src="images/thumbdown.png"></a><span class="thumbDownCount">'.$row['num_dislikes'].'</span>
@@ -107,17 +110,21 @@ while($row = $result->fetch_assoc()){
     '
     <div class="postedReviewOnProfile">
 
-    <div class="profileUsersPostImg"><img src='.$imageLocation.'></div>
-    <span id="uName">'.$row['username'].'</span>
-    <span id="deleteIconSpan"><a href="#" onclick="deletePost(event, '.$row['post_id'].', this)"><img src="images/deleteIcon.png"></a></span>
-    <span id="editPostIconSpan"><a href="writeReview.php?post_id='.$row['post_id'].'&movieID='.$row['movie_id'].'"><img src="images/pencil.png"></a></span>
-
-    <div class="reviewPostContent contentOf'.$row['post_id'].'">
-      <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
+    <div style="overflow:auto;">
+      <div class="profileUsersPostImg"><img src='.$imageLocation.'></div>
+      <span id="uName">'.$row['username'].'</span>
+      <span id="deleteIconSpan"><a href="#" onclick="deletePost(event, '.$row['post_id'].', this)"><img src="images/deleteIcon.png"></a></span>
+      <span id="editPostIconSpan"><a href="writeReview.php?post_id='.$row['post_id'].'&movieID='.$row['movie_id'].'"><img src="images/pencil.png"></a></span>
 
     </div>
 
-    <div class="reviewText">'.$row['content'].'</div>
+
+    <div class="reviewPostContent contentOf'.$row['post_id'].'">
+      <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
+      <div class="reviewText">'.$row['content'].'</div>
+    </div>
+
+
 
     &nbsp;
     <a class="'.$likesOpacity.'" href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>

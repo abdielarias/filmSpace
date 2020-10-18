@@ -28,7 +28,7 @@ function getMovie(movieID, postID){
     poster.style = `width:60px; cursor:pointer;`;
     poster.addEventListener("click", ()=>{window.location.href = "moviePage.php?movieID="+movieID;});
 
-    content.appendChild(posterAndTitleDiv);
+    content.prepend(posterAndTitleDiv);
 
 
   })
