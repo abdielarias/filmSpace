@@ -886,9 +886,6 @@ Sign In Page
   border-bottom: 2px solid #1c1c1c;
 }
 
-.moviePage-desc #moviePage-title, #genres{
-  padding-top: 20px;
-}
 
 #genres{
   font-size: .8em;

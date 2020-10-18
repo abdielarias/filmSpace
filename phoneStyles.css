@@ -379,7 +379,6 @@ border-radius: 15px;
 background-color: #0f0f0f;
 text-align: center;
 margin-top: 50px;
-width: 50%;
 margin-left: auto;
 margin-right: auto;
 overflow: hidden;
@@ -472,7 +471,7 @@ margin: 40px 0 0 80px;
 }
 
 .postedReviewOnProfile{
-font-size: 1em;
+font-size: .9em;
 font-family: verdana, arial, sans-serif;
 padding:15px;
 clear:both;
@@ -484,12 +483,12 @@ margin-top: 20px;
 background-color: #1c1c1c;
 color: #ffe9d4;
 border-radius: 15px;
-height:520px;
-
+/* max-height:400px; */
+max-width: 360px;
 }
 
 .postedReviewOnProfile p{
-  width:140px;
+  max-width:240px;
 }
 
 .timeOnPostedReview{
@@ -500,7 +499,7 @@ font-size: .8em;
 border-top-style: solid;
 border-top-color: #454545;
 border-top-width: 1px;
-padding:5px;
+padding-top:5px;
 color: #454545;
 text-align: right;
 margin-left: auto;
@@ -541,8 +540,8 @@ justify-content: center;
 }
 
 .reviewPostContent p{
+  /* font-size: .8em; */
   float:left;
-  font-size: 1.2em;
 }
 .reviewPostContent img{
   float:right;
@@ -550,10 +549,9 @@ justify-content: center;
 
 .reviewText{
 word-wrap: break-word;
-font-size: .8em;
+/* font-size: .8em; */
 margin-bottom: 20px;
-height: 192px;
-text-indent: 20px;
+min-height: 70px;
 }
 
 .reviewPostContent span{
@@ -563,15 +561,18 @@ margin-left: 5px;
 }
 
 .posterAndTitleDiv{
-height:150px;
-border-radius: 5px;
+overflow: auto;
+border-radius: 15px;
 margin-top: 10px;
 margin-bottom: 10px;
 text-align: center;
 background-color: black;
 padding:10px;
-}
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 
+}
 
 
 #thumbup{
@@ -655,7 +656,7 @@ height: 100px;
 }
 
 .reviewFormContainer{
-width: 700px;
+max-width: 700px;
 margin:auto;
 background-color: #0f0f0f;
 color: #ffe9d4;
@@ -838,10 +839,6 @@ border-top-right-radius: 15px;
 border-top-left-radius: 15px;
 text-align: center;
 border-bottom: 2px solid #1c1c1c;
-}
-
-.moviePage-desc #moviePage-title, #genres{
-padding-top: 20px;
 }
 
 #genres{

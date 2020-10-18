@@ -51,9 +51,9 @@ if(isset($_GET['post_id'])){
         echo '<img src="" id="moviePoster">';
         echo '<h2 id="movieTitle"></h2>';
         echo '<br>';
-        echo '<textarea id="writingTextArea" name="content" onkeyup="displayWordCount()" maxlength="500">'.$row['content'].'</textarea>';
+        echo '<textarea id="writingTextArea" name="content" onkeyup="displayWordCount()" maxlength="240">'.$row['content'].'</textarea>';
         echo '<br>';
-        echo '<div style="text-align:right; font-family:arial; float:right;"><span id="wordCount">0 characters. </span>(limit: 500 characters)';
+        echo '<div style="text-align:right; font-family:arial; float:right;"><span id="wordCount">0 characters. </span>(limit: 240 characters)';
         echo '<br>';
         if($row['private'] == 1){
           echo '<br>';
@@ -71,10 +71,10 @@ if(isset($_GET['post_id'])){
         echo '<img src="" id="moviePoster">';
         echo '<h2 id="movieTitle"></h2>';
         echo '<br>';
-        echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content" onkeyup="displayWordCount()" maxlength="500"></textarea>';
+        echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content" onkeyup="displayWordCount()" maxlength="240"></textarea>';
         echo '<br>';
         echo '<div style="text-align:right; font-family:arial; display: inline-block; float:right;">';
-        echo '<span id="wordCount">0 characters. </span>(limit: 500 characters) ';
+        echo '<span id="wordCount">0 characters. </span>(limit: 240 characters) ';
         echo '<br>';
         echo '<br>';
         echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';

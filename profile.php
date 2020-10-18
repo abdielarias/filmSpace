@@ -139,9 +139,9 @@ if($imageLocation == "none" || $imageLocation == NULL){
     <div class="reviewPostContent contentOf'.$row['post_id'].'">
       <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
 
-
-      <span>'.$row['content'].'</span>
     </div>
+
+    <div class="reviewText">'.$row['content'].'</div>
 
     &nbsp;
     <a class="'.$likesOpacity.'" href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>
@@ -149,7 +149,7 @@ if($imageLocation == "none" || $imageLocation == NULL){
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     '.$privacyString.'
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <span class="timeOnPostedReview"> created: '.$formattedCreatedDate.'&nbsp;&nbsp;&nbsp;&nbsp; last modified: '.$formattedModifiedDate.'</span>
+    <div class="timeOnPostedReview">modified: '.$formattedModifiedDate.'<br>created: '.$formattedCreatedDate.'</div>
 
 
     </div>

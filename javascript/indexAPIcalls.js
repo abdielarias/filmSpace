@@ -139,12 +139,12 @@ carouselCon.addEventListener("touchend", function(event){
     var end = event.changedTouches.item(0).clientX;
 
     if(end > start + offset){
-     //rightward swipe
-     rightClick();
+     //rightward swipe (trying to pull left elements back to center)
+     leftClick();
     }
     if(end < start - offset ){
-     //leftward swipe
-     leftClick();
+     //leftward swipe (trying to pull right elements back to center)
+     rightClick();
     }
   }
 });
