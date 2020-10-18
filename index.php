@@ -19,9 +19,14 @@ include 'header.php';
 <br>
 
 <br><br><br>
-<script src="./javascript/indexAPIcalls.js"></script>
-<script src="./javascript/carousel.js"></script>
-
+<!-- <script src="./javascript/indexAPIcalls.js"></script> -->
+<script type="text/javascript" language="javascript">
+    var versionUpdate = (new Date()).getTime();
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "./javascript/indexAPIcalls.js?v=" + versionUpdate;
+    document.body.appendChild(script);
+</script>
 
 
 <?php

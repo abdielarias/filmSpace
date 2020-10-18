@@ -12,20 +12,18 @@ if(session_status()==PHP_SESSION_NONE) {
     <meta charset="utf-8">
     <title>Film Space</title>
 
+  
 
+    <!-- Phone Styles -->
+    <link rel="stylesheet" href="phoneStyles.css?<?php echo time(); ?>">
 
-
+    <!-- Tablet Styles -->
+    <link rel="stylesheet" href="tabletStyles.css?<?php echo time(); ?>">
 
     <!-- Desktop Styles -->
     <link rel="stylesheet" href="styles.css?<?php echo time(); ?>">
 
-    <!-- Tablet Styles -->
-    <link rel="stylesheet" href="tabletStyles.css">
-
-    <!-- Phone Styles -->
-    <link rel="stylesheet" href="phoneStyles.css">
-
-    <!-- logo  -->
+    <!-- fav icon  -->
     <link rel="icon" type="image/png" href="images/cube.png"/>
   </head>
   <body>
@@ -70,6 +68,7 @@ if(session_status()==PHP_SESSION_NONE) {
             searchBtn.addEventListener("click", ()=>{window.location.href="search.php?search="+searchBox.value});
 
             searchBox.addEventListener("keyup", ()=>{
+              //If user presses enter key:
               if (event.keyCode === 13)
                 window.location.href="search.php?search="+searchBox.value
             });

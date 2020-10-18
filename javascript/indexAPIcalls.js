@@ -115,3 +115,36 @@ function cycleCarousel(){
   timer = setInterval(rightClick, 5000);
 
 }
+
+// Touch Events:
+
+const carouselCon = document.querySelector(".carouselContainer");
+
+var start = null;
+carouselCon.addEventListener("touchstart",function(event){
+ if(event.touches.length === 1){
+    //just one finger touched
+    start = event.touches.item(0).clientX;
+  }else{
+    //a second finger hit the screen, abort the touch
+    start = null;
+  }
+});
+
+carouselCon.addEventListener("touchend",function(event){
+
+  var offset = 50;
+  if(start){
+    //the only finger that hit the screen left it
+    var end = event.changedTouches.item(0).clientX;
+
+    if(end > start + offset){
+     //rightward swipe
+     rightClick();
+    }
+    if(end < start - offset ){
+     //leftward swipe
+     leftClick();
+    }
+  }
+});
