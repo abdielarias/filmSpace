@@ -964,13 +964,10 @@
 
 
   #searchResults{
-    clear:both;
-    display: grid;
-    grid-template-columns: 1fr;
-    max-width: 50%;
-    color: #ffe9d4;
-    margin-right: auto;
-    margin-left: auto;
+  clear:both;
+  display: grid;
+  grid-template-columns: 1fr;
+  color: #ffe9d4;
 
   }
 
@@ -1044,6 +1041,7 @@
 
   #popularFilmsLabel{
     color: #d13b00;
+    font-size: .7em;
   }
 
   .cast{

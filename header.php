@@ -12,8 +12,6 @@ if(session_status()==PHP_SESSION_NONE) {
     <meta charset="utf-8">
     <title>Film Space</title>
 
-  
-
     <!-- Phone Styles -->
     <link rel="stylesheet" href="phoneStyles.css?<?php echo time(); ?>">
 

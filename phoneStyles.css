@@ -961,10 +961,7 @@ margin: 0;
 clear:both;
 display: grid;
 grid-template-columns: 1fr;
-max-width: 50%;
 color: #ffe9d4;
-margin-right: auto;
-margin-left: auto;
 
 }
 
@@ -1038,6 +1035,7 @@ margin-bottom: 20px;
 
 #popularFilmsLabel{
 color: #d13b00;
+font-size: .7em;
 }
 
 .cast{

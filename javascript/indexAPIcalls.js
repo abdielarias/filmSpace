@@ -121,7 +121,7 @@ function cycleCarousel(){
 const carouselCon = document.querySelector(".carouselContainer");
 
 var start = null;
-carouselCon.addEventListener("touchstart",function(event){
+carouselCon.addEventListener("touchstart", function(event){
  if(event.touches.length === 1){
     //just one finger touched
     start = event.touches.item(0).clientX;
@@ -131,7 +131,7 @@ carouselCon.addEventListener("touchstart",function(event){
   }
 });
 
-carouselCon.addEventListener("touchend",function(event){
+carouselCon.addEventListener("touchend", function(event){
 
   var offset = 50;
   if(start){
