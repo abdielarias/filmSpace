@@ -17,7 +17,8 @@ function getMovie(movieID, postID){
     posterAndTitleDiv.classList.add("posterAndTitleDiv");
     // posterAndTitleDiv.style.backgroundImage = 'url("https://image.tmdb.org/t/p/w154/'+movie.poster_path+'")';
 
-    var title = document.createElement("p");
+    var title = document.createElement("div");
+    title.style="float:left;width:160px;margin-top:10px;margin-left:10px;text-decoration: underline;font-size:.7em;"
     title.innerHTML = movie.title;
     posterAndTitleDiv.appendChild(title);
 
@@ -25,8 +26,8 @@ function getMovie(movieID, postID){
     var poster = document.createElement("img");
     poster.src = "https://image.tmdb.org/t/p/w92/"+movie.poster_path;
     posterAndTitleDiv.appendChild(poster);
-    poster.style = `width:60px; cursor:pointer;`;
-    poster.addEventListener("click", ()=>{window.location.href = "moviePage.php?movieID="+movieID;});
+    posterAndTitleDiv.style = `cursor:pointer;`;
+    posterAndTitleDiv.addEventListener("click", ()=>{window.location.href = "moviePage.php?movieID="+movieID;});
 
     content.prepend(posterAndTitleDiv);
 

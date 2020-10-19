@@ -547,32 +547,31 @@ margin-top: 10px;
 }
 .reviewPostContent img{
   float:right;
+  height: 50px;
+  margin-right: 20px;
 }
 
 .reviewText{
 word-wrap: break-word;
-/* font-size: .8em; */
+font-size: .8em;
 border-top: 1px #1c1c1c solid;
-padding-left: 10px;
-padding-top: 10px;
-margin-bottom: 20px;
+padding: 5px;
 min-height: 70px;
-}
-
-.reviewPostContent span{
-margin-left: 5px;
-
-
 }
 
 .posterAndTitleDiv{
 overflow: auto;
 text-align: center;
-padding:10px;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
+}
 
+.posterAndTitleDiv span{
+  font-weight: bolder;
+  box-sizing: border-box;
+  margin-top:10px;
+  margin-left: 5px;
 }
 
 
@@ -776,6 +775,7 @@ color: #454545;
 
 #recentReviewsLabel{
 color: #d13b00;
+font-size: .6em;
 }
 
 /*----------moviePage styles-------------------------------------------------*/

@@ -475,23 +475,24 @@
   }
 
   .postedReviewOnProfile{
-    font-size: 1em;
+    font-size: .9em;
     font-family: verdana, arial, sans-serif;
     padding:15px;
     clear:both;
     text-align: left;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 20px;
     margin-top: 20px;
     background-color: #1c1c1c;
     color: #ffe9d4;
     border-radius: 15px;
+    /* max-height:400px; */
+    max-width: 360px;
   }
 
   .postedReviewOnProfile p{
-    clear:both;
+    max-width:240px;
   }
 
   .timeOnPostedReview{
@@ -502,10 +503,9 @@
     border-top-style: solid;
     border-top-color: #454545;
     border-top-width: 1px;
-    padding:5px;
+    padding-top:5px;
     color: #454545;
     text-align: right;
-    width:300px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -535,33 +535,47 @@
   }
 
   .reviewPostContent{
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    padding:20px;
-    overflow: hidden;
-    clear:both;
-    align-items: center;
-    justify-content: center;
-
-
+  border-radius: 15px;
+  background-color: #0f0f0f;
+  overflow: auto;
+  clear:both;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
   }
 
-  .reviewPostContent span{
-    /* text-indent: 3em; */
+  .reviewPostContent p{
+    /* font-size: .8em; */
+    float:left;
+  }
+  .reviewPostContent img{
+    float:right;
+    height: 50px;
+    margin-right: 20px;
   }
 
-  .reviewPostContent span{
-    margin-left: 50px;
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
+  .reviewText{
+  word-wrap: break-word;
+  font-size: .8em;
+  border-top: 1px #1c1c1c solid;
+  padding: 5px;
+  min-height: 70px;
   }
 
   .posterAndTitleDiv{
-    border-radius: 15px;
-    padding: 20px;
+    overflow: auto;
     text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .posterAndTitleDiv span{
+    font-weight: bolder;
+    box-sizing: border-box;
+    margin-top:10px;
+    margin-left: 5px;
   }
 
   #thumbup{
@@ -759,6 +773,9 @@
     background-color: #0f0f0f;
     text-align: center;
     margin-top: 50px;
+    max-width:360px;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
     color: #454545;
   }

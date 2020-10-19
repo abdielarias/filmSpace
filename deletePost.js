@@ -11,6 +11,7 @@ function deletePost(event, post_id, callingElement){
 
     deleteConfirmation = true;
 
+    //create a popup message with an id of confirmDelete
     var div = document.createElement("div");
     div.setAttribute("id", "confirmDelete");
     var textnode = document.createTextNode("Are you sure you want to delete this post?");
@@ -39,6 +40,7 @@ function deletePost(event, post_id, callingElement){
 
 function deleteApproved(post_id){
 
+  //remove popup message
   document.querySelector("#confirmDelete").remove();
 
   // call up an http request for php to delete the actual userpost from the database
@@ -58,7 +60,7 @@ function deleteApproved(post_id){
       if(xhr.responseText = "success"){
 
         //now delete the div of the actual post based on traveral of the callingElement up the main parent div
-        globalCallingElement.parentElement.parentElement.remove();
+        globalCallingElement.parentElement.parentElement.parentElement.remove();
 
         //show confirmation dialog box with an ok button:
         var div = document.createElement("div");

@@ -120,6 +120,7 @@ while($row = $result->fetch_assoc()){
 
 
     <div class="reviewPostContent contentOf'.$row['post_id'].'">
+    
       <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
       <div class="reviewText">'.$row['content'].'</div>
     </div>
