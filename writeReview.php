@@ -53,7 +53,7 @@ if(isset($_GET['post_id'])){
         echo '<br>';
         echo '<textarea id="writingTextArea" name="content" onkeyup="displayWordCount()" maxlength="240">'.$row['content'].'</textarea>';
         echo '<br>';
-        echo '<div style="text-align:right; font-family:arial; float:right;"><span id="wordCount">0 characters. </span>(limit: 240 characters)';
+        echo '<div style="text-align:center; font-family:arial;"><span id="wordCount">0 characters. </span>(limit: 240 characters)';
         echo '<br>';
         if($row['private'] == 1){
           echo '<br>';
@@ -61,7 +61,8 @@ if(isset($_GET['post_id'])){
           echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox" checked></div>';
         } else {
           echo '<br>';
-          echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
+          echo '<div>This message will post publicly.</div>';
+          echo '<label for="isPrivate" id="privacyCheckBoxLabel">Select to keep private: </label>';
           echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox"></div>';
         }
 
@@ -73,11 +74,12 @@ if(isset($_GET['post_id'])){
         echo '<br>';
         echo '<textarea id="writingTextArea" placeholder="Write a review here..." name="content" onkeyup="displayWordCount()" maxlength="240"></textarea>';
         echo '<br>';
-        echo '<div style="text-align:right; font-family:arial; display: inline-block; float:right;">';
+        echo '<div style="text-align:center; font-family:arial;">';
         echo '<span id="wordCount">0 characters. </span>(limit: 240 characters) ';
         echo '<br>';
         echo '<br>';
-        echo '<label for="isPrivate" id="privacyCheckBoxLabel">This message will post publicly. Select to keep private: </label>';
+        echo '<div>This message will post publicly.</div>';
+        echo '<label for="isPrivate" id="privacyCheckBoxLabel">Select to keep private: </label>';
         echo '<input type="checkbox" name="isPrivate" id="privacyCheckbox"></div>';
       }
        ?>
@@ -111,6 +113,15 @@ function displayWordCount(){
   var wordCountDisplayer = document.querySelector("#wordCount");
   var charCount = document.querySelector("#writingTextArea").value.length;
   wordCountDisplayer.innerHTML = charCount+" characters. ";
+
+  if(document.querySelector("#writingTextArea").value.length>=240){
+    //display red text
+    wordCountDisplayer.style="color:red;";
+  }
+  else {
+    //display green text
+    wordCountDisplayer.style="color:green;";
+  }
 }
 
 //fetch the movie info from the API (poster, title)----------------------------

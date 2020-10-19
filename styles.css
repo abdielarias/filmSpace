@@ -771,7 +771,7 @@ Sign In Page
 }
 
 .reviewFormContainer{
-  width: 700px;
+  max-width: 700px;
   margin:auto;
   background-color: #0f0f0f;
   color: #ffe9d4;
@@ -835,17 +835,12 @@ Sign In Page
 
 #wordCount{
   text-align: center;
+  color:green;
 }
 
 #privacyCheckBoxLabel{
-  margin-left: 5px;
-  float:left;
+  text-align: left;
   font-weight: normal;
-  font-size: .9em;
-}
-
-#privacyCheckbox{
-  float:left;
 }
 
 .postBtn{
