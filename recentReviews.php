@@ -16,7 +16,7 @@ if(isset($_SESSION['id'])){
 
 echo '
       <div id="recentReviewsBanner">
-        <h2 id="recentReviewsLabel">Recent Reviews</h2>
+        <h2 id="recentReviewsLabel">Community Reviews</h2>
       </div>
 
       <div class="recentReviewsTimeline">
@@ -120,7 +120,7 @@ while($row = $result->fetch_assoc()){
 
 
     <div class="reviewPostContent contentOf'.$row['post_id'].'">
-    
+
       <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
       <div class="reviewText">'.$row['content'].'</div>
     </div>

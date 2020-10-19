@@ -371,6 +371,16 @@ cursor: pointer;
 
 /*--Profile Page --------------------------------------------------------------------*/
 
+.yourReviewsBanner{
+  background-color: #0f0f0f;
+  text-align: center;
+  min-height: 100px;
+  padding:20px;
+  font-size: 1em;
+  overflow: auto;
+  color: #d13b00;
+}
+
 .profileReviewsContainer{
 
 padding:10px;
@@ -500,6 +510,7 @@ border-top-style: solid;
 border-top-color: #454545;
 border-top-width: 1px;
 padding-top:5px;
+padding-left: 10px;
 color: #454545;
 text-align: right;
 margin-left: auto;
@@ -782,7 +793,6 @@ font-size: .6em;
 
 .moviePage{
 min-height: 90vh;
-margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
 }
@@ -796,8 +806,8 @@ width: 100%;
 
 .moviePage-poster{
 box-sizing: border-box;
-width:40%;
-float:left;
+/* width:40%; */
+
 }
 
 
@@ -819,22 +829,21 @@ grid-template-columns: 1fr; */
 margin-bottom: 25px;
 align-items: center;
 font-family: verdana, arial, sans-serif;
-width: 100%;
-padding-top: 20px;
-padding-right: 20px;
-float:right;
-width:60%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+max-width: 280px;
+
 }
 
 .moviePage-title{
 color: #d13b00;
-font-size: 2em;
+/* font-size: 2em; */
 font-weight: bold;
 font-family: 'Sora';
 max-width: 1000px;
 padding-left:20px;
 background-color: #0f0f0f;
-margin-top: 20px;
 padding:20px;
 border-top-right-radius: 15px;
 border-top-left-radius: 15px;
@@ -878,11 +887,14 @@ clear:both;
 box-sizing: border-box;
 padding-top: 20px;
 padding-bottom: 20px;
+padding-left: 10px;
+padding-right: 10px;
 justify-content: center;
 grid-row-gap: 15px;
 text-align: center;
 grid-column: auto / span 2;
 border-top: 2px solid #1c1c1c;
+
 }
 
 .reviewCorner #userName{
@@ -902,7 +914,7 @@ background-color: #1c1c1c;
 color: #ffe9d4;
 padding:20px;
 border-radius: 5px;
-width:300px;
+max-width:300px;
 height: 300px;
 text-align: left;
 word-wrap: break-word;
@@ -913,7 +925,7 @@ word-wrap: break-word;
 display: block;
 text-align: center;
 border-radius: 5px;
-width:280px;
+max-width:280px;
 }
 
 .bottomRight{
@@ -1074,7 +1086,7 @@ background-color: #1c1c1c;
 padding:10px;
 border-radius: 5px;
 color: #ffe9d4;
-width:280px;
+max-width:280px;
 margin-left: auto;
 margin-right: auto;
 /* font-size: .8em; */
@@ -1083,8 +1095,11 @@ margin-right: auto;
 .moviePage-poster-img{
 display: block;
 box-sizing: border-box;
-width: 100%;
-padding:20px;
+padding-top:20px;
+padding-bottom:20px;
+margin-left: auto;
+margin-right: auto;
+max-width: 280px;
 }
 
 .moviePage-iFrame{

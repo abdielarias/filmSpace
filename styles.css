@@ -428,18 +428,72 @@ Sign In Page
 
 /*--Profile Page --------------------------------------------------------------------*/
 
-.profileReviewsContainer{
+.yourReviewsBanner{
+  background-color: #0f0f0f;
+  text-align: center;
+  min-height: 100px;
+  padding:20px;
+  font-size: 2.5em;
+  overflow: auto;
+  color: #d13b00;
+}
 
+.profileReviewsContainer{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  align-items: center;
+  clear: both;
   padding:10px;
   min-height: 200px;
+  /* width:90%; */
   border-radius: 15px;
   background-color: #0f0f0f;
   text-align: center;
   margin-top: 50px;
-  width: 50%;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
+  color: #454545;
+}
+
+@media only screen and (max-width:1400px){
+  .profileReviewsContainer{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    clear: both;
+    padding:10px;
+    min-height: 200px;
+    /* width:90%; */
+    border-radius: 15px;
+    background-color: #0f0f0f;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #454545;
+  }
+}
+
+@media only screen and (max-width:1000px){
+  .profileReviewsContainer{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    clear: both;
+    padding:10px;
+    min-height: 200px;
+    /* width:90%; */
+    border-radius: 15px;
+    background-color: #0f0f0f;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #454545;
+  }
 }
 
 .profileReviewsContainer h2{
@@ -890,7 +944,6 @@ Sign In Page
 .moviePage{
   min-height: 90vh;
   max-width: 1000px;
-  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -941,7 +994,6 @@ Sign In Page
   max-width: 1000px;
   padding-left:20px;
   background-color: #0f0f0f;
-  margin-top: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-top-right-radius: 15px;

@@ -78,7 +78,7 @@ $movieID = $_GET["movieID"];
               </a>
             </span>
           </div>
-          <span class="timeOnPostedReview">last modified: '.$formattedModifiedDate.'</span>
+          <div class="timeOnPostedReview" style="text-align:center;">last modified: '.$formattedModifiedDate.'</div>
 
           ';
         }

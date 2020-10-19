@@ -67,13 +67,17 @@ if($imageLocation == "none" || $imageLocation == NULL){
 </div>
 
 <script src = "./javascript/fetchMovieInfo.js"></script>
+<br>
+<div class="yourReviewsBanner">
+  <h2>Your Film Reviews</h2>
+</div>
 
 <div class="profileReviewsContainer">
 
-  <div class="profileBtnSet">
-    <!--  -->
+  <!-- <div class="profileBtnSet">
+
     <h2>Your recent reviews:</h2>
-  </div>
+  </div> -->
 
   <?php
 
@@ -140,10 +144,8 @@ if($imageLocation == "none" || $imageLocation == NULL){
 
     <div class="reviewPostContent contentOf'.$row['post_id'].'">
       <script>getMovie('.$row['movie_id'].', '.$row['post_id'].' );</script>
-
+      <div class="reviewText">'.$row['content'].'</div>
     </div>
-
-    <div class="reviewText">'.$row['content'].'</div>
 
     &nbsp;
     <a class="'.$likesOpacity.'" href="#" onclick="thumbUp(event, '.$row['post_id'].', this)"><img id="thumbup" src="images/thumb.png"></a><span class="thumbUpCount">'.$row['num_likes'].'</span>

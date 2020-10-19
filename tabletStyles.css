@@ -374,6 +374,16 @@
 
   /*--Profile Page --------------------------------------------------------------------*/
 
+  .yourReviewsBanner{
+    background-color: #0f0f0f;
+    text-align: center;
+    min-height: 100px;
+    padding:20px;
+    font-size: 1.5em;
+    overflow: auto;
+    color: #d13b00;
+  }
+
   .profileReviewsContainer{
 
     padding:10px;
@@ -500,10 +510,11 @@
     overflow: hidden;
     margin-top:10px;
     font-size: .8em;
-    border-top-style: solid;
-    border-top-color: #454545;
-    border-top-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #454545;
+    border-bottom-width: 1px;
     padding-top:5px;
+    padding-bottom:5px;
     color: #454545;
     text-align: right;
     margin-left: auto;
@@ -788,7 +799,6 @@
 
   .moviePage{
     min-height: 90vh;
-    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -840,7 +850,6 @@
     max-width: 1000px;
     padding-left:20px;
     background-color: #0f0f0f;
-    margin-top: 20px;
     padding:20px;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
@@ -884,8 +893,6 @@
     clear:both;
     box-sizing: border-box;
     padding-top: 20px;
-    padding-left: 100px;
-    padding-right: 100px;
     padding-bottom: 100px;
     justify-content: center;
     grid-row-gap: 15px;
