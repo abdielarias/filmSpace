@@ -16,7 +16,7 @@
     margin: 0;
     background-color: black;
     font-family: 'Sora', 'Sora2', sans-serif;
-    min-height: 150vh;
+
   }
 
   header{
@@ -118,7 +118,7 @@
 
   .hero{
     box-sizing: border-box;
-    height: 50vh;
+    height: 40vh;
     background-color: black;
     clear: both;
   }
@@ -263,6 +263,7 @@
   }
 
   footer{
+    width: 100%;
     border-top: 1px solid #1c1c1c;
     color: #454545;
     font-size: .9em;
